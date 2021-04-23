@@ -1,0 +1,84 @@
+{
+  "AppUser": [
+    "AppUserRoleMapping"
+  ],
+  "Product": [
+    "ProductProductGroupingMapping",
+    "ProductImageMapping",
+    "Item",
+    "VariationGrouping"
+  ],
+  "ProductGrouping": [
+    "ProductProductGroupingMapping"
+  ],
+  "Organization": [
+    "AppUser",
+    "Store"
+  ],
+  "StoreGrouping": [
+    "Store"
+  ],
+  "StoreChecking": [
+    "StoreCheckingImageMapping"
+  ],
+  "UnitOfMeasureGrouping": [
+    "UnitOfMeasureGroupingContent"
+  ],
+  "Warehouse": [
+    "Inventory"
+  ],
+  "Permission": [
+    "PermissionFieldMapping",
+    "PermissionPageMapping"
+  ],
+  "Menu": [
+    "Page",
+    "Field"
+  ],
+  "Role": [
+    "Permission"
+  ],
+  "IndirectSalesOrder": [
+    "IndirectSalesOrderContent",
+    "IndirectSalesOrderPromotion"
+  ],
+  "ERoute": [
+    "ERouteContent"
+  ],
+  "ERouteChangeRequest": [
+    "ERouteChangeRequestContent"
+  ],
+  "IndirectPriceList": [
+    "IndirectPriceListItemMapping",
+    "IndirectPriceListStoreMapping",
+    "IndirectPriceListStoreTypeMapping",
+    "IndirectPriceListStoreGroupingMapping"
+  ],
+  "DirectPriceList": [
+    "DirectPriceListItemMapping",
+    "DirectPriceListStoreMapping",
+    "DirectPriceListStoreTypeMapping",
+    "DirectPriceListStoreGroupingMapping"
+  ],
+  "WorkflowDefinition": [
+    "WorkflowDirection",
+    "WorkflowParameter",
+    "WorkflowStep"
+  ],
+  "KpiGeneral": [
+    "KpiGeneralContent"
+  ],
+  "KpiPeriod": [
+    "ItemSpecificKpi"
+  ],
+  "KpiItem": [
+    "KpiItemContent",
+    "KpiItemKpiCriteriaTotalMapping"
+  ],
+  "Survey": [
+    "SurveyQuestion"
+  ],
+  "Problem": [
+    "ProblemImageMapping"
+  ],
+}

@@ -1,0 +1,14 @@
+﻿import React from 'react';
+import {MemoryRouter} from 'react-router-dom';
+import {{Class.Pascal}}Detail from './{{Class.Pascal}}Detail';
+
+describe('{{Class.Pascal}}Detail', () => {
+  it('renders without crashing', async () => {
+    const node: React.ReactElement<any> = (
+      <MemoryRouter>
+        <{{Class.Pascal}}Detail/>
+      </MemoryRouter>
+    );
+    expect(node).toBeTruthy();
+  });
+});

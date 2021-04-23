@@ -1,0 +1,28 @@
+.store-detail {
+  .info-title {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .google-map {
+    position: relative;
+    width: 70%;
+  }
+
+  .store-address {
+    .ant-form-item-children {
+      align-items: flex-start !important;
+    }
+  }
+
+  .input-map {
+    width: none !important;
+    max-width: none !important;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .label-address {
+    margin-bottom: 35% !important;
+  }
+}

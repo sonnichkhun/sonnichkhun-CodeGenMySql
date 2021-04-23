@@ -1,0 +1,243 @@
+﻿import React from 'react';
+import DatePicker from 'antd/lib/date-picker';
+import Switch from 'components/Switch/Switch';
+import {crudService, routerService} from 'core/services';
+import Spin from 'antd/lib/spin';
+import Card from 'antd/lib/card';
+import Form from 'antd/lib/form';
+{{#if Class.ConstainsList}}
+import Tabs from 'antd/lib/tabs';
+{{/if}}
+import {useTranslation} from 'react-i18next';
+import {generalLanguageKeys} from 'config/consts';
+import nameof from 'ts-nameof.macro';
+import {defaultDetailFormLayout} from 'config/ant-design/form';
+{{#if Class.ContainsStringFilter}}
+import InputString from 'components/Input/Input';
+{{/if}}
+{{#if Class.ContainsIdFilter}}
+import SelectAutoComplete from 'components/SelectAutoComplete/SelectAutoComplete';
+{{/if}}
+{{#if Class.ContainsNumberFilter}}
+import InputNumber from 'components/InputNumber/InputNumber';
+{{/if}}
+{{#if Class.ContainsDateFilter}}
+import DatePicker from 'antd/lib/date-picker';
+{{/if}}
+import {formService} from 'core/services/FormService';
+import './{{Class.Pascal}}Detail.scss';
+import { {{Class.Camel}}Repository }  from 'views/{{Class.Pascal}}View/{{Class.Pascal}}Repository';
+import { {{Class.Pascal}} } from 'models/{{Class.Pascal}}'; 
+{{#each Class.Properties}}{{#if IsReference}}
+{{#ifCond ../Class.Pascal '==' Class.Pascal}}
+{{else}}
+import { {{Class.Pascal}} } from 'models/{{Class.Pascal}}'
+{{/ifCond}}
+{{#unless Class.IsEnum}}
+import { {{Class.Pascal}}Filter } from 'models/{{Class.Pascal}}Filter'
+{{/unless}}
+{{/if}}
+{{#if IsList}}
+import {{Class.Pascal}}Table from 'views/{{../Class.Pascal}}View/{{../Class.Pascal}}Detail/{{Class.Pascal}}Table/{{Class.Pascal}}Table';
+{{/if}}
+{{/each}}
+
+{{#if Class.ConstainsList}}
+const {TabPane} = Tabs;
+{{/if}}
+
+const {Item: FormItem} = Form;
+
+function {{Class.Pascal}}Detail() {
+  const [translate] = useTranslation();
+
+  // Service goback
+    const [handleGoBack] = routerService.useGoBack();
+
+  // Hooks, useDetail, useChangeHandler
+    const [
+    {{Class.Camel}},
+    set{{Class.Pascal}},
+    loading,
+    ,
+    isDetail,
+    handleSave,
+  ] = crudService.useDetail(
+    {{Class.Pascal}},
+    {{Class.Camel}}Repository.get,
+    {{Class.Camel}}Repository.save,
+  );
+
+    const [
+    handleChangeSimpleField,
+    handleChangeObjectField,
+    handleChangeDateField,
+  ] = crudService.useChangeHandlers<{{Class.Pascal}}>({{Class.Camel}}, set{{Class.Pascal}});
+
+  // Enums  -----------------------------------------------------------------------------------------------------------------------------------------
+  {{#each Class.Properties}}{{#if IsReference}}{{#if Class.IsEnum}}
+  const [{{Class.Camel}}List] = crudService.useEnumList<{{Class.Pascal}}>({{../Class.Camel}}Repository.singleList{{Class.Pascal}});
+  {{/if}}{{/if}}{{/each}}
+
+  // Reference  -------------------------------------------------------------------------------------------------------------------------------------
+  {{#each Class.Properties}}{{#if IsReference}}{{#unless Class.IsEnum}}
+  const [{{Class.Camel}}Filter, set{{Class.Pascal}}Filter] = React.useState<{{Class.Pascal}}Filter>(new {{Class.Pascal}}Filter());
+  {{/unless}}{{/if}}{{/each}}
+
+  // Default List -----------------------------------------------------------------------------------------------------------------------------------
+  {{#each Class.Properties}}{{#if IsReference}}{{#unless Class.IsEnum}}
+  const default{{Class.Pascal}}List: {{Class.Pascal}}[] = crudService.useDefaultList<{{Class.Pascal}}>({{../Class.Camel}}.{{Class.Camel}});
+  {{/unless}}{{/if}}{{/each}} 
+
+  return (
+    <div className="page detail-page">
+      <Spin spinning={loading}>
+        <Card title={(
+          <>
+            <button className="btn btn-link mr-2" onClick={handleGoBack}>
+              <i className="fa fa-arrow-left"/>
+            </button>
+            {isDetail ? translate('{{Class.Plural}}.detail.title') : translate(generalLanguageKeys.actions.create)}
+            <button
+                className="btn btn-sm btn-outline-primary float-right ml-2"
+                onClick={handleGoBack}
+              >
+                <i className="fa mr-2 fa-times-circle" />
+                {translate(generalLanguageKeys.actions.cancel)}
+              </button>
+              <button
+                className="btn btn-sm btn-primary float-right"
+                onClick={handleSave}
+              >
+                <i className="fa mr-2 fa-save" />
+                {translate(generalLanguageKeys.actions.save)}
+              </button>
+          </>
+        )}>
+          <Form {...defaultDetailFormLayout}>
+            {{#each Class.Properties}}{{#if IsPrimitive}}{{#unless IsId}}
+              {{#if IsString}}
+              <FormItem label={translate('{{../Class.Plural}}.{{Camel}}')}
+                        validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>({{../Class.Camel}}.errors, nameof({{../Class.Camel}}.{{Camel}}))}
+                        help={ {{../Class.Camel}}.errors?.{{Camel}} }
+              >              
+              <InputString
+                value={ {{../Class.Camel}}.{{Camel}} }
+                onChange={handleChangeSimpleField(nameof({{../Class.Camel}}.{{Camel}}))}
+                placeholder={translate('{{../Class.Plural}}.{{Class.Camel}}')}
+              />
+              </FormItem> 
+              {{/if}}
+              {{#if IsNumber}}
+              <FormItem label={translate('{{../Class.Plural}}.{{Camel}}')}
+                        validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>({{../Class.Camel}}.errors, nameof({{../Class.Camel}}.{{Camel}}))}
+                        help={ {{../Class.Camel}}.errors?.{{Camel}} }
+              >              
+              <InputNumber
+                className="form-control form-control-sm"
+                value={ {{../Class.Camel}}.{{Camel}} }
+                onChange={handleChangeSimpleField(nameof({{../Class.Camel}}.{{Camel}}))}
+              />  
+              </FormItem> 
+              {{/if}}
+              {{#if IsBool}}
+              <FormItem label={translate('{{../Class.Plural}}.{{Camel}}')}
+                        validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>({{../Class.Camel}}.errors, nameof({{../Class.Camel}}.{{Camel}}))}
+                        help={ {{../Class.Camel}}.errors?.{{Camel}} }
+              >              
+              <Switch checked={  {{../Class.Camel}}.{{Camel}}Id === {{Camel}}List[1]?.id ? true : false }
+                      list={ {{Camel}}List }
+                      onChange={handleChangeObjectField(nameof({{../Class.Camel}}.{{Camel}}))}
+              />
+              </FormItem>              
+              {{/if}}
+              {{#if IsDate}}
+              <FormItem label={translate('{{../Class.Plural}}.{{Camel}}')}
+                        validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>({{../Class.Camel}}.errors, nameof({{../Class.Camel}}.{{Camel}}))}
+                        help={ {{../Class.Camel}}.errors?.{{Camel}} }
+              >            
+                <DatePicker defaultValue={ {{../Class.Camel}}.{{Camel}} }
+                            onChange={handleChangeDateField(nameof({{../Class.Camel}}.{{Camel}}))}
+                            className="w-100"
+                />
+              </FormItem>              
+              {{/if}}              
+              {{/unless}}{{/if}}
+              {{#if IsReference}}{{#if Class.IsEnum}}
+              <FormItem label={translate('{{../Class.Plural}}.{{Camel}}')}
+                        validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>({{../Class.Camel}}.errors, nameof({{../Class.Camel}}.{{Camel}}))}
+                        help={ {{../Class.Camel}}.errors?.{{Camel}} }
+              >   
+                <SelectAutoComplete value={ {{../Class.Camel}}.{{Camel}}?.id }
+                        onChange={handleChangeObjectField(nameof({{../Class.Camel}}.{{Camel}}))}
+                        list={ {{Class.Camel}}List }
+                />
+              </FormItem>    
+              {{/if}}
+              {{#unless Class.IsEnum}}
+              <FormItem label={translate('{{../Class.Plural}}.{{Camel}}')}
+                        validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>({{../Class.Camel}}.errors, nameof({{../Class.Camel}}.{{Camel}}))}
+                        help={ {{../Class.Camel}}.errors?.{{Camel}} }
+              >               
+                <SelectAutoComplete value={ {{../Class.Camel}}.{{Camel}}?.id }
+                        onChange={handleChangeObjectField(nameof({{../Class.Camel}}.{{Camel}}))}
+                        getList={ {{../Class.Camel}}Repository.singleList{{Class.Pascal}} }
+                        list={ default{{Class.Pascal}}List }
+                        modelFilter={ {{Class.Camel}}Filter }
+                        setModelFilter={ set{{Class.Pascal}}Filter }
+                        searchField={nameof({{Class.Camel}}Filter.name)}
+                        searchType={nameof({{Class.Camel}}Filter.name.contain)}
+                        placeholder={translate('{{../Class.Plural}}.placeholder.{{Class.Camel}}')}
+                />
+              </FormItem>   
+              {{/unless}}{{/if}}
+              {{/each}}
+          </Form>
+          <div className="d-flex justify-content-end mt-4">
+            <button className="btn btn-sm btn-primary" onClick={handleSave}>
+              <i className="fa mr-2 fa-save"/>
+              {translate(generalLanguageKeys.actions.save)}
+            </button>
+          </div>
+        </Card>
+        <Card className="mt-2">
+          {{#if Class.ConstainsList}}
+          <Tabs defaultActiveKey="1">
+            {{#each Class.Properties}}{{#if IsList}}
+            {{#unless IsMapping}}
+            <TabPane key="{{Camel}}" tab={translate('{{pluralize ../Class.Camel}}.tabs.{{pluralize Camel}}.title')}>
+              <{{Class.Pascal}}Table model={ {{../Class.Camel}} }
+                                setModel={ set{{../Class.Pascal}} }
+                                field={(nameof({{../Class.Camel}}.{{Camel}}))}
+              />
+            </TabPane>
+            {{/unless}}
+            {{#if IsMapping}}
+            <Tabs.TabPane key="{{Camel}}" tab={translate('{{pluralize ../Class.Camel}}.{{pluralize Camel}}.list')}>
+              <{{Class.Pascal}}Table {{../Class.Camel}}={ {{../Class.Camel}} }
+                                 set{{../Class.Pascal}}={set{{../Class.Pascal}} }/>
+            </Tabs.TabPane>
+            {{/if}}
+            {{/if}}{{/each}}
+          </Tabs>
+          {{/if}}
+          <div className="d-flex justify-content-end mt-4">
+            <button className="btn btn-sm btn-primary" onClick={handleSave}>
+              <i className="fa mr-2 fa-save"/>
+              {translate(generalLanguageKeys.actions.save)}
+            </button>
+            <button
+              className="btn btn-sm btn-outline-primary ml-2"
+              onClick={handleGoBack}
+            >
+              <i className="fa mr-2 fa-times-circle" />
+              {translate(generalLanguageKeys.actions.cancel)}
+            </button>
+          </div>
+        </Card>
+      </Spin>
+    </div>
+  );
+}
+
+export default {{Class.Pascal}}Detail;

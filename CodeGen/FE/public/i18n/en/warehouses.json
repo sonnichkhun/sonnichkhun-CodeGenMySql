@@ -1,0 +1,51 @@
+{
+  "warehouses": {
+    "accountingStock": "",
+    "address": "",
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "district": "",
+    "general": {
+      "info": ""
+    },
+    "inventoryHistorys": {
+      "accountingStock": "",
+      "appUser": "",
+      "oldAccountingStock": "",
+      "oldSaleStock": "",
+      "saleStock": "",
+      "updateTime": ""
+    },
+    "item": {
+      "code": "",
+      "name": "",
+      "unitOfMeasure": ""
+    },
+    "master": {
+      "inventoryHistory": "",
+      "title": ""
+    },
+    "name": "",
+    "organization": "",
+    "placeholder": {
+      "address": "",
+      "code": "",
+      "district": "",
+      "name": "",
+      "organization": "",
+      "province": "",
+      "status": "",
+      "unitOfMeasure": "",
+      "ward": ""
+    },
+    "product": {
+      "title": ""
+    },
+    "province": "",
+    "saleStock": "",
+    "status": "",
+    "ward": ""
+  }
+}

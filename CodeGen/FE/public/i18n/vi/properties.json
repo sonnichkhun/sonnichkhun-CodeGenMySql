@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "code": "Mã tính chất",
+    "createdAt": "Ngày tạo",
+    "deletedAt": "Ngày xóa",
+    "description": "Mô tả",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "id": "ID",
+    "isActive": "Hoạt động",
+    "isSystem": "Hệ thống",
+    "name": "Tên",
+    "propertyTypeId": "",
+    "propertyValues": "Giá trị",
+    "updatedAt": "Ngày tạo"
+  }
+}

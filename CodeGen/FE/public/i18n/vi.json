@@ -1,0 +1,1183 @@
+{
+  "appUserRoleMappings": {
+    "id": "ID",
+    "name": "Tên"
+  },
+  "appUser": {
+    "appUserRoleMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "tabs": {
+      "roles": {
+        "title": "Danh sách vai trò"
+      }
+    }
+  },
+  "appUsers": {
+    "address": "Địa chỉ",
+    "avatar": "Avatar",
+    "changePassword": {
+      "confirmPass": "Nhập lại mật khẩu",
+      "newPass": "Nhập mật khẩu mới",
+      "title": "Thay đổi mật khẩu cho tài khoản"
+    },
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "displayName": "Tên hiển thị",
+    "email": "Email",
+    "inactive": {
+      "content": "Bạn đang thực hiện khóa tài khoản này. Người dùng sẽ không thể truy cập được nữa. Bạn có chắc muốn thực hiện.",
+      "title": "Khóa tài khoản"
+    },
+    "master": {
+      "title": "Danh sách tài khoản"
+    },
+    "organization": "Đơn vị quản lý",
+    "phone": "Số điện thoại",
+    "placeholder": {
+      "address": "Nhập địa chỉ",
+      "displayName": "Nhập tên nhân viên",
+      "email": "Nhập email",
+      "organization": "Chọn đơn vị quản lý",
+      "phone": "Nhập SĐT",
+      "position": "Nhập chức vụ",
+      "province": "Chọn Tỉnh/Thành",
+      "username": "Nhập tên đăng nhập"
+    },
+    "position": "Chức vụ",
+    "province": "Tỉnh/Thành",
+    "roles": {
+      "appUserId": "",
+      "code": "",
+      "id": "",
+      "name": "",
+      "roleId": "",
+      "statusId": ""
+    },
+    "sex": "Giới tính",
+    "status": "Trạng thái",
+    "tooltip": {
+      "changePassword": "Đổi mật khẩu",
+      "delete": "Xóa tài khoản",
+      "edit": "Sửa thông tin tài khoản",
+      "inactive": "Khóa tài khoản",
+      "view": "Thông tin chi tiết"
+    },
+    "username": "Tên đăng nhập"
+  },
+  "applicationUsers": {
+    "applicationUserType": "",
+    "createdAt": "Ngày tạo",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "displayName": "Tên hiển thị",
+    "email": "Địa chỉ email",
+    "id": "ID người dùng",
+    "isActive": "Hoạt động",
+    "master": {
+      "title": "Danh sách người dùng"
+    },
+    "name": "Tên người dùng",
+    "phone": "Số điện thoại",
+    "provider": "Nhà cung cấp",
+    "roleContentModal": {
+      "title": ""
+    },
+    "tabs": {
+      "roles": {
+        "title": "Vai trò trong hệ thống"
+      }
+    },
+    "userStatus": "Trạng thái người dùng",
+    "username": "Tên đăng nhập"
+  },
+  "brands": {
+    "code": "Mã nhãn hiệu",
+    "description": "Mô tả",
+    "detail": {
+      "addNode": "Thêm nhãn hiệu mới",
+      "edit": "Thông tin chi tiết"
+    },
+    "id": "ID",
+    "master": {
+      "title": "Danh sách nhãn hiệu"
+    },
+    "name": "Tên nhãn hiệu",
+    "placeholder": {
+      "code": "Nhập tên nhãn hiệu",
+      "description": "Nhập mô tả",
+      "name": "Nhập mã nhãn hiệu",
+      "status": "Chọn trạng thái"
+    },
+    "status": "Trạng thái",
+    "updatedTime": "Ngày cập nhật"
+  },
+  "components": {
+    "upload": {
+      "uploadError": ""
+    }
+  },
+  "districts": {
+    "code": "Mã quận/huyện",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới quận/huyện"
+    },
+    "master": {
+      "title": "Quận/Huyện"
+    },
+    "name": "Tên",
+    "placeholder": {
+      "code": "Nhập mã quận/huyện",
+      "district": "Chọn quận/huyện",
+      "name": "Nhập tên quận/huyện",
+      "priority": "Nhập thứ tự ưu tiên"
+    },
+    "priority": "Thứ tự ưu tiên",
+    "province": "Tỉnh/Thành"
+  },
+  "eRouteContents": {
+    "create": "Thêm",
+    "frequency": "Tần suất",
+    "friday": "T6",
+    "monday": "T2",
+    "orderNumber": "Thứ tự",
+    "saturday": "T7",
+    "store": {
+      "address": "Địa chỉ",
+      "code": "Mã cửa hàng",
+      "name": "Tên cửa hàng",
+      "organization": "Đơn vị tổ chức",
+      "placeholder": {
+        "address": "Nhập địa chỉ",
+        "code": "Nhập mã cửa hàng",
+        "name": "Nhập tên cửa hàng",
+        "organization": "Chọn đơn vị tổ chức",
+        "storeType": "Chọn loại cửa hàng"
+      },
+      "storeType": "Loại cửa hàng"
+    },
+    "sunday": "CN",
+    "thursday": "T5",
+    "tuesday": "T3",
+    "wednesday": "T4",
+    "week1": "Tuần 1",
+    "week2": "Tuần 2",
+    "week3": "Tuần 3",
+    "week4": "Tuần 4"
+  },
+  "eRoutes": {
+    "code": "Mã tuyến",
+    "creator": "Người tạo",
+    "eRouteType": "Loại tuyến",
+    "endDate": "Ngày kết thúc",
+    "id": "",
+    "master": {
+      "title": "Danh sách tuyến"
+    },
+    "name": "Tên tuyến",
+    "placeholder": {
+      "code": "Nhập mã tuyến",
+      "eRouteType": "Chọn loại tuyến",
+      "endDate": "Chọn ngày kết thúc",
+      "name": "Nhập tên tuyến",
+      "saleEmployee": "Chọn nhân viên",
+      "startDate": "Chọn ngày bắt đầu"
+    },
+    "requestState": "Trạng thái kế hoạch",
+    "saleEmployee": "Nhân viên kinh doanh",
+    "startDate": "Ngày bắt đầu",
+    "status": "Trạng thái",
+    "store": {
+      "title": "Danh sách cửa hàng"
+    }
+  },
+  "field": {
+    "permissionFieldMappingModal": {
+      "title": "Chọn để thêm mới"
+    }
+  },
+  "fields": {
+    "dateType": "Thời gian",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "idType": "ID",
+    "isDeleted": "",
+    "longType": "Giá trị",
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "",
+    "placeholder": {
+      "dateTypeKey1": "Từ ngày",
+      "dateTypeKey2": "Đến ngày",
+      "idType": "Chọn thông tin phân quyền",
+      "longTypeKey1": "Từ giá trị",
+      "longTypeKey2": "Đến giá trị",
+      "stringTypeKey1": "Nhập Suffix",
+      "stringTypeKey2": "Nhập Prefix"
+    },
+    "stringType": "Nội dung",
+    "type": ""
+  },
+  "filters": {
+    "dateFilter": {
+      "equal": "Bằng",
+      "greater": "Lớn hơn",
+      "greaterEqual": "Lớn hơn hoặc bằng",
+      "less": "Nhỏ hơn",
+      "lessEqual": "Nhỏ hơn hoặc bằng",
+      "notEqual": "Khác",
+      "range": "Trong khoảng"
+    },
+    "guidFilter": {
+      "equal": "Bằng",
+      "in": "Nằm trong",
+      "notEqual": "Khác",
+      "notIn": "Không nằm trong"
+    },
+    "idFilter": {
+      "equal": "Bằng",
+      "in": "Nằm trong",
+      "notEqual": "Khác",
+      "notIn": "Không nằm trong"
+    },
+    "numberFilter": {
+      "equal": "Bằng",
+      "greater": "Lớn hơn",
+      "greaterEqual": "Lớn hơn hoặc bằng",
+      "less": "Nhỏ hơn",
+      "lessEqual": "Nhỏ hơn hoặc bằng",
+      "notEqual": "Khác",
+      "range": "Trong khoảng"
+    },
+    "stringFilter": {
+      "contain": "Có chứa",
+      "endWith": "Kết thúc với",
+      "equal": "Bằng",
+      "notContain": "Không chứa",
+      "notEndWith": "Không kết thúc bởi",
+      "notEqual": "Khác",
+      "notStartWith": "Không bắt đầu bởi",
+      "startWith": "Bắt đầu với"
+    }
+  },
+  "general": {
+    "actions": {
+      "add": "Thêm mới",
+      "cancel": "Hủy",
+      "close": "Đóng",
+      "create": "Tạo mới",
+      "crop": "Cắt ảnh",
+      "delete": "Xóa",
+      "export": "Xuất Excel",
+      "exportTemplate": "Tải mẫu Excel",
+      "filter": "Tìm kiếm",
+      "import": "Nhập Excel",
+      "label": "Tác vụ",
+      "reset": "Bỏ lọc",
+      "save": "Lưu",
+      "search": "Tìm kiếm nâng cao",
+      "update": "Chỉnh sửa",
+      "approve": "Phê duyệt",
+      "rejecte": "Từ chối"
+    },
+    "batchDelete": {
+      "content": "Thao tác này không thể khôi phục, hãy cân nhắc!",
+      "title": "Bạn đang muốn xóa nhiều bản ghi?"
+    },
+    "cancel": "Hủy bỏ",
+    "columns": {
+      "index": "STT"
+    },
+    "confirm": "Xác nhận",
+    "delete": {
+      "content": "Thao tác này không thể khôi phục, hãy cân nhắc!",
+      "sucess": "",
+      "title": "Bạn đang muốn xóa bản ghi này?"
+    },
+    "master": {
+      "defaultPreviewTitle": "Thông tin chi tiết {{name}}",
+      "pagination": "Hiển thị {{pageSize}} / {{total}} bản ghi"
+    },
+    "notifications": "Thông báo",
+    "numberRange": {
+      "from": "Từ",
+      "to": "Đến"
+    },
+    "placeholder": {
+      "title": "Tất cả"
+    },
+    "state": {
+      "approved": "Hoàn thành",
+      "new": "Khởi tạo",
+      "pending": "Chờ duyệt",
+      "rejected": "Từ chối"
+    },
+    "update": {
+      "error": "Cập nhật thất bại",
+      "success": "Cập nhật thành công"
+    }
+  },
+  "imageUpload": {
+    "lengthExceeded": "Chiều dài tối đa"
+  },
+  "image": {
+    "productImageMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "storeImageMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "tabs": {
+      "roles": {
+        "title": "Danh sách hình ảnh"
+      }
+    }
+  },
+  "images": {
+    "detail": {
+      "title": ""
+    },
+    "id": "ID",
+    "master": {
+      "title": ""
+    },
+    "name": "Tên",
+    "url": ""
+  },
+  "indirectSalesOrderContents": {
+    "amount": "Thành tiền",
+    "discountAmount": "Chiết khấu",
+    "discountPercentage": "Chiết khấu",
+    "items": {
+      "code": "Mã sản phẩm",
+      "name": "Tên sản phẩm"
+    },
+    "master": {
+      "item": {
+        "title": "Danh sách sản phẩm"
+      }
+    },
+    "primaryUnitOfMeasure": "Đơn vị tính",
+    "quantity": "Số lượng",
+    "requestedQuantity": "Số lượng yêu cầu",
+    "salePrice": "Giá bán",
+    "taxPercentage": "VAT (%)",
+    "unitOfMeasure": "Đơn vị lưu kho",
+    "unitPrice": "Giá bán cơ sở",
+    "placeholder": {
+      "unitOfMeasure": "Chọn đơn vị tính"
+    },
+    "id": "ID"
+  },
+  "indirectSalesOrderPromotions": {
+    "items": {
+      "code": "Mã sản phẩm",
+      "name": "Tên sản phẩm"
+    },
+    "quantity": "Số lượng",
+    "requestedQuantity": "Số lượng yêu cầu",
+    "unitOfMeasure": "Đơn vị tính",
+    "placeholder": {
+      "unitOfMeasure": "Chọn đơn vị tính"
+    }
+  },
+  "indirectSalesOrders": {
+    "buyerStore": "Cửa hàng mua",
+    "code": "Số đơn hàng",
+    "deliveryAddress": "Địa chỉ giao hàng",
+    "deliveryDate": "Ngày giao hàng",
+    "detail": {
+      "title": "Thông tin đơn hàng"
+    },
+    "discountPercentage": "Chiếu khấu (%)",
+    "general": {
+      "title": "Thông tin chung"
+    },
+    "indirectSalesOrderStatus": "Trạng thái",
+    "isEditedPrice": "Sửa giá",
+    "master": {
+      "title": "Danh sách đơn hàng gián tiếp "
+    },
+    "newTotal": "Tổng tiền thanh toán",
+    "note": "Ghi chú",
+    "orderDate": "Ngày đặt hàng",
+    "payment": {
+      "title": "Thông tin thanh toán"
+    },
+    "phoneNumber": "Số điện thoại",
+    "preview": {
+      "title": "Đơn hàng gián tiếp"
+    },
+    "saleEmployee": "Nhân viên bán hàng",
+    "select": {
+      "store": "Chọn cửa hàng"
+    },
+    "sellerStore": "Cửa hàng bán",
+    "status": "Sửa giá",
+    "subTotal": "Tiền trước chiếu khấu tổng đơn",
+    "total": "Giá trị",
+    "totalTaxAmount": "Thuế VAT",
+    "placeholder": {
+      "code": "Nhập số đơn hàng"
+    },
+    "generalDiscountAmount": "Chiết khấu",
+    "generalDiscountPercentage": "Chiếu khấu tổng đơn",
+    "tabs": {
+      "indirectSalesOrderContents": {
+        "title": "Sản phẩm bán"
+      },
+      "indirectSalesOrderPromotions": {
+        "title": "Sản phẩm khuyến mãi"
+      }
+    }
+  },
+  "inventories": {
+    "accountingStock": "",
+    "saleStock": ""
+  },
+  "items": {
+    "code": "Mã",
+    "name": "Tên",
+    "placeholder": {
+      "code": "Nhập mã sản phẩm",
+      "name": "Nhập tên sản phẩm"
+    },
+    "productGrouping": "Nhóm sản phẩm",
+    "productType": "Loại sản phẩm",
+    "salePrice": "Giá bán",
+    "saleStock": "Có thể bán",
+    "selectedTable": "Danh sách sản phẩm đã chọn",
+    "supplier": "Nhà cung cấp"
+  },
+  "menu": {
+    "administrativeUnits": "Đơn vị hành chính",
+    "appUsers": "Tài khoản",
+    "brands": "Nhãn hiệu",
+    "category": "Danh mục",
+    "dashboard": "Dashboard",
+    "directSalesOrder": "Đơn bán hàng trực tiếp",
+    "discount": "Giá và khuyến mãi",
+    "districts": "Quận huyện",
+    "indirectSalesOrder": "Đơn bán hàng gián tiếp",
+    "kpi": "KPI",
+    "kpiManagement": "Quản lý KPI",
+    "masterData": "Danh mục dữ liệu",
+    "monitor": "Giám sát",
+    "notificationCenter": "Trung tâm thông báo",
+    "organization": "Cây tổ chức",
+    "partners": "Đối tác",
+    "priceList": "Quản lý chính sách giá",
+    "productGroupings": "Nhóm sản phẩm",
+    "productTypes": "Loại sản phẩm",
+    "products": "Sản phẩm",
+    "promotion": "Quản lý khuyến mãi",
+    "provinces": "Tỉnh thành",
+    "report": "Báo cáo",
+    "reseller": "Khách hàng",
+    "resellerType": "Loại khách hàng",
+    "roles": "Quản lý vai trò",
+    "route": "Đi tuyến",
+    "routeMaster": "Quản lý tuyến",
+    "sales": "Bán hàng",
+    "salesmanMonitor": "Giám sát nhân viên",
+    "store": "Cửa hàng",
+    "storeCheckerMonitor": "Giám sát viếng thăm",
+    "storeGroupings": "Nhóm cửa hàng",
+    "storeImages": "Hình ảnh cửa hàng",
+    "storeTypes": "Quản lý loại cửa hàng",
+    "stores": "Quản lý cửa hàng",
+    "suppliers": "Nhà cung cấp",
+    "system": "Hệ thống",
+    "systemManagement": "Quản trị hệ thống",
+    "unitOfMeasureGroupings": "Nhóm đơn vị tính",
+    "unitOfMeasures": "Đơn vị tính",
+    "wards": "Xã Phường",
+    "warehouse": "Quản lý kho",
+    "warehouses": "Tồn kho"
+  },
+  "menus": {
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isDeleted": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "path": "",
+    "tabs": {
+      "fields": {
+        "title": ""
+      },
+      "pages": {
+        "title": ""
+      }
+    }
+  },
+  "organizations": {
+    "address": "Địa chỉ",
+    "appUsers": {
+      "displayName": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "placeholder": {
+        "code": "Nhập mã đơn vị",
+        "email": "Nhập email",
+        "phone": "Nhập số điện thoại",
+        "username": "Nhập tên đăng nhập"
+      },
+      "username": "Tên đăng nhập"
+    },
+    "code": "Mã đơn vị",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "email": "Email",
+    "master": {
+      "add": "Thêm nhân viên",
+      "appUser": {
+        "displayName": "Họ và tên",
+        "email": "Email",
+        "phone": "Số điện thoại",
+        "title": "Danh sách nhân viên",
+        "username": "Tên đăng nhập"
+      },
+      "grouping": {
+        "title": "Danh sách đơn vị"
+      },
+      "title": "Đơn vị tổ chức"
+    },
+    "name": "Tên",
+    "organization": "Đơn vị cha",
+    "phone": "Số điện thoại",
+    "placeholder": {
+      "address": "Nhập địa chỉ",
+      "code": "Nhập mã đơn vị",
+      "email": "Nhập email",
+      "name": "Nhập tên đơn vị",
+      "phone": "Số điện thoại"
+    },
+    "status": "Trạng thái"
+  },
+  "page": {
+    "permissionPageMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "tabs": {
+      "roles": {
+        "title": "Danh sách vai trò"
+      }
+    }
+  },
+  "pages": {
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isDeleted": "",
+    "login": {
+      "loggingIn": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "Tên",
+    "path": "Đường dẫn"
+  },
+  "permissionFieldMappings": {
+    "id": "ID",
+    "name": "Tên"
+  },
+  "permissionPageMappings": {
+    "id": "ID",
+    "name": "Tên"
+  },
+  "permission": {
+    "permissionFieldMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "permissionPageMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "tabs": {
+      "roles": {
+        "title": "Danh sách vai trò"
+      }
+    }
+  },
+  "permissions": {
+    "code": "Mã quyền",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "field": "Phân quyền theo dữ liệu",
+    "fields": {
+      "fieldId": "",
+      "id": "",
+      "isDeleted": "",
+      "menuId": "",
+      "name": "",
+      "permissionId": "",
+      "type": "",
+      "value": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "menu": "Menu",
+    "name": "Tên quyền",
+    "page": "Phân quyền theo trang",
+    "pages": {
+      "id": "",
+      "isDeleted": "",
+      "menuId": "",
+      "name": "",
+      "pageId": "",
+      "path": "",
+      "permissionId": ""
+    },
+    "permissionFieldMappings": {
+      "list": ""
+    },
+    "permissionPageMappings": {
+      "list": ""
+    },
+    "permissionsMenu": "Quyền theo Menu",
+    "placeholder": {
+      "menu": "Chọn Menu"
+    },
+    "role": "Vai trò",
+    "status": "Trạng thái"
+  },
+  "productDetail": {
+    "images": "Hình ảnh",
+    "status": "Trạng thái"
+  },
+  "productGrouping": {
+    "code": "Mã nhóm",
+    "description": "Mô tả",
+    "detail": {
+      "addNode": "Thêm nhóm"
+    },
+    "master": {
+      "product": {
+        "code": "Mã sản phẩm",
+        "id": "ID",
+        "name": "Tên sản phẩm",
+        "supplier": "Nhà cung cấp"
+      }
+    },
+    "name": "Tên nhóm",
+    "parentGroup": "Nhóm cha"
+  },
+  "productGroupings": {
+    "master": {
+      "add": "Thêm sản phẩm",
+      "grouping": {
+        "title": "Danh sách nhóm"
+      },
+      "product": {
+        "title": "Danh sách sản phẩm"
+      },
+      "title": "Danh sách nhóm sản phẩm"
+    }
+  },
+  "productImageMappings": {
+    "id": "ID",
+    "name": "Tên"
+  },
+  "productTypes": {
+    "code": "Mã loại",
+    "description": "Mô tả",
+    "detail": {
+      "addNode": "Thêm loại sản phẩm",
+      "edit": "Thông tin chi tiết"
+    },
+    "master": {
+      "title": "Danh sách loại sản phẩm"
+    },
+    "name": "Tên loại",
+    "placeholder": {
+      "code": "Nhập mã loại",
+      "description": "Nhập mô tả",
+      "name": "Nhập tên loại"
+    },
+    "status": "Trạng thái",
+    "updatedAt": "Ngày cập nhật"
+  },
+  "product": {
+    "tabs": {
+      "general": {
+        "title": "Thông tin chung"
+      }
+    }
+  },
+  "products": {
+    "addProductGrouping": "Thêm nhóm sản phẩm",
+    "addVariation": "Thêm thuộc tính",
+    "brand": "Nhãn hiệu",
+    "code": "Mã sản phẩm",
+    "createVariations": "Tạo phiên bản",
+    "description": "Mô tả",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "eRPCode": "Mã từ ERP",
+    "general": "Thông tin chung",
+    "image": "Ảnh sản phẩm",
+    "images": {
+      "id": "ID",
+      "imageId": "",
+      "name": "Tên ảnh",
+      "productId": "",
+      "url": "url"
+    },
+    "master": {
+      "title": "Danh sách sản phẩm"
+    },
+    "name": "Tên sản phẩm",
+    "otherName": "Tên khác",
+    "placeholder": {
+      "brand": "Chọn nhãn hiệu",
+      "code": "Nhập mã sản phẩm",
+      "eRPCode": "Nhập mã từ ERP",
+      "name": "Nhập tên sản phẩm",
+      "otherName": "Nhập tên khác",
+      "productType": "Chọn loại sản phẩm",
+      "scanCode": "Nhập mã nhận diện",
+      "supplier": "Chọn nhà cung cấp",
+      "technicalName": "Nhâp tên kỹ thuật",
+      "unitOfMeasure": "Chọn đơn vị tính"
+    },
+    "price": "Giá bán",
+    "productGrouping": "Nhóm sản phẩm",
+    "productGroupings": {
+      "code": "Mã nhóm sản phẩm",
+      "description": "Mô tả",
+      "id": "ID",
+      "name": "Tên",
+      "parentId": "",
+      "path": ""
+    },
+    "productType": "Loại sản phẩm",
+    "retailPrice": "Giá bán lẻ đề xuất",
+    "scanCode": "Mã nhận diện sản phẩm",
+    "status": "Trạng thái",
+    "supplier": "Nhà cung cấp",
+    "supplierCode": "Mã sản phẩm từ NCC",
+    "technicalName": "Tên kỹ thuật",
+    "unitOfMeasure": "Đơn vị tính",
+    "unitOfMeasureContent": "Đơn vị chuyển đổi",
+    "unitOfMeasureGrouping": "Nhóm đơn vị chuyển đổi",
+    "variationAndPrice": "Thuộc tính và giá",
+    "variationGrouping": "Nhóm Thuộc tính {{index}}",
+    "variationValue": "Giá trị",
+    "variationsAndPrice": "Quản lý giá và phiên bản"
+  },
+  "properties": {
+    "code": "Mã tính chất",
+    "createdAt": "Ngày tạo",
+    "deletedAt": "Ngày xóa",
+    "description": "Mô tả",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "id": "ID",
+    "isActive": "Hoạt động",
+    "isSystem": "Hệ thống",
+    "name": "Tên",
+    "propertyTypeId": "",
+    "propertyValues": "Giá trị",
+    "updatedAt": "Ngày tạo"
+  },
+  "propertyTypes": {
+    "code": "Mã loại tài sản",
+    "createdAt": "Ngày tạo",
+    "deletedAt": "Ngày xóa",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "id": "ID",
+    "isActive": "Hoạt động",
+    "master": {
+      "title": "Danh sách loại tài sản"
+    },
+    "name": "Tên",
+    "updatedAt": "Ngày cập nhật"
+  },
+  "propertyValues": {
+    "code": "Mã giá trị tài sản",
+    "createdAt": "Ngày tạo",
+    "deletedAt": "Ngày xóa",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "id": "ID",
+    "isActive": "Hoạt động",
+    "master": {
+      "title": "Danh sách giá trị tài sản"
+    },
+    "name": "Tên",
+    "property": "Tài sản",
+    "propertyId": "",
+    "updatedAt": "Ngày tạo"
+  },
+  "propertys": {
+    "code": "Mã tài sản",
+    "description": "Mô tả",
+    "id": "ID",
+    "isActive": "Hoạt động",
+    "isSystem": "Hệ thống",
+    "master": {
+      "title": "Danh sách tài sản"
+    },
+    "name": "Tên"
+  },
+  "provinces": {
+    "code": "Mã tỉnh thành",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới tỉnh thành"
+    },
+    "master": {
+      "title": "Danh sách tỉnh thành"
+    },
+    "name": "Tên tỉnh thành",
+    "placeholder": {
+      "code": "Nhập mã tỉnh thành",
+      "name": "Nhập tên tỉnh thành",
+      "priority": "Nhập thứ tự ưu tiên",
+      "province": "Chọn tỉnh thành"
+    },
+    "priority": "Thứ tự ưu tiên"
+  },
+  "role": {
+    "appUserRoleMappingModal": {
+      "title": "Chọn để thêm mới"
+    }
+  },
+  "roles": {
+    "addAppUsers": "Thêm User",
+    "addPermission": "Thêm quyền",
+    "appUser": {
+      "displayName": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "placeholder": {
+        "displayName": "Nhập tên nhân viên",
+        "email": "Nhập Email",
+        "phone": "Nhập SĐT",
+        "username": "Nhập tên đăng nhập"
+      },
+      "username": "Tên đăng nhập"
+    },
+    "code": "Mã vai trò",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "general": {
+      "appUser": "Danh sách người dùng",
+      "info": "Thông tin chung",
+      "permission": "Danh sách quyền"
+    },
+    "id": "ID",
+    "master": {
+      "appUser": {
+        "title": ""
+      },
+      "title": "Danh sách vai trò"
+    },
+    "name": "Tên vai trò",
+    "placeholder": {
+      "code": "Nhập mã vai trò"
+    },
+    "status": "Trạng thái"
+  },
+  "storeGroupings": {
+    "code": "Mã nhóm",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới nhóm cửa hàng"
+    },
+    "isActive": "Trạng thái",
+    "master": {
+      "title": "Danh sách nhóm cửa hàng"
+    },
+    "name": "Tên nhóm cửa hàng",
+    "placeholder": {
+      "code": "Nhập mã nhóm cửa hàng",
+      "name": "Nhập tên nhóm cửa hàng"
+    }
+  },
+  "storeImageMappings": {
+    "id": "",
+    "name": ""
+  },
+  "storeLevels": {
+    "createdAt": "",
+    "deletedAt": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "updatedAt": ""
+  },
+  "storeTypes": {
+    "code": "Mã loại cửa hàng",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới loại cửa hàng"
+    },
+    "master": {
+      "title": "Danh sách loại cửa hàng"
+    },
+    "name": "Tên loại cửa hàng",
+    "placeholder": {
+      "code": "Nhập mã loại cửa hàng",
+      "name": "Nhập tên loại cửa hàng"
+    },
+    "status": "Trạng thái"
+  },
+  "store": {
+    "storeImageMappingModal": {
+      "title": ""
+    }
+  },
+  "stores": {
+    "address": "",
+    "code": "Mã của hàng",
+    "name": "Tên cửa hàng",
+    "placeholder": {
+      "code": "Nhập mã cửa hàng",
+      "name": "Nhập tên cửa hàng"
+    },
+    "storeGrouping": "Nhóm cửa hàng",
+    "storeType": "Cấp cửa hàng",
+    "telephone": "Điện thoại"
+  },
+  "suppliers": {
+    "address": "Địa chỉ",
+    "code": "Mã NCC",
+    "description": "Mô tả",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "district": "Quận/ Huyện",
+    "email": "Email",
+    "id": "ID",
+    "master": {
+      "title": "Danh sách nhà cung cấp"
+    },
+    "name": "Tên NCC",
+    "ownerName": "Tên người liên hệ",
+    "personInCharge": "NV phụ trách",
+    "phone": "Số điện thoại",
+    "placeholder": {
+      "address": "Nhập địa chỉ",
+      "code": "Nhập mã NCC",
+      "description": "Nhập mô tả",
+      "district": "Chọn quận/ huyện",
+      "email": "Nhập email",
+      "name": "Nhập tên NCC",
+      "ownerName": "Nhập tên người liên hệ",
+      "personInCharge": "Chọn NV phụ trách",
+      "phone": "Nhập số điện thoại",
+      "province": "Nhập tỉnh/ thành",
+      "status": "Nhập trạng thái",
+      "taxCode": "Nhập mã số thuế",
+      "ward": "Nhập xã/ phường"
+    },
+    "province": "Tỉnh/ Thành",
+    "status": "Trạng thái",
+    "taxCode": "Mã số thuế",
+    "updatedTime": "Ngày cập nhật",
+    "ward": "Xã/ Phường"
+  },
+  "taxTypes": {
+    "code": "Mã loại thuế",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "id": "ID",
+    "master": {
+      "title": "Danh sách loại thuế"
+    },
+    "name": "Tên",
+    "percentage": "Phần trăm",
+    "status": ""
+  },
+  "tree": {
+    "actions": {
+      "addNode": "Thêm nút",
+      "addSubNode": "Thêm nút phụ"
+    },
+    "created": "Tạo"
+  },
+  "unitOfMeasureGroupingContents": {
+    "detail": {
+      "title": ""
+    },
+    "equal": "",
+    "factor": "",
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "number": "",
+    "title": "",
+    "unitOfMeasure": "",
+    "unitOfMeasureChange": ""
+  },
+  "unitOfMeasureGrouping": {
+    "id": "",
+    "name": ""
+  },
+  "unitOfMeasureGroupings": {
+    "code": "Mã nhóm",
+    "description": "Mô tả",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "master": {
+      "title": "Danh sách nhóm đơn vị tính"
+    },
+    "name": "Tên nhóm",
+    "status": "Trạng thái",
+    "unitOfMeasure": "Đơn vị cơ bản"
+  },
+  "unitOfMeasures": {
+    "code": "Mã đơn vị tính",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới Đơn vị tính"
+    },
+    "master": {
+      "title": "DANH SÁCH ĐƠN VỊ TÍNH"
+    },
+    "name": "Tên đơn vị tính",
+    "placeholder": {
+      "code": "Nhập mã đơn vị tính",
+      "name": "Nhập tên đơn vị tính"
+    },
+    "status": "Trạng thái"
+  },
+  "variationGroupings": {
+    "detail": {
+      "title": ""
+    },
+    "id": "ID",
+    "master": {
+      "title": ""
+    },
+    "name": "Tên",
+    "product": ""
+  },
+  "variations": {
+    "code": "Mã thuộc tính",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "id": "ID",
+    "master": {
+      "title": "Danh sách thuộc tính"
+    },
+    "name": "Tên",
+    "variationGrouping": "Nhóm thuộc tính"
+  },
+  "views": {
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "fields": "Khu vực",
+    "id": "ID",
+    "isDeleted": "Xóa",
+    "master": {
+      "title": "Danh sách màn hình"
+    },
+    "name": "Tên",
+    "pages": "Trang",
+    "path": "",
+    "permissions": "Quyền"
+  },
+  "wards": {
+    "code": "Mã xã/phường",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới xã/phường"
+    },
+    "district": "Quận/Huyện",
+    "master": {
+      "title": "Xã/Phường"
+    },
+    "name": "Tên",
+    "placeholder": {
+      "code": "Nhập mã xã/phường",
+      "name": "Nhập tên xã/phường",
+      "priority": "Nhập thứ tự ưu tiên"
+    },
+    "priority": "Thứ tự ưu tiên"
+  },
+  "warehouses": {
+    "accountingStock": "Tồn kho kế toán",
+    "address": "Địa chỉ",
+    "code": "Mã kho",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "district": "Quận/ Huyện",
+    "general": {
+      "info": "Thông tin chung"
+    },
+    "inventoryHistorys": {
+      "accountingStock": "Tồn kế toán mới",
+      "appUser": "Người thay đổi",
+      "oldAccountingStock": "Tồn kế toán cũ",
+      "oldSaleStock": "Có thể bán cũ",
+      "saleStock": "Có thể bán mới",
+      "updateTime": "Thời gian"
+    },
+    "item": {
+      "code": "Mã sản phẩm",
+      "name": "Tên sản phẩm",
+      "unitOfMeasure": "Đơn vị tính"
+    },
+    "master": {
+      "inventoryHistory": "Lịch sử thay đổi",
+      "title": "Danh sách kho"
+    },
+    "name": "Tên kho",
+    "organization": "Đơn vị quản lý",
+    "placeholder": {
+      "address": "Nhập địa chỉ",
+      "code": "Nhập mã kho",
+      "district": "Chọn Quận/Huyện",
+      "name": "Nhập tên kho",
+      "organization": "Chọn đơn vị",
+      "province": "Chọn Tỉnh/ Thành",
+      "status": "Trạng thái",
+      "unitOfMeasure": "Chọn đơn vị",
+      "ward": "Chọn Xã/ Phường"
+    },
+    "product": {
+      "title": "Sản phẩm trong kho"
+    },
+    "province": "Tỉnh/ Thành",
+    "saleStock": "Có thể bán",
+    "status": "Trạng thái",
+    "ward": "Xã/ Phường"
+  }
+}

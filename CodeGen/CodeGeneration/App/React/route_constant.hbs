@@ -1,0 +1,8 @@
+﻿
+{{#each Classes}}
+{{#unless IsEnum}}{{#unless IsMapping}}
+export const {{Upper}}_ROUTE: string = '/{{Kebab}}';
+{{/unless}}{{/unless}}
+{{/each}}
+
+export const ROOT_ROUTE: string = '/';

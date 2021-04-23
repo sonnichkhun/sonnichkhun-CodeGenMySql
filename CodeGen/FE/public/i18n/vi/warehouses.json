@@ -1,0 +1,51 @@
+{
+  "warehouses": {
+    "accountingStock": "Tồn kho kế toán",
+    "address": "Địa chỉ",
+    "code": "Mã kho",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "district": "Quận/ Huyện",
+    "general": {
+      "info": "Thông tin chung"
+    },
+    "inventoryHistorys": {
+      "accountingStock": "Tồn kế toán mới",
+      "appUser": "Người thay đổi",
+      "oldAccountingStock": "Tồn kế toán cũ",
+      "oldSaleStock": "Có thể bán cũ",
+      "saleStock": "Có thể bán mới",
+      "updateTime": "Thời gian"
+    },
+    "item": {
+      "code": "Mã sản phẩm",
+      "name": "Tên sản phẩm",
+      "unitOfMeasure": "Đơn vị tính"
+    },
+    "master": {
+      "inventoryHistory": "Lịch sử thay đổi",
+      "title": "Danh sách kho"
+    },
+    "name": "Tên kho",
+    "organization": "Đơn vị quản lý",
+    "placeholder": {
+      "address": "Nhập địa chỉ",
+      "code": "Nhập mã kho",
+      "district": "Chọn Quận/Huyện",
+      "name": "Nhập tên kho",
+      "organization": "Chọn đơn vị",
+      "province": "Chọn Tỉnh/ Thành",
+      "status": "Trạng thái",
+      "unitOfMeasure": "Chọn đơn vị",
+      "ward": "Chọn Xã/ Phường"
+    },
+    "product": {
+      "title": "Sản phẩm trong kho"
+    },
+    "province": "Tỉnh/ Thành",
+    "saleStock": "Có thể bán",
+    "status": "Trạng thái",
+    "ward": "Xã/ Phường"
+  }
+}

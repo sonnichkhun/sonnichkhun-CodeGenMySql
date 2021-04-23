@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "field": "",
+    "fields": {
+      "fieldId": "",
+      "id": "",
+      "isDeleted": "",
+      "menuId": "",
+      "name": "",
+      "permissionId": "",
+      "type": "",
+      "value": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "",
+    "page": "",
+    "pages": {
+      "id": "",
+      "isDeleted": "",
+      "menuId": "",
+      "name": "",
+      "pageId": "",
+      "path": "",
+      "permissionId": ""
+    },
+    "permissionFieldMappings": {
+      "list": ""
+    },
+    "permissionPageMappings": {
+      "list": ""
+    },
+    "permissionsMenu": "",
+    "placeholder": {
+      "menu": ""
+    },
+    "role": "",
+    "status": ""
+  }
+}

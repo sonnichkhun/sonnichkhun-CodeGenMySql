@@ -1,0 +1,525 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using {{Namespace}}.Common;
+using {{Namespace}}.Helpers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using OfficeOpenXml;
+using {{Namespace}}.Entities;
+using {{Namespace}}.Services.M{{Class.Pascal}};
+{{#each Class.References}}
+{{#ifCond ../Class.Pascal '!=' Pascal}}
+{{#unless IsMapping}}
+using {{@root.Namespace}}.Services.M{{Pascal}};
+{{/unless}}
+{{/ifCond}}
+{{/each}}
+
+namespace {{Namespace}}.Rpc.{{Class.Snake}}
+{
+    public partial class {{Class.Pascal}}Controller : RpcController
+    {
+{{#each Class.References}}
+{{#ifCond ../Class.Pascal '!=' Pascal}}
+{{#unless IsMapping}}
+        private I{{Pascal}}Service {{Pascal}}Service;
+{{/unless}}
+{{/ifCond}}
+{{/each}}
+        private I{{Class.Pascal}}Service {{Class.Pascal}}Service;
+        private ICurrentContext CurrentContext;
+        public {{Class.Pascal}}Controller(
+{{#each Class.References}}
+{{#ifCond ../Class.Pascal '!=' Pascal}}
+{{#unless IsMapping}}
+            I{{Pascal}}Service {{Pascal}}Service,
+{{/unless}}
+{{/ifCond}}
+{{/each}}
+            I{{Class.Pascal}}Service {{Class.Pascal}}Service,
+            ICurrentContext CurrentContext
+        )
+        {
+{{#each Class.References}}
+{{#ifCond ../Class.Pascal '!=' Pascal}}
+{{#unless IsMapping}}
+            this.{{Pascal}}Service = {{Pascal}}Service;
+{{/unless}}
+{{/ifCond}}
+{{/each}}
+            this.{{Class.Pascal}}Service = {{Class.Pascal}}Service;
+            this.CurrentContext = CurrentContext;
+        }
+
+        [Route({{Class.Pascal}}Route.Count), HttpPost]
+        public async Task<ActionResult<int>> Count([FromBody] {{Class.Pascal}}_{{Class.Pascal}}FilterDTO {{Class.Pascal}}_{{Class.Pascal}}FilterDTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            {{Class.Pascal}}Filter {{Class.Pascal}}Filter = ConvertFilterDTOToFilterEntity({{Class.Pascal}}_{{Class.Pascal}}FilterDTO);
+            {{#unless Class.IsEnum}}
+            {{Class.Pascal}}Filter = {{Class.Pascal}}Service.ToFilter({{Class.Pascal}}Filter);
+            {{/unless}}
+            int count = await {{Class.Pascal}}Service.Count({{Class.Pascal}}Filter);
+            return count;
+        }
+
+        [Route({{Class.Pascal}}Route.List), HttpPost]
+        public async Task<ActionResult<List<{{Class.Pascal}}_{{Class.Pascal}}DTO>>> List([FromBody] {{Class.Pascal}}_{{Class.Pascal}}FilterDTO {{Class.Pascal}}_{{Class.Pascal}}FilterDTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            {{Class.Pascal}}Filter {{Class.Pascal}}Filter = ConvertFilterDTOToFilterEntity({{Class.Pascal}}_{{Class.Pascal}}FilterDTO);
+            {{#unless Class.IsEnum}}
+            {{Class.Pascal}}Filter = {{Class.Pascal}}Service.ToFilter({{Class.Pascal}}Filter);
+            {{/unless}}
+            List<{{Class.Pascal}}> {{Class.Plural}} = await {{Class.Pascal}}Service.List({{Class.Pascal}}Filter);
+            List<{{Class.Pascal}}_{{Class.Pascal}}DTO> {{Class.Pascal}}_{{Class.Pascal}}DTOs = {{Class.Plural}}
+                .Select(c => new {{Class.Pascal}}_{{Class.Pascal}}DTO(c)).ToList();
+            return {{Class.Pascal}}_{{Class.Pascal}}DTOs;
+        }
+
+        {{#unless Class.IsEnum}}
+        [Route({{Class.Pascal}}Route.Get), HttpPost]
+        public async Task<ActionResult<{{Class.Pascal}}_{{Class.Pascal}}DTO>> Get([FromBody]{{Class.Pascal}}_{{Class.Pascal}}DTO {{Class.Pascal}}_{{Class.Pascal}}DTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            if (!await HasPermission({{Class.Pascal}}_{{Class.Pascal}}DTO.Id))
+                return Forbid();
+
+            {{Class.Pascal}} {{Class.Pascal}} = await {{Class.Pascal}}Service.Get({{Class.Pascal}}_{{Class.Pascal}}DTO.Id);
+            return new {{Class.Pascal}}_{{Class.Pascal}}DTO({{Class.Pascal}});
+        }
+
+        [Route({{Class.Pascal}}Route.Create), HttpPost]
+        public async Task<ActionResult<{{Class.Pascal}}_{{Class.Pascal}}DTO>> Create([FromBody] {{Class.Pascal}}_{{Class.Pascal}}DTO {{Class.Pascal}}_{{Class.Pascal}}DTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            if (!await HasPermission({{Class.Pascal}}_{{Class.Pascal}}DTO.Id))
+                return Forbid();
+
+            {{Class.Pascal}} {{Class.Pascal}} = ConvertDTOToEntity({{Class.Pascal}}_{{Class.Pascal}}DTO);
+            {{Class.Pascal}} = await {{Class.Pascal}}Service.Create({{Class.Pascal}});
+            {{Class.Pascal}}_{{Class.Pascal}}DTO = new {{Class.Pascal}}_{{Class.Pascal}}DTO({{Class.Pascal}});
+            if ({{Class.Pascal}}.IsValidated)
+                return {{Class.Pascal}}_{{Class.Pascal}}DTO;
+            else
+                return BadRequest({{Class.Pascal}}_{{Class.Pascal}}DTO);
+        }
+
+        [Route({{Class.Pascal}}Route.Update), HttpPost]
+        public async Task<ActionResult<{{Class.Pascal}}_{{Class.Pascal}}DTO>> Update([FromBody] {{Class.Pascal}}_{{Class.Pascal}}DTO {{Class.Pascal}}_{{Class.Pascal}}DTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            if (!await HasPermission({{Class.Pascal}}_{{Class.Pascal}}DTO.Id))
+                return Forbid();
+
+            {{Class.Pascal}} {{Class.Pascal}} = ConvertDTOToEntity({{Class.Pascal}}_{{Class.Pascal}}DTO);
+            {{Class.Pascal}} = await {{Class.Pascal}}Service.Update({{Class.Pascal}});
+            {{Class.Pascal}}_{{Class.Pascal}}DTO = new {{Class.Pascal}}_{{Class.Pascal}}DTO({{Class.Pascal}});
+            if ({{Class.Pascal}}.IsValidated)
+                return {{Class.Pascal}}_{{Class.Pascal}}DTO;
+            else
+                return BadRequest({{Class.Pascal}}_{{Class.Pascal}}DTO);
+        }
+
+        [Route({{Class.Pascal}}Route.Delete), HttpPost]
+        public async Task<ActionResult<{{Class.Pascal}}_{{Class.Pascal}}DTO>> Delete([FromBody] {{Class.Pascal}}_{{Class.Pascal}}DTO {{Class.Pascal}}_{{Class.Pascal}}DTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            if (!await HasPermission({{Class.Pascal}}_{{Class.Pascal}}DTO.Id))
+                return Forbid();
+
+            {{Class.Pascal}} {{Class.Pascal}} = ConvertDTOToEntity({{Class.Pascal}}_{{Class.Pascal}}DTO);
+            {{Class.Pascal}} = await {{Class.Pascal}}Service.Delete({{Class.Pascal}});
+            {{Class.Pascal}}_{{Class.Pascal}}DTO = new {{Class.Pascal}}_{{Class.Pascal}}DTO({{Class.Pascal}});
+            if ({{Class.Pascal}}.IsValidated)
+                return {{Class.Pascal}}_{{Class.Pascal}}DTO;
+            else
+                return BadRequest({{Class.Pascal}}_{{Class.Pascal}}DTO);
+        }
+
+        [Route({{Class.Pascal}}Route.BulkDelete), HttpPost]
+        public async Task<ActionResult<bool>> BulkDelete([FromBody] List<long> Ids)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            {{Class.Pascal}}Filter {{Class.Pascal}}Filter = new {{Class.Pascal}}Filter();
+            {{Class.Pascal}}Filter = {{Class.Pascal}}Service.ToFilter({{Class.Pascal}}Filter);
+            {{Class.Pascal}}Filter.Id = new IdFilter { In = Ids };
+            {{Class.Pascal}}Filter.Selects = {{Class.Pascal}}Select.Id;
+            {{Class.Pascal}}Filter.Skip = 0;
+            {{Class.Pascal}}Filter.Take = int.MaxValue;
+
+            List<{{Class.Pascal}}> {{Class.Plural}} = await {{Class.Pascal}}Service.List({{Class.Pascal}}Filter);
+            {{Class.Plural}} = await {{Class.Pascal}}Service.BulkDelete({{Class.Plural}});
+            if ({{Class.Plural}}.Any(x => !x.IsValidated))
+                return BadRequest({{Class.Plural}}.Where(x => !x.IsValidated));
+            return true;
+        }
+
+        [Route({{Class.Pascal}}Route.Import), HttpPost]
+        public async Task<ActionResult> Import(IFormFile file)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+            {{#each Class.Properties}}
+            {{#if IsReference}}
+            {{#unless Class.IsTree}}
+            {{#ifCond ../Class.Pascal '!=' Class.Pascal}}
+            {{Class.Pascal}}Filter {{Pascal}}Filter = new {{Class.Pascal}}Filter
+            {
+                Skip = 0,
+                Take = int.MaxValue,
+                Selects = {{Class.Pascal}}Select.ALL
+            };
+            List<{{Class.Pascal}}> {{pluralize Pascal}} = await {{Class.Pascal}}Service.List({{Pascal}}Filter);
+            {{/ifCond}}
+            {{/unless}}
+            {{/if}}
+            {{/each}}
+            List<{{Class.Pascal}}> {{Class.Plural}} = new List<{{Class.Pascal}}>();
+            using (ExcelPackage excelPackage = new ExcelPackage(file.OpenReadStream()))
+            {
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.FirstOrDefault();
+                if (worksheet == null)
+                    return Ok({{Class.Plural}});
+                int StartColumn = 1;
+                int StartRow = 1;
+                {{#each Class.Properties}}
+                {{#if IsPrimitive}}
+                int {{Pascal}}Column = {{@index}} + StartColumn;
+                {{/if}}
+                {{/each}}
+
+                for (int i = StartRow; i <= worksheet.Dimension.End.Row; i++)
+                {
+                    if (string.IsNullOrEmpty(worksheet.Cells[i + StartRow, StartColumn].Value?.ToString()))
+                        break;
+                    {{#each Class.Properties}}
+                    {{#if IsPrimitive}}
+                    string {{Pascal}}Value = worksheet.Cells[i + StartRow, {{Pascal}}Column].Value?.ToString();
+                    {{/if}}
+                    {{/each}}
+
+                    {{Class.Pascal}} {{Class.Pascal}} = new {{Class.Pascal}}();
+                    {{#each Class.Properties}}
+                    {{#if IsPrimitive}}
+                    {{#if IsLong}}
+                    {{../Class.Pascal}}.{{Pascal}} = long.TryParse({{Pascal}}Value, out long {{Pascal}}) ? {{Pascal}} : 0;
+                    {{/if}}
+                    {{#if IsDecimal}}
+                    {{../Class.Pascal}}.{{Pascal}} = decimal.TryParse({{Pascal}}Value, out decimal {{Pascal}}) ? {{Pascal}} : 0;
+                    {{/if}}
+                    {{#if IsDate}}
+                    {{../Class.Pascal}}.{{Pascal}} = DateTime.TryParse({{Pascal}}Value, out DateTime {{Pascal}}) ? {{Pascal}} : DateTime.Now;
+                    {{/if}}
+                    {{#if IsBool}}
+                    {{../Class.Pascal}}.{{Pascal}} = bool.TryParse({{Pascal}}Value, out bool {{Pascal}}) ? {{Pascal}} : 0;
+                    {{/if}}
+                    {{#if IsString}}
+                    {{../Class.Pascal}}.{{Pascal}} = {{Pascal}}Value;
+                    {{/if}}
+                    {{/if}}
+                    {{#if IsReference}}
+                    {{#unless Class.IsTree}}
+                    {{#ifCond ../Class.Pascal '!=' Class.Pascal}}
+                    {{Class.Pascal}} {{Pascal}} = {{pluralize Pascal}}.Where(x => x.Id.ToString() == {{Pascal}}IdValue).FirstOrDefault();
+                    {{../../Class.Pascal}}.{{Pascal}}Id = {{Pascal}} == null ? 0 : {{Pascal}}.Id;
+                    {{../../Class.Pascal}}.{{Pascal}} = {{Pascal}};
+                    {{/ifCond}}
+                    {{/unless}}
+                    {{/if}}
+                    {{/each}}
+
+                    {{Class.Plural}}.Add({{Class.Pascal}});
+                }
+            }
+            {{Class.Plural}} = await {{Class.Pascal}}Service.Import({{Class.Plural}});
+            if ({{Class.Plural}}.All(x => x.IsValidated))
+                return Ok(true);
+            else
+            {
+                List<string> Errors = new List<string>();
+                for (int i = 0; i < {{Class.Plural}}.Count; i++)
+                {
+                    {{Class.Pascal}} {{Class.Pascal}} = {{Class.Plural}}[i];
+                    if (!{{Class.Pascal}}.IsValidated)
+                    {
+                        string Error = $"Dòng {i + 2} có lỗi:";
+                        {{#each Class.Properties}}
+                        {{#if IsPrimitive}}
+                        if ({{../Class.Pascal}}.Errors.ContainsKey(nameof({{../Class.Pascal}}.{{Pascal}})))
+                            Error += {{../Class.Pascal}}.Errors[nameof({{../Class.Pascal}}.{{Pascal}})];
+                        {{/if}}
+                        {{/each}}
+                        Errors.Add(Error);
+                    }
+                }
+                return BadRequest(Errors);
+            }
+        }
+
+        [Route({{Class.Pascal}}Route.Export), HttpPost]
+        public async Task<FileResult> Export([FromBody] {{Class.Pascal}}_{{Class.Pascal}}FilterDTO {{Class.Pascal}}_{{Class.Pascal}}FilterDTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            MemoryStream memoryStream = new MemoryStream();
+            using (ExcelPackage excel = new ExcelPackage(memoryStream))
+            {
+                #region {{Class.Pascal}}
+                var {{Class.Pascal}}Filter = ConvertFilterDTOToFilterEntity({{Class.Pascal}}_{{Class.Pascal}}FilterDTO);
+                {{Class.Pascal}}Filter.Skip = 0;
+                {{Class.Pascal}}Filter.Take = int.MaxValue;
+                {{Class.Pascal}}Filter = {{Class.Pascal}}Service.ToFilter({{Class.Pascal}}Filter);
+                List<{{Class.Pascal}}> {{Class.Plural}} = await {{Class.Pascal}}Service.List({{Class.Pascal}}Filter);
+
+                var {{Class.Pascal}}Headers = new List<string[]>()
+                {
+                    new string[] {
+                        {{#each Class.Properties}}
+                        {{#if IsPrimitive}}
+                        "{{Pascal}}",
+                        {{/if}}
+                        {{/each}}
+                    }
+                };
+                List<object[]> {{Class.Pascal}}Data = new List<object[]>();
+                for (int i = 0; i < {{Class.Plural}}.Count; i++)
+                {
+                    var {{Class.Pascal}} = {{Class.Plural}}[i];
+                    {{Class.Pascal}}Data.Add(new Object[]
+                    {
+                        {{#each Class.Properties}}
+                        {{#if IsPrimitive}}
+                        {{../Class.Pascal}}.{{Pascal}},
+                        {{/if}}
+                        {{/each}}
+                    });
+                }
+                excel.GenerateWorksheet("{{Class.Pascal}}", {{Class.Pascal}}Headers, {{Class.Pascal}}Data);
+                #endregion
+
+                {{#each Class.References}}
+                {{#ifCond Pascal '!=' @root.Class.Pascal}}
+                {{#unless IsMapping}}
+                #region {{Pascal}}
+                var {{Pascal}}Filter = new {{Pascal}}Filter();
+                {{Pascal}}Filter.Selects = {{Pascal}}Select.ALL;
+                {{Pascal}}Filter.OrderBy = {{Pascal}}Order.Id;
+                {{Pascal}}Filter.OrderType = OrderType.ASC;
+                {{Pascal}}Filter.Skip = 0;
+                {{Pascal}}Filter.Take = int.MaxValue;
+                List<{{Pascal}}> {{Plural}} = await {{Pascal}}Service.List({{Pascal}}Filter);
+
+                var {{Pascal}}Headers = new List<string[]>()
+                {
+                    new string[] {
+                        {{#each Properties}}
+                        {{#if IsPrimitive}}
+                        "{{Pascal}}",
+                        {{/if}}
+                        {{/each}}
+                    }
+                };
+                List<object[]> {{Pascal}}Data = new List<object[]>();
+                for (int i = 0; i < {{Plural}}.Count; i++)
+                {
+                    var {{Pascal}} = {{Plural}}[i];
+                    {{Pascal}}Data.Add(new Object[]
+                    {
+                        {{#each Properties}}
+                        {{#if IsPrimitive}}
+                        {{../Pascal}}.{{Pascal}},
+                        {{/if}}
+                        {{/each}}
+                    });
+                }
+                excel.GenerateWorksheet("{{Pascal}}", {{Pascal}}Headers, {{Pascal}}Data);
+                #endregion
+                {{/unless}}
+                {{/ifCond}}
+                {{/each}}
+                excel.Save();
+            }
+            return File(memoryStream.ToArray(), "application/octet-stream", "{{Class.Pascal}}.xlsx");
+        }
+
+        [Route({{Class.Pascal}}Route.ExportTemplate), HttpPost]
+        public async Task<FileResult> ExportTemplate([FromBody] {{Class.Pascal}}_{{Class.Pascal}}FilterDTO {{Class.Pascal}}_{{Class.Pascal}}FilterDTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            MemoryStream memoryStream = new MemoryStream();
+            using (ExcelPackage excel = new ExcelPackage(memoryStream))
+            {
+                #region {{Class.Pascal}}
+                var {{Class.Pascal}}Headers = new List<string[]>()
+                {
+                    new string[] {
+                        {{#each Class.Properties}}
+                        {{#if IsPrimitive}}
+                        "{{Pascal}}",
+                        {{/if}}
+                        {{/each}}
+                    }
+                };
+                List<object[]> {{Class.Pascal}}Data = new List<object[]>();
+                excel.GenerateWorksheet("{{Class.Pascal}}", {{Class.Pascal}}Headers, {{Class.Pascal}}Data);
+                #endregion
+
+                {{#each Class.References}}
+                {{#ifCond Pascal '!=' @root.Class.Pascal}}
+                {{#unless IsMapping}}
+                #region {{Pascal}}
+                var {{Pascal}}Filter = new {{Pascal}}Filter();
+                {{Pascal}}Filter.Selects = {{Pascal}}Select.ALL;
+                {{Pascal}}Filter.OrderBy = {{Pascal}}Order.Id;
+                {{Pascal}}Filter.OrderType = OrderType.ASC;
+                {{Pascal}}Filter.Skip = 0;
+                {{Pascal}}Filter.Take = int.MaxValue;
+                List<{{Pascal}}> {{Plural}} = await {{Pascal}}Service.List({{Pascal}}Filter);
+
+                var {{Pascal}}Headers = new List<string[]>()
+                {
+                    new string[] {
+                        {{#each Properties}}
+                        {{#if IsPrimitive}}
+                        "{{Pascal}}",
+                        {{/if}}
+                        {{/each}}
+                    }
+                };
+                List<object[]> {{Pascal}}Data = new List<object[]>();
+                for (int i = 0; i < {{Plural}}.Count; i++)
+                {
+                    var {{Pascal}} = {{Plural}}[i];
+                    {{Pascal}}Data.Add(new Object[]
+                    {
+                        {{#each Properties}}
+                        {{#if IsPrimitive}}
+                        {{../Pascal}}.{{Pascal}},
+                        {{/if}}
+                        {{/each}}
+                    });
+                }
+                excel.GenerateWorksheet("{{Pascal}}", {{Pascal}}Headers, {{Pascal}}Data);
+                #endregion
+                {{/unless}}
+                {{/ifCond}}
+                {{/each}}
+                excel.Save();
+            }
+            return File(memoryStream.ToArray(), "application/octet-stream", "{{Class.Pascal}}.xlsx");
+        }
+
+        private async Task<bool> HasPermission(long Id)
+        {
+            {{Class.Pascal}}Filter {{Class.Pascal}}Filter = new {{Class.Pascal}}Filter();
+            {{Class.Pascal}}Filter = {{Class.Pascal}}Service.ToFilter({{Class.Pascal}}Filter);
+            if (Id == 0)
+            {
+
+            }
+            else
+            {
+                {{Class.Pascal}}Filter.Id = new IdFilter { Equal = Id };
+                int count = await {{Class.Pascal}}Service.Count({{Class.Pascal}}Filter);
+                if (count == 0)
+                    return false;
+            }
+            return true;
+        }
+
+        private {{Class.Pascal}} ConvertDTOToEntity({{Class.Pascal}}_{{Class.Pascal}}DTO {{Class.Pascal}}_{{Class.Pascal}}DTO)
+        {
+            {{Class.Pascal}} {{Class.Pascal}} = new {{Class.Pascal}}();
+            {{#each Class.Properties}}
+            {{#if IsPrimitive}}
+            {{@root.Class.Pascal}}.{{Pascal}} = {{@root.Class.Pascal}}_{{@root.Class.Pascal}}DTO.{{Pascal}};
+            {{/if}}
+            {{#if IsReference}}
+            {{@root.Class.Pascal}}.{{Pascal}} = {{@root.Class.Pascal}}_{{@root.Class.Pascal}}DTO.{{Pascal}} == null ? null : new {{Class.Pascal}}
+            {
+                {{#each Class.Properties}}
+                {{#if IsPrimitive}}
+                {{Pascal}} = {{@root.Class.Pascal}}_{{@root.Class.Pascal}}DTO.{{../Pascal}}.{{Pascal}},
+                {{/if}}
+                {{/each}}
+            };
+            {{/if}}
+            {{#if IsList}}
+            {{@root.Class.Pascal}}.{{Pascal}} = {{@root.Class.Pascal}}_{{@root.Class.Pascal}}DTO.{{Pascal}}?
+                .Select(x => new {{Class.Pascal}}
+                {
+                    {{#each Class.Properties}}
+                    {{#if IsPrimitive}}
+                    {{#ifCond Pascal '!=' @root.Class.RefId }}
+                    {{Pascal}} = x.{{Pascal}},
+                    {{/ifCond}}
+                    {{/if}}
+                    {{#if IsReference}}
+                    {{Pascal}} = x.{{Pascal}} == null ? null : new {{Class.Pascal}}
+                    {
+                        {{#each Class.Properties}}
+                        {{#if IsPrimitive}}
+                        {{Pascal}} = x.{{../Pascal}}.{{Pascal}},
+                        {{/if}}
+                        {{/each}}
+                    },
+                    {{/if}}
+                    {{/each}}
+                }).ToList();
+            {{/if}}
+            {{/each}}
+            {{Class.Pascal}}.BaseLanguage = CurrentContext.Language;
+            return {{Class.Pascal}};
+        }
+        {{/unless}}
+
+        private {{Class.Pascal}}Filter ConvertFilterDTOToFilterEntity({{Class.Pascal}}_{{Class.Pascal}}FilterDTO {{Class.Pascal}}_{{Class.Pascal}}FilterDTO)
+        {
+            {{Class.Pascal}}Filter {{Class.Pascal}}Filter = new {{Class.Pascal}}Filter();
+            {{Class.Pascal}}Filter.Selects = {{Class.Pascal}}Select.ALL;
+            {{#if Class.IsTree}}
+            {{Class.Pascal}}Filter.Skip = 0;
+            {{Class.Pascal}}Filter.Take = 99999;
+            {{else}}
+            {{Class.Pascal}}Filter.Skip = {{Class.Pascal}}_{{Class.Pascal}}FilterDTO.Skip;
+            {{Class.Pascal}}Filter.Take = {{Class.Pascal}}_{{Class.Pascal}}FilterDTO.Take;
+            {{/if}}
+            {{Class.Pascal}}Filter.OrderBy = {{Class.Pascal}}_{{Class.Pascal}}FilterDTO.OrderBy;
+            {{Class.Pascal}}Filter.OrderType = {{Class.Pascal}}_{{Class.Pascal}}FilterDTO.OrderType;
+
+            {{#each Class.Properties}}
+            {{#if IsFilter}}
+            {{../Class.Pascal}}Filter.{{Pascal}} = {{@root.Class.Pascal}}_{{../Class.Pascal}}FilterDTO.{{Pascal}};
+            {{/if}}
+            {{/each}}
+            {{#if Class.ContainsFlag}}
+            {{Class.Pascal}}Filter.CreatedAt = {{Class.Pascal}}_{{Class.Pascal}}FilterDTO.CreatedAt;
+            {{Class.Pascal}}Filter.UpdatedAt = {{Class.Pascal}}_{{Class.Pascal}}FilterDTO.UpdatedAt;
+            {{/if}}
+            return {{Class.Pascal}}Filter;
+        }
+    }
+}
+

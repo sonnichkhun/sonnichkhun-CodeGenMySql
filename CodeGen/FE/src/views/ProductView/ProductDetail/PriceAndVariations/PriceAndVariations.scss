@@ -1,0 +1,58 @@
+/* Style for PriceAndVariations.tsx */
+
+.price-and-variations {
+  ul {
+    &.variations {
+      padding: unset;
+
+      .variation {
+        list-style: none;
+        display: flex;
+        margin-bottom: 36px;
+
+        .name,
+        .value {
+          display: flex;
+          align-items: flex-end;
+
+          .label {
+            white-space: nowrap;
+            display: inline-block;
+            margin-right: 0.25rem;
+            margin-bottom: 6px;
+
+            &:after {
+              content: ':';
+            }
+          }
+        }
+
+        .name {
+          margin-right: 0.75rem;
+          max-width: 250px;
+          min-width: 220px;
+        }
+
+        .value {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
+  .btn-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .btn-add {
+    margin-top: 2px;
+    margin-bottom: 40px;
+  }
+
+  .ant-form-item {
+    padding-left: 0 !important;
+    .ant-form-item-children {
+      margin-left: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "productGrouping": {
+    "code": "",
+    "description": "",
+    "detail": {
+      "addNode": ""
+    },
+    "master": {
+      "product": {
+        "code": "",
+        "id": "",
+        "name": "",
+        "supplier": ""
+      }
+    },
+    "name": "",
+    "parentGroup": ""
+  }
+}

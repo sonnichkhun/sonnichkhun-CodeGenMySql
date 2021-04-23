@@ -1,0 +1,17 @@
+{
+  "views": {
+    "detail": {
+      "title": ""
+    },
+    "fields": "",
+    "id": "",
+    "isDeleted": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "pages": "",
+    "path": "",
+    "permissions": ""
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "suppliers": {
+    "address": "Địa chỉ",
+    "code": "Mã NCC",
+    "description": "Mô tả",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "district": "Quận/ Huyện",
+    "email": "Email",
+    "id": "ID",
+    "master": {
+      "title": "Danh sách nhà cung cấp"
+    },
+    "name": "Tên NCC",
+    "ownerName": "Tên người liên hệ",
+    "personInCharge": "NV phụ trách",
+    "phone": "Số điện thoại",
+    "placeholder": {
+      "address": "Nhập địa chỉ",
+      "code": "Nhập mã NCC",
+      "description": "Nhập mô tả",
+      "district": "Chọn quận/ huyện",
+      "email": "Nhập email",
+      "name": "Nhập tên NCC",
+      "ownerName": "Nhập tên người liên hệ",
+      "personInCharge": "Chọn NV phụ trách",
+      "phone": "Nhập số điện thoại",
+      "province": "Nhập tỉnh/ thành",
+      "status": "Nhập trạng thái",
+      "taxCode": "Nhập mã số thuế",
+      "ward": "Nhập xã/ phường"
+    },
+    "province": "Tỉnh/ Thành",
+    "status": "Trạng thái",
+    "taxCode": "Mã số thuế",
+    "updatedTime": "Ngày cập nhật",
+    "ward": "Xã/ Phường"
+  }
+}

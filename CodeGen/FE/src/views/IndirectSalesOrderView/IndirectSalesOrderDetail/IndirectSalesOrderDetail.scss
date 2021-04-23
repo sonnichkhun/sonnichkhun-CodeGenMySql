@@ -1,0 +1,36 @@
+$red: #ee534d;
+
+.detail-page-indirect-order {
+  .info-title {
+    .title-default {
+      color: $red;
+      font-weight: 500;
+    }
+    height: 35px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .ant-table-small .ant-table-title {
+    border-top: none;
+  }
+  .payment {
+    .ant-form-item-control input {
+      margin-top: 0 !important;
+    }
+    // .sub-total {
+    //     margin-left: 1.1rem !important;
+    // }
+    .ant-form-item-children {
+      margin-right: 0 !important;
+    }
+    .input-discount {
+      max-width: 25% !important;
+    }
+    .input-discount-amount {
+      max-width: 100% !important;
+    }
+  }
+  .ant-calendar-picker-input {
+    height: 28px;
+  }
+}

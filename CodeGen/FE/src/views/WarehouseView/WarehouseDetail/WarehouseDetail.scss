@@ -1,0 +1,15 @@
+$red: #ee534d;
+
+.warehouse-detail {
+    .ant-card-head {
+        border-bottom: none;
+    }
+    .info-title {
+        .title-default {
+            color: $red;
+            font-weight: 500;
+        }
+        height: 35px;
+        border-bottom: 1px solid #e8e8e8;
+    }
+}

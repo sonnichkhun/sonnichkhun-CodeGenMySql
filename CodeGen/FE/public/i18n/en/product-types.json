@@ -1,0 +1,21 @@
+{
+  "productTypes": {
+    "code": "",
+    "description": "",
+    "detail": {
+      "addNode": "",
+      "edit": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "description": "",
+      "name": ""
+    },
+    "status": "",
+    "updatedAt": ""
+  }
+}

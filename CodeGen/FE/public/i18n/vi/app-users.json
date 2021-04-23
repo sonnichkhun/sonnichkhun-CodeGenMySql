@@ -1,0 +1,55 @@
+{
+  "appUsers": {
+    "address": "Địa chỉ",
+    "avatar": "Avatar",
+    "changePassword": {
+      "confirmPass": "Nhập lại mật khẩu",
+      "newPass": "Nhập mật khẩu mới",
+      "title": "Thay đổi mật khẩu cho tài khoản"
+    },
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "displayName": "Tên hiển thị",
+    "email": "Email",
+    "inactive": {
+      "content": "Bạn đang thực hiện khóa tài khoản này. Người dùng sẽ không thể truy cập được nữa. Bạn có chắc muốn thực hiện.",
+      "title": "Khóa tài khoản"
+    },
+    "master": {
+      "title": "Danh sách tài khoản"
+    },
+    "organization": "Đơn vị quản lý",
+    "phone": "Số điện thoại",
+    "placeholder": {
+      "address": "Nhập địa chỉ",
+      "displayName": "Nhập tên nhân viên",
+      "email": "Nhập email",
+      "organization": "Chọn đơn vị quản lý",
+      "phone": "Nhập SĐT",
+      "position": "Nhập chức vụ",
+      "province": "Chọn Tỉnh/Thành",
+      "username": "Nhập tên đăng nhập"
+    },
+    "position": "Chức vụ",
+    "province": "Tỉnh/Thành",
+    "roles": {
+      "appUserId": "",
+      "code": "",
+      "id": "",
+      "name": "",
+      "roleId": "",
+      "statusId": ""
+    },
+    "sex": "Giới tính",
+    "status": "Trạng thái",
+    "tooltip": {
+      "changePassword": "Đổi mật khẩu",
+      "delete": "Xóa tài khoản",
+      "edit": "Sửa thông tin tài khoản",
+      "inactive": "Khóa tài khoản",
+      "view": "Thông tin chi tiết"
+    },
+    "username": "Tên đăng nhập"
+  }
+}

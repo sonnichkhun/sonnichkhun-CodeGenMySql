@@ -1,0 +1,15 @@
+{
+  "permission": {
+    "permissionFieldMappingModal": {
+      "title": ""
+    },
+    "permissionPageMappingModal": {
+      "title": ""
+    },
+    "tabs": {
+      "roles": {
+        "title": ""
+      }
+    }
+  }
+}

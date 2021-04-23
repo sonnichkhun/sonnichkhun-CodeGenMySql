@@ -1,0 +1,59 @@
+{
+  "indirectSalesOrders": {
+    "buyerStore": "Cửa hàng mua",
+    "code": "Số đơn hàng",
+    "deliveryAddress": "Địa chỉ giao hàng",
+    "deliveryDate": "Ngày giao hàng",
+    "detail": {
+      "title": "Thông tin đơn hàng"
+    },
+    "discountPercentage": "Chiếu khấu (%)",
+    "general": {
+      "title": "Thông tin chung"
+    },
+    "indirectSalesOrderStatus": "Trạng thái",
+    "isEditedPrice": "Sửa giá",
+    "master": {
+      "title": "Danh sách đơn hàng gián tiếp "
+    },
+    "newTotal": "Tổng tiền thanh toán",
+    "note": "Ghi chú",
+    "orderDate": "Ngày đặt hàng",
+    "payment": {
+      "title": "Thông tin thanh toán"
+    },
+    "phoneNumber": "Số điện thoại",
+    "placeholder": {
+      "buyerStore": "Chọn cửa hàng mua",
+      "code": "Nhập số đơn hàng",
+      "deliveryAddress": "Nhập địa chỉ giao hàng",
+      "deliveryDate": "Chọn ngày giao hàng",
+      "note": "Nhập ghi chú",
+      "orderDate": "Chọn ngày đặt hàng",
+      "phoneNumber": "Nhập số điện thoại",
+      "sellerStore": "Chọn cửa hàng bán"
+    },
+    "preview": {
+      "title": "Đơn hàng gián tiếp"
+    },
+    "saleEmployee": "Nhân viên bán hàng",
+    "select": {
+      "store": "Chọn cửa hàng"
+    },
+    "sellerStore": "Cửa hàng bán",
+    "status": "Sửa giá",
+    "subTotal": "Tiền trước chiếu khấu tổng đơn",
+    "total": "Giá trị",
+    "totalTaxAmount": "Thuế VAT",
+    "generalDiscountAmount": "Chiết khấu",
+    "generalDiscountPercentage": "Chiếu khấu tổng đơn",
+    "tabs": {
+      "indirectSalesOrderContents": {
+        "title": "Sản phẩm bán"
+      },
+      "indirectSalesOrderPromotions": {
+        "title": "Sản phẩm khuyến mãi"
+      }
+    }
+  }
+}

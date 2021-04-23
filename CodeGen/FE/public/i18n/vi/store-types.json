@@ -1,0 +1,18 @@
+{
+  "storeTypes": {
+    "code": "Mã loại cửa hàng",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới loại cửa hàng"
+    },
+    "master": {
+      "title": "Danh sách loại cửa hàng"
+    },
+    "name": "Tên loại cửa hàng",
+    "placeholder": {
+      "code": "Nhập mã loại cửa hàng",
+      "name": "Nhập tên loại cửa hàng"
+    },
+    "status": "Trạng thái"
+  }
+}

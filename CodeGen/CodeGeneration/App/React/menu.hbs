@@ -1,0 +1,20 @@
+﻿import {translate} from 'core/helpers/internationalization';
+import {RouteConfig} from 'react-router-config';
+{{#each Classes}}
+{{#unless IsEnum}}{{#unless IsMapping}}
+import { {{Upper}}_ROUTE } from 'config/route-consts';
+{{/unless}}{{/unless}}
+{{/each}}
+
+export const menu: RouteConfig[] = 
+[
+    {{#each Classes}}
+    {{#unless IsEnum}}{{#unless IsMapping}}
+        {
+            name: translate('menu.{{pluralize Camel}}'),
+            url: {{Upper}}_ROUTE,
+            icon: 'fa fa-building',
+        },
+    {{/unless}}{{/unless}}
+    {{/each}}
+];

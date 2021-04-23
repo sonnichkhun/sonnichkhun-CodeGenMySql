@@ -1,0 +1,1165 @@
+{
+  "appUserRoleMappings": {
+    "id": "",
+    "name": ""
+  },
+  "appUser": {
+    "appUserRoleMappingModal": {
+      "title": ""
+    },
+    "tabs": {
+      "roles": {
+        "title": ""
+      }
+    }
+  },
+  "appUsers": {
+    "address": "",
+    "avatar": "",
+    "changePassword": {
+      "confirmPass": "",
+      "newPass": "",
+      "title": ""
+    },
+    "detail": {
+      "title": ""
+    },
+    "displayName": "",
+    "email": "",
+    "inactive": {
+      "content": "",
+      "title": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "organization": "",
+    "phone": "",
+    "placeholder": {
+      "address": "",
+      "displayName": "",
+      "email": "",
+      "organization": "",
+      "phone": "",
+      "position": "",
+      "province": "",
+      "username": ""
+    },
+    "position": "",
+    "province": "",
+    "roles": {
+      "appUserId": "",
+      "code": "",
+      "id": "",
+      "name": "",
+      "roleId": "",
+      "statusId": ""
+    },
+    "sex": "",
+    "status": "",
+    "tooltip": {
+      "changePassword": "",
+      "delete": "",
+      "edit": "",
+      "inactive": "",
+      "view": ""
+    },
+    "username": ""
+  },
+  "applicationUsers": {
+    "applicationUserType": "",
+    "createdAt": "",
+    "detail": {
+      "title": ""
+    },
+    "displayName": "",
+    "email": "",
+    "id": "",
+    "isActive": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "phone": "",
+    "provider": "",
+    "roleContentModal": {
+      "title": ""
+    },
+    "tabs": {
+      "roles": {
+        "title": ""
+      }
+    },
+    "userStatus": "",
+    "username": ""
+  },
+  "brands": {
+    "code": "",
+    "description": "",
+    "detail": {
+      "addNode": "",
+      "edit": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "description": "",
+      "name": "",
+      "status": ""
+    },
+    "status": "",
+    "updatedTime": ""
+  },
+  "components": {
+    "upload": {
+      "uploadError": ""
+    }
+  },
+  "districts": {
+    "code": "",
+    "detail": {
+      "edit": "",
+      "title": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "district": "",
+      "name": "",
+      "priority": ""
+    },
+    "priority": "",
+    "province": ""
+  },
+  "eRouteContents": {
+    "frequency": "",
+    "friday": "",
+    "monday": "",
+    "orderNumber": "",
+    "saturday": "",
+    "store": {
+      "address": "",
+      "code": "",
+      "name": "",
+      "organization": "",
+      "placeholder": {
+        "address": "",
+        "code": "",
+        "name": "",
+        "organization": "",
+        "storeType": ""
+      },
+      "storeType": ""
+    },
+    "sunday": "",
+    "thursday": "",
+    "tuesday": "",
+    "wednesday": "",
+    "week1": "",
+    "week2": "",
+    "week3": "",
+    "week4": ""
+  },
+  "eRoutes": {
+    "code": "",
+    "creator": "",
+    "eRouteType": "",
+    "endDate": "",
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "eRouteType": "",
+      "endDate": "",
+      "name": "",
+      "saleEmployee": "",
+      "startDate": ""
+    },
+    "requestState": "",
+    "saleEmployee": "",
+    "startDate": "",
+    "status": "",
+    "store": {
+      "title": ""
+    }
+  },
+  "field": {
+    "permissionFieldMappingModal": {
+      "title": ""
+    }
+  },
+  "fields": {
+    "dateType": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "idType": "",
+    "isDeleted": "",
+    "longType": "",
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "",
+    "placeholder": {
+      "dateTypeKey1": "",
+      "dateTypeKey2": "",
+      "idType": "",
+      "longTypeKey1": "",
+      "longTypeKey2": "",
+      "stringTypeKey1": "",
+      "stringTypeKey2": ""
+    },
+    "stringType": "",
+    "type": ""
+  },
+  "filters": {
+    "dateFilter": {
+      "equal": "",
+      "greater": "",
+      "greaterEqual": "",
+      "less": "",
+      "lessEqual": "",
+      "notEqual": "",
+      "range": ""
+    },
+    "guidFilter": {
+      "equal": "",
+      "in": "",
+      "notEqual": "",
+      "notIn": ""
+    },
+    "idFilter": {
+      "equal": "",
+      "in": "",
+      "notEqual": "",
+      "notIn": ""
+    },
+    "numberFilter": {
+      "equal": "",
+      "greater": "",
+      "greaterEqual": "",
+      "less": "",
+      "lessEqual": "",
+      "notEqual": "",
+      "range": ""
+    },
+    "stringFilter": {
+      "contain": "",
+      "endWith": "",
+      "equal": "",
+      "notContain": "",
+      "notEndWith": "",
+      "notEqual": "",
+      "notStartWith": "",
+      "startWith": ""
+    }
+  },
+  "general": {
+    "actions": {
+      "add": "",
+      "cancel": "",
+      "close": "",
+      "create": "",
+      "crop": "",
+      "delete": "",
+      "export": "",
+      "exportTemplate": "",
+      "filter": "",
+      "import": "",
+      "label": "",
+      "reset": "",
+      "save": "",
+      "search": "",
+      "update": ""
+    },
+    "batchDelete": {
+      "content": "",
+      "title": ""
+    },
+    "cancel": "",
+    "columns": {
+      "index": ""
+    },
+    "confirm": "",
+    "delete": {
+      "content": "",
+      "sucess": "",
+      "title": ""
+    },
+    "master": {
+      "defaultPreviewTitle": "",
+      "pagination": ""
+    },
+    "notifications": "",
+    "numberRange": {
+      "from": "",
+      "to": ""
+    },
+    "placeholder": {
+      "title": ""
+    },
+    "state": {
+      "approved": "",
+      "new": "",
+      "pending": "",
+      "rejected": ""
+    },
+    "update": {
+      "error": "",
+      "success": ""
+    }
+  },
+  "imageUpload": {
+    "lengthExceeded": ""
+  },
+  "image": {
+    "productImageMappingModal": {
+      "title": ""
+    },
+    "storeImageMappingModal": {
+      "title": ""
+    },
+    "tabs": {
+      "roles": {
+        "title": ""
+      }
+    }
+  },
+  "images": {
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "url": ""
+  },
+  "indirectSalesOrderContents": {
+    "amount": "",
+    "discountAmount": "",
+    "discountPercentage": "",
+    "items": {
+      "code": "",
+      "name": ""
+    },
+    "master": {
+      "item": {
+        "title": ""
+      }
+    },
+    "primaryUnitOfMeasure": "",
+    "quantity": "",
+    "requestedQuantity": "",
+    "salePrice": "",
+    "taxPercentage": "",
+    "unitOfMeasure": "",
+    "unitPrice": ""
+  },
+  "indirectSalesOrderPromotions": {
+    "items": {
+      "code": "",
+      "name": ""
+    },
+    "quantity": "",
+    "requestedQuantity": "",
+    "unitOfMeasure": ""
+  },
+  "indirectSalesOrders": {
+    "buyerStore": "",
+    "code": "",
+    "deliveryAddress": "",
+    "deliveryDate": "",
+    "detail": {
+      "title": ""
+    },
+    "discountPercentage": "",
+    "general": {
+      "title": ""
+    },
+    "indirectSalesOrderStatus": "",
+    "isEditedPrice": "",
+    "master": {
+      "title": ""
+    },
+    "newTotal": "",
+    "note": "",
+    "orderDate": "",
+    "payment": {
+      "title": ""
+    },
+    "phoneNumber": "",
+    "preview": {
+      "title": ""
+    },
+    "saleEmployee": "",
+    "select": {
+      "store": ""
+    },
+    "sellerStore": "",
+    "status": "",
+    "subTotal": "",
+    "total": "",
+    "totalTaxAmount": ""
+  },
+  "inventories": {
+    "accountingStock": "",
+    "saleStock": ""
+  },
+  "items": {
+    "code": "",
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": ""
+    },
+    "productGrouping": "",
+    "productType": "",
+    "salePrice": "",
+    "saleStock": "",
+    "selectedTable": "",
+    "supplier": ""
+  },
+  "menu": {
+    "administrativeUnits": "",
+    "appUsers": "",
+    "brands": "",
+    "category": "",
+    "dashboard": "",
+    "directSalesOrder": "",
+    "discount": "",
+    "districts": "",
+    "indirectSalesOrder": "",
+    "kpi": "",
+    "kpiManagement": "",
+    "masterData": "",
+    "monitor": "",
+    "notificationCenter": "",
+    "organization": "",
+    "partners": "",
+    "priceList": "",
+    "productGroupings": "",
+    "productTypes": "",
+    "products": "",
+    "promotion": "",
+    "provinces": "",
+    "report": "",
+    "reseller": "",
+    "resellerType": "",
+    "roles": "",
+    "route": "",
+    "routeMaster": "",
+    "sales": "",
+    "salesmanMonitor": "",
+    "store": "",
+    "storeCheckerMonitor": "",
+    "storeGroupings": "",
+    "storeImages": "",
+    "storeTypes": "",
+    "stores": "",
+    "suppliers": "",
+    "system": "",
+    "systemManagement": "",
+    "unitOfMeasureGroupings": "",
+    "unitOfMeasures": "",
+    "wards": "",
+    "warehouse": "",
+    "warehouses": ""
+  },
+  "menus": {
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isDeleted": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "path": "",
+    "tabs": {
+      "fields": {
+        "title": ""
+      },
+      "pages": {
+        "title": ""
+      }
+    }
+  },
+  "organization": {
+    "master": {
+      "title": ""
+    }
+  },
+  "organizations": {
+    "address": "",
+    "appUsers": {
+      "displayName": "",
+      "email": "",
+      "phone": "",
+      "placeholder": {
+        "code": "",
+        "email": "",
+        "phone": "",
+        "username": ""
+      },
+      "username": ""
+    },
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "email": "",
+    "master": {
+      "add": "",
+      "appUser": {
+        "displayName": "",
+        "email": "",
+        "phone": "",
+        "title": "",
+        "username": ""
+      },
+      "grouping": {
+        "title": ""
+      },
+      "title": ""
+    },
+    "name": "",
+    "organization": "",
+    "phone": "",
+    "placeholder": {
+      "address": "",
+      "code": "",
+      "email": "",
+      "name": "",
+      "phone": ""
+    },
+    "status": ""
+  },
+  "page": {
+    "permissionPageMappingModal": {
+      "title": ""
+    },
+    "tabs": {
+      "roles": {
+        "title": ""
+      }
+    }
+  },
+  "pages": {
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isDeleted": "",
+    "login": {
+      "loggingIn": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "",
+    "path": ""
+  },
+  "permissionFieldMappings": {
+    "id": "",
+    "name": ""
+  },
+  "permissionPageMappings": {
+    "id": "",
+    "name": ""
+  },
+  "permission": {
+    "permissionFieldMappingModal": {
+      "title": ""
+    },
+    "permissionPageMappingModal": {
+      "title": ""
+    },
+    "tabs": {
+      "roles": {
+        "title": ""
+      }
+    }
+  },
+  "permissions": {
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "field": "",
+    "fields": {
+      "fieldId": "",
+      "id": "",
+      "isDeleted": "",
+      "menuId": "",
+      "name": "",
+      "permissionId": "",
+      "type": "",
+      "value": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "",
+    "page": "",
+    "pages": {
+      "id": "",
+      "isDeleted": "",
+      "menuId": "",
+      "name": "",
+      "pageId": "",
+      "path": "",
+      "permissionId": ""
+    },
+    "permissionFieldMappings": {
+      "list": ""
+    },
+    "permissionPageMappings": {
+      "list": ""
+    },
+    "permissionsMenu": "",
+    "placeholder": {
+      "menu": ""
+    },
+    "role": "",
+    "status": ""
+  },
+  "productDetail": {
+    "images": "",
+    "status": ""
+  },
+  "productGrouping": {
+    "code": "",
+    "description": "",
+    "detail": {
+      "addNode": ""
+    },
+    "master": {
+      "product": {
+        "code": "",
+        "id": "",
+        "name": "",
+        "supplier": ""
+      }
+    },
+    "name": "",
+    "parentGroup": ""
+  },
+  "productGroupings": {
+    "master": {
+      "add": "",
+      "grouping": {
+        "title": ""
+      },
+      "product": {
+        "title": ""
+      },
+      "title": ""
+    }
+  },
+  "productImageMappings": {
+    "id": "",
+    "name": ""
+  },
+  "productTypes": {
+    "code": "",
+    "description": "",
+    "detail": {
+      "addNode": "",
+      "edit": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "description": "",
+      "name": ""
+    },
+    "status": "",
+    "updatedAt": ""
+  },
+  "product": {
+    "tabs": {
+      "general": {
+        "title": ""
+      }
+    }
+  },
+  "products": {
+    "addProductGrouping": "",
+    "addVariation": "",
+    "brand": "",
+    "code": "",
+    "createVariations": "",
+    "description": "",
+    "detail": {
+      "title": ""
+    },
+    "eRPCode": "",
+    "general": "",
+    "image": "",
+    "images": {
+      "id": "",
+      "imageId": "",
+      "name": "",
+      "productId": "",
+      "url": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "otherName": "",
+    "placeholder": {
+      "brand": "",
+      "code": "",
+      "eRPCode": "",
+      "name": "",
+      "otherName": "",
+      "productType": "",
+      "scanCode": "",
+      "supplier": "",
+      "technicalName": "",
+      "unitOfMeasure": ""
+    },
+    "price": "",
+    "productGrouping": "",
+    "productGroupings": {
+      "code": "",
+      "description": "",
+      "id": "",
+      "name": "",
+      "parentId": "",
+      "path": ""
+    },
+    "productType": "",
+    "retailPrice": "",
+    "scanCode": "",
+    "status": "",
+    "supplier": "",
+    "supplierCode": "",
+    "technicalName": "",
+    "unitOfMeasure": "",
+    "unitOfMeasureContent": "",
+    "unitOfMeasureGrouping": "",
+    "variationAndPrice": "",
+    "variationGrouping": "",
+    "variationValue": "",
+    "variationsAndPrice": ""
+  },
+  "properties": {
+    "code": "",
+    "createdAt": "",
+    "deletedAt": "",
+    "description": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isActive": "",
+    "isSystem": "",
+    "name": "",
+    "propertyTypeId": "",
+    "propertyValues": "",
+    "updatedAt": ""
+  },
+  "propertyTypes": {
+    "code": "",
+    "createdAt": "",
+    "deletedAt": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isActive": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "updatedAt": ""
+  },
+  "propertyValues": {
+    "code": "",
+    "createdAt": "",
+    "deletedAt": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isActive": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "property": "",
+    "propertyId": "",
+    "updatedAt": ""
+  },
+  "propertys": {
+    "code": "",
+    "description": "",
+    "id": "",
+    "isActive": "",
+    "isSystem": "",
+    "master": {
+      "title": ""
+    },
+    "name": ""
+  },
+  "provinces": {
+    "code": "",
+    "detail": {
+      "edit": "",
+      "title": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": "",
+      "priority": "",
+      "province": ""
+    },
+    "priority": ""
+  },
+  "role": {
+    "appUserRoleMappingModal": {
+      "title": ""
+    }
+  },
+  "roles": {
+    "addAppUsers": "",
+    "addPermission": "",
+    "appUser": {
+      "displayName": "",
+      "email": "",
+      "phone": "",
+      "placeholder": {
+        "displayName": "",
+        "email": "",
+        "phone": "",
+        "username": ""
+      },
+      "username": ""
+    },
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "general": {
+      "appUser": "",
+      "info": "",
+      "permission": ""
+    },
+    "id": "",
+    "master": {
+      "appUser": {
+        "title": ""
+      },
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": ""
+    },
+    "status": ""
+  },
+  "storeGroupings": {
+    "code": "",
+    "detail": {
+      "edit": "",
+      "title": ""
+    },
+    "isActive": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": ""
+    }
+  },
+  "storeImageMappings": {
+    "id": "",
+    "name": ""
+  },
+  "storeLevels": {
+    "createdAt": "",
+    "deletedAt": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "updatedAt": ""
+  },
+  "storeTypes": {
+    "code": "",
+    "detail": {
+      "edit": "",
+      "title": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": ""
+    },
+    "status": ""
+  },
+  "store": {
+    "storeImageMappingModal": {
+      "title": ""
+    }
+  },
+  "stores": {
+    "address": "",
+    "code": "",
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": ""
+    },
+    "storeGrouping": "",
+    "storeType": "",
+    "telephone": ""
+  },
+  "suppliers": {
+    "address": "",
+    "code": "",
+    "description": "",
+    "detail": {
+      "title": ""
+    },
+    "district": "",
+    "email": "",
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "ownerName": "",
+    "personInCharge": "",
+    "phone": "",
+    "placeholder": {
+      "address": "",
+      "code": "",
+      "description": "",
+      "district": "",
+      "email": "",
+      "name": "",
+      "ownerName": "",
+      "personInCharge": "",
+      "phone": "",
+      "province": "",
+      "status": "",
+      "taxCode": "",
+      "ward": ""
+    },
+    "province": "",
+    "status": "",
+    "taxCode": "",
+    "updatedTime": "",
+    "ward": ""
+  },
+  "taxTypes": {
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "percentage": "",
+    "status": ""
+  },
+  "tree": {
+    "actions": {
+      "addNode": "",
+      "addSubNode": ""
+    },
+    "created": ""
+  },
+  "unitOfMeasureGroupingContents": {
+    "detail": {
+      "title": ""
+    },
+    "equal": "",
+    "factor": "",
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "number": "",
+    "title": "",
+    "unitOfMeasure": "",
+    "unitOfMeasureChange": ""
+  },
+  "unitOfMeasureGrouping": {
+    "id": "",
+    "name": ""
+  },
+  "unitOfMeasureGroupings": {
+    "code": "",
+    "description": "",
+    "detail": {
+      "title": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "status": "",
+    "unitOfMeasure": ""
+  },
+  "unitOfMeasures": {
+    "code": "",
+    "detail": {
+      "edit": "",
+      "title": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": ""
+    },
+    "status": ""
+  },
+  "variationGroupings": {
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "product": ""
+  },
+  "variations": {
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "variationGrouping": ""
+  },
+  "views": {
+    "detail": {
+      "title": ""
+    },
+    "fields": "",
+    "id": "",
+    "isDeleted": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "pages": "",
+    "path": "",
+    "permissions": ""
+  },
+  "wards": {
+    "code": "",
+    "detail": {
+      "edit": "",
+      "title": ""
+    },
+    "district": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": "",
+      "priority": ""
+    },
+    "priority": ""
+  },
+  "warehouses": {
+    "accountingStock": "",
+    "address": "",
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "district": "",
+    "general": {
+      "info": ""
+    },
+    "inventoryHistorys": {
+      "accountingStock": "",
+      "appUser": "",
+      "oldAccountingStock": "",
+      "oldSaleStock": "",
+      "saleStock": "",
+      "updateTime": ""
+    },
+    "item": {
+      "code": "",
+      "name": "",
+      "unitOfMeasure": ""
+    },
+    "master": {
+      "inventoryHistory": "",
+      "title": ""
+    },
+    "name": "",
+    "organization": "",
+    "placeholder": {
+      "address": "",
+      "code": "",
+      "district": "",
+      "name": "",
+      "organization": "",
+      "province": "",
+      "status": "",
+      "unitOfMeasure": "",
+      "ward": ""
+    },
+    "product": {
+      "title": ""
+    },
+    "province": "",
+    "saleStock": "",
+    "status": "",
+    "ward": ""
+  }
+}

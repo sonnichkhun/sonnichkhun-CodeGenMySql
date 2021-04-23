@@ -1,0 +1,19 @@
+{
+  "productGrouping": {
+    "code": "Mã nhóm",
+    "description": "Mô tả",
+    "detail": {
+      "addNode": "Thêm nhóm"
+    },
+    "master": {
+      "product": {
+        "code": "Mã sản phẩm",
+        "id": "ID",
+        "name": "Tên sản phẩm",
+        "supplier": "Nhà cung cấp"
+      }
+    },
+    "name": "Tên nhóm",
+    "parentGroup": "Nhóm cha"
+  }
+}

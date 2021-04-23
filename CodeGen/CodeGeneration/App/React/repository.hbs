@@ -1,0 +1,109 @@
+﻿import { AxiosResponse } from 'axios';
+import nameof from 'ts-nameof.macro';
+import { url } from 'core/helpers/string';
+import { Repository } from 'core/repositories/Repository';
+import kebabCase from 'lodash/kebabCase';
+import {BatchId, PureModelData} from 'react3l';
+import {httpConfig} from 'config/http';
+import {API_BASE_URL} from 'core/config';
+
+import {API_{{Class.Upper}}_ROUTE} from 'config/api-consts';
+import { {{Class.Pascal}} } from 'models/{{Class.Pascal}}';
+import { {{Class.Pascal}}Filter } from 'models/{{Class.Pascal}}Filter';
+{{#each Class.References}}
+{{#ifCond ../Class.Pascal '!=' Pascal}}
+import { {{Pascal}} } from 'models/{{Pascal}}';
+import { {{Pascal}}Filter } from 'models/{{Pascal}}Filter';
+{{/ifCond}}
+{{/each}}
+
+export class {{Class.Pascal}}Repository extends Repository {
+  constructor() {
+    super(httpConfig);
+    this.setBaseURL(url(API_BASE_URL, API_{{Class.Upper}}_ROUTE));
+  }
+
+  public count = ({{Class.Camel}}Filter?: {{Class.Pascal}}Filter): Promise<number> => {
+    return this.http.post<number>(kebabCase(nameof(this.count)), {{Class.Camel}}Filter)
+      .then((response: AxiosResponse<number>) => response.data);
+  };
+
+  public list = ({{Class.Camel}}Filter?: {{Class.Pascal}}Filter): Promise<{{Class.Pascal}}[]> => {
+    return this.http.post<{{Class.Pascal}}[]>(kebabCase(nameof(this.list)), {{Class.Camel}}Filter)
+      .then((response: AxiosResponse<{{Class.Pascal}}[]>) => {
+        return response.data?.map(({{Class.Camel}}: PureModelData<{{Class.Pascal}}>) =>  {{Class.Pascal}}.clone<{{Class.Pascal}}>({{Class.Camel}}));
+    });
+  };
+
+  public get = (id: number | string): Promise<{{Class.Pascal}}> => {
+    return this.http.post<{{Class.Pascal}}>
+      (kebabCase(nameof(this.get)), { id })
+        .then((response: AxiosResponse<{{Class.Pascal}}>) => {{Class.Pascal}}.clone<{{Class.Pascal}}>(response.data));
+  };
+
+  public create = ({{Class.Camel}}: {{Class.Pascal}}): Promise<{{Class.Pascal}}> => {
+    return this.http.post<{{Class.Pascal}}>(kebabCase(nameof(this.create)), {{Class.Camel}})
+      .then((response: AxiosResponse<PureModelData<{{Class.Pascal}}>>) => {{Class.Pascal}}.clone<{{Class.Pascal}}>(response.data));
+  };
+
+  public update = ({{Class.Camel}}: {{Class.Pascal}}): Promise<{{Class.Pascal}}> => {
+    return this.http.post<{{Class.Pascal}}>(kebabCase(nameof(this.update)), {{Class.Camel}})
+      .then((response: AxiosResponse<{{Class.Pascal}}>) => {{Class.Pascal}}.clone<{{Class.Pascal}}>(response.data));
+  };
+
+  public delete = ({{Class.Camel}}: {{Class.Pascal}}): Promise<{{Class.Pascal}}> => {
+      return this.http.post<{{Class.Pascal}}>(kebabCase(nameof(this.delete)), {{Class.Camel}})
+        .then((response: AxiosResponse<{{Class.Pascal}}>) => {{Class.Pascal}}.clone<{{Class.Pascal}}>(response.data));
+  };
+
+  public save = ({{Class.Camel}}: {{Class.Pascal}}): Promise<{{Class.Pascal}}> => {
+      return {{Class.Camel}}.id ? this.update({{Class.Camel}}) : this.create({{Class.Camel}});
+  };
+
+  {{#each Class.References}}
+  {{#if IsEnum}}
+  public singleList{{Pascal}} = (): Promise<{{Pascal}}[]> =>
+  {
+      return this.http.post<{{Pascal}}[]>(kebabCase(nameof(this.singleList{{Pascal}})), new {{Pascal}}Filter())
+        .then((response: AxiosResponse<{{Pascal}}[]>) => {
+          return response.data.map(({{Camel}}: PureModelData<{{Pascal}}>) => {{Pascal}}.clone<{{Pascal}}>({{Camel}}));
+      });
+  };
+  {{else}}
+  public singleList{{Pascal}} = ({{Camel}}Filter: {{Pascal}}Filter): Promise<{{Pascal}}[]> => {
+      return this.http.post<{{Pascal}}[]>(kebabCase(nameof(this.singleList{{Pascal}})), {{Camel}}Filter)
+        .then((response: AxiosResponse<{{Pascal}}[]>) => {
+          return response.data.map(({{Camel}}: PureModelData<{{Pascal}}>) => {{Pascal}}.clone<{{Pascal}}>({{Camel}}));
+        });
+  };
+  {{/if}}
+  {{/each}}
+  {{#each Class.Properties}}{{#if IsMapping}}
+  public count{{MappingClass.Pascal}} = ({{MappingClass.Camel}}Filter: {{MappingClass.Pascal}}Filter):
+      Promise<number> => {
+        return this.http.post<number>(kebabCase(nameof(this.count{{MappingClass.Pascal}})), {{MappingClass.Camel}}Filter)
+          .then((response: AxiosResponse<number>) =>  response.data);
+    };
+
+  public list{{MappingClass.Pascal}} = ({{MappingClass.Camel}}Filter: {{MappingClass.Pascal}}Filter): Promise<{{MappingClass.Pascal}}[]> => {
+        return this.http.post<{{MappingClass.Pascal}}[]>(kebabCase(nameof(this.list{{MappingClass.Pascal}})), {{MappingClass.Camel}}Filter)
+          .then((response: AxiosResponse<{{MappingClass.Pascal}}[]>) => {
+            return response.data.map(({{MappingClass.Camel}}: PureModelData<{{MappingClass.Pascal}}>) => {{MappingClass.Pascal}}.clone<{{MappingClass.Pascal}}>({{MappingClass.Camel}}));
+          });
+  };
+  {{/if}}{{/each}}
+
+  public bulkDelete = (idList: BatchId): Promise<void> => {
+    return this.http.post(kebabCase(nameof(this.bulkDelete)), idList)
+    .then((response: AxiosResponse<void>) => response.data);
+  };
+
+  public import = (file: File, name: string = nameof(file)): Promise<void> => {
+    const formData: FormData = new FormData();
+    formData.append(name, file);
+    return this.http.post<void>(kebabCase(nameof(this.import)), formData)
+      .then((response: AxiosResponse<void>) => response.data);
+    };
+  }
+
+  export const {{Class.Camel}}Repository: {{Class.Pascal}} = new {{Class.Pascal}}Repository();

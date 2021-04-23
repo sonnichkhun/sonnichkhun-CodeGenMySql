@@ -1,0 +1,22 @@
+{
+  "menus": {
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isDeleted": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "path": "",
+    "tabs": {
+      "fields": {
+        "title": ""
+      },
+      "pages": {
+        "title": ""
+      }
+    }
+  }
+}

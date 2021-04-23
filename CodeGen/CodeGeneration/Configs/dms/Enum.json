@@ -1,0 +1,20 @@
+[
+  "IndirectSalesOrderStatus",
+  "ResellerStatus",
+  "Sex",
+  "Status",
+  "StoreStatus",
+  "PriceListType",
+  "RequestState",
+  "WorkflowState",
+  "WorkflowType",
+  "UsedVariation",
+  "SurveyQuestionType",
+  "SurveyOptionType",
+  "ProblemType",
+  "KpiCriteriaItem",
+  "KpiCriteriaTotal",
+  "KpiCriteriaGeneral",
+  "KpiYear",
+  "KpiPeriod"
+]

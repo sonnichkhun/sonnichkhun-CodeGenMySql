@@ -1,0 +1,22 @@
+{
+  "indirectSalesOrderContents": {
+    "amount": "",
+    "discountPercentage": "",
+    "items": {
+      "code": "",
+      "name": ""
+    },
+    "master": {
+      "item": {
+        "title": ""
+      }
+    },
+    "primaryUnitOfMeasure": "",
+    "quantity": "",
+    "requestedQuantity": "",
+    "salePrice": "",
+    "taxPercentage": "",
+    "unitOfMeasure": "",
+    "unitPrice": ""
+  }
+}

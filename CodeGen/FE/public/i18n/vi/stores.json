@@ -1,0 +1,59 @@
+{
+  "stores": {
+    "address1": "Địa chỉ cửa hàng",
+    "address2": "Địa chỉ giao hàng",
+    "code": "Mã của hàng",
+    "deliveryAddress": "Địa chỉ giao hàng",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "district": "Quận/ Huyện",
+    "general": {
+      "info": "Thông tin cửa hàng"
+    },
+    "id": "ID",
+    "latitude": "Vĩ độ",
+    "location": "Vị trí/ Location",
+    "longitude": "Kinh độ",
+    "master": {
+      "title": "Quản lý cửa hàng"
+    },
+    "name": "Tên cửa hàng",
+    "organization": "Đơn vị quản lý",
+    "owner": {
+      "info": "Thông tin chủ cửa hàng"
+    },
+    "ownerEmail": "Email",
+    "ownerName": "Tên chủ cửa hàng",
+    "ownerPhone": "Điện thoại liên hệ",
+    "parentStore": "Cửa hàng cấp cha",
+    "placeholder": {
+      "address": "Nhập địa chỉ cửa hàng",
+      "address1": "Nhập địa chỉ cửa hàng",
+      "address2": "Nhập địa chỉ giao hàng",
+      "code": "Nhập mã cửa hàng",
+      "district": "Chọn Quận/Huyện",
+      "name": "Nhập tên cửa hàng",
+      "organization": "Chọn đơn vị quản lý",
+      "ownerEmail": "Nhập email",
+      "ownerName": "Nhập tên chủ cửa hàng",
+      "ownerPhone": "Nhập điện thoại liên hệ",
+      "parentStore": "Chọn cửa hàng cấp cha",
+      "phone": "Nhập số điện thoại",
+      "province": "Chọn Tỉnh/Thành phố",
+      "status": "Chọn trạng thái",
+      "storeGrouping": "Chọn nhóm cửa hàng",
+      "storeType": "Chọn cấp cửa hàng",
+      "ward": "Chọn Phường/Xã",
+      "reseller": "Nhập khách hàng"
+    },
+    "province": "Tỉnh/Thành phố",
+    "status": "Trạng thái",
+    "storeGrouping": "Nhóm cửa hàng",
+    "storeType": "Cấp cửa hàng",
+    "telephone": "Điện thoại",
+    "ward": "Phường/Xã",
+    "images": "Hình ảnh cửa hàng",
+    "reseller": "Khách hàng"
+  }
+}

@@ -1,0 +1,19 @@
+﻿{
+  "service": {
+    "name": "{{Module}}-backend",
+    "port": 80,
+    "tags": [
+      "{{Module}}-backend"
+    ],
+    "connect": {
+      "sidecar_service": {}
+    },
+    "check": {
+      "id": "{{Module}}-backend",
+      "name": "{{Module}}-backend TCP on port 80",
+      "tcp": "localhost:80",
+      "interval": "5s",
+      "timeout": "1s"
+    }
+  }
+}

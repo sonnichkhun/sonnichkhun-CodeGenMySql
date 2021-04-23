@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "code": "Mã quyền",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "field": "Phân quyền theo dữ liệu",
+    "fields": {
+      "fieldId": "",
+      "id": "",
+      "isDeleted": "",
+      "menuId": "",
+      "name": "",
+      "permissionId": "",
+      "type": "",
+      "value": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "menu": "Menu",
+    "name": "Tên quyền",
+    "page": "Phân quyền theo trang",
+    "pages": {
+      "id": "",
+      "isDeleted": "",
+      "menuId": "",
+      "name": "",
+      "pageId": "",
+      "path": "",
+      "permissionId": ""
+    },
+    "permissionFieldMappings": {
+      "list": ""
+    },
+    "permissionPageMappings": {
+      "list": ""
+    },
+    "permissionsMenu": "Quyền theo Menu",
+    "placeholder": {
+      "menu": "Chọn Menu"
+    },
+    "role": "Vai trò",
+    "status": "Trạng thái"
+  }
+}

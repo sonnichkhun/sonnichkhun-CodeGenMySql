@@ -1,0 +1,32 @@
+{
+  "eRoutes": {
+    "code": "Mã tuyến",
+    "creator": "Người tạo",
+    "detail": {
+      "title": ""
+    },
+    "eRouteType": "Loại tuyến",
+    "endDate": "Ngày kết thúc",
+    "master": {
+      "title": "Danh sách tuyến"
+    },
+    "name": "Tên tuyến",
+    "placeholder": {
+      "code": "Nhập mã tuyến",
+      "eRouteType": "Chọn loại tuyến",
+      "endDate": "Chọn ngày kết thúc",
+      "name": "Nhập tên tuyến",
+      "saleEmployee": "Chọn nhân viên",
+      "startDate": "Chọn ngày bắt đầu",
+      "store": "Chọn cửa hàng"
+    },
+    "requestState": "Trạng thái kế hoạch",
+    "saleEmployee": "Nhân viên kinh doanh",
+    "startDate": "Ngày bắt đầu",
+    "status": "Trạng thái",
+    "store": "Cửa hàng",
+    "title": {
+      "store": "Danh sách cửa hàng"
+    }
+  }
+}

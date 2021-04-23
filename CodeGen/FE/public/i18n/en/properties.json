@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "code": "",
+    "createdAt": "",
+    "deletedAt": "",
+    "description": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isActive": "",
+    "isSystem": "",
+    "name": "",
+    "propertyTypeId": "",
+    "propertyValues": "",
+    "updatedAt": ""
+  }
+}

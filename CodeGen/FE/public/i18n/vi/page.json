@@ -1,0 +1,12 @@
+{
+  "page": {
+    "permissionPageMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "tabs": {
+      "roles": {
+        "title": "Danh sách vai trò"
+      }
+    }
+  }
+}

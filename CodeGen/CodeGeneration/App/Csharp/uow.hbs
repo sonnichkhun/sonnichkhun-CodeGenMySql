@@ -1,0 +1,65 @@
+﻿using {{Namespace}}.Common;
+using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
+using {{Namespace}}.Models;
+using {{Namespace}}.Repositories;
+
+namespace {{Namespace}}.Repositories
+{
+    public interface IUOW : IServiceScoped
+    {
+        Task Begin();
+        Task Commit();
+        Task Rollback();
+
+{{#each Classes}}
+{{#unless IsMapping}}
+{{#if ContainsPK}}
+        I{{Pascal}}Repository {{Pascal}}Repository { get; }
+{{/if}}
+{{/unless}}
+{{/each}}
+    }
+
+    public class UOW : IUOW
+    {
+        private DataContext DataContext;
+
+{{#each Classes}}
+{{#unless IsMapping}}
+{{#if ContainsPK}}
+        public I{{Pascal}}Repository {{Pascal}}Repository { get; private set; }
+{{/if}}
+{{/unless}}
+{{/each}}
+
+        public UOW(DataContext DataContext)
+        {
+            this.DataContext = DataContext;
+
+{{#each Classes}}
+{{#unless IsMapping}}
+{{#if ContainsPK}}
+{{Pascal}}Repository = new {{Pascal}}Repository(DataContext);
+{{/if}}
+{{/unless}}
+{{/each}}
+        }
+        public async Task Begin()
+        {
+            await DataContext.Database.BeginTransactionAsync();
+        }
+
+        public Task Commit()
+        {
+            DataContext.Database.CommitTransaction();
+            return Task.CompletedTask;
+        }
+
+        public Task Rollback()
+        {
+            DataContext.Database.RollbackTransaction();
+            return Task.CompletedTask;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "SysUser": [
+    "SysUserRoleMapping"
+  ],
+  "LoanPackage": [
+    "LoanPackagePeriod"
+  ],
+  "DeviceAppGrouping": [
+    "DeviceAppDeviceAppGroupingMapping"
+  ]
+}

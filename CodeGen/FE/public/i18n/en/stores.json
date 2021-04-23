@@ -1,0 +1,59 @@
+{
+  "stores": {
+    "address": "",
+    "address1": "",
+    "address2": "",
+    "code": "",
+    "deliveryAddress": "",
+    "detail": {
+      "title": ""
+    },
+    "district": "",
+    "general": {
+      "info": ""
+    },
+    "id": "",
+    "images": "",
+    "latitude": "",
+    "location": "",
+    "longitude": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "organization": "",
+    "owner": {
+      "info": ""
+    },
+    "ownerEmail": "",
+    "ownerName": "",
+    "ownerPhone": "",
+    "parentStore": "",
+    "placeholder": {
+      "address": "",
+      "address1": "",
+      "address2": "",
+      "code": "",
+      "district": "",
+      "name": "",
+      "organization": "",
+      "ownerEmail": "",
+      "ownerName": "",
+      "ownerPhone": "",
+      "parentStore": "",
+      "phone": "",
+      "province": "",
+      "reseller": "",
+      "storeGrouping": "",
+      "storeType": "",
+      "ward": ""
+    },
+    "province": "",
+    "reseller": "",
+    "status": "",
+    "storeGrouping": "",
+    "storeType": "",
+    "telephone": "",
+    "ward": ""
+  }
+}

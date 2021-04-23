@@ -1,0 +1,40 @@
+{
+  "suppliers": {
+    "address": "",
+    "code": "",
+    "description": "",
+    "detail": {
+      "title": ""
+    },
+    "district": "",
+    "email": "",
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "ownerName": "",
+    "personInCharge": "",
+    "phone": "",
+    "placeholder": {
+      "address": "",
+      "code": "",
+      "description": "",
+      "district": "",
+      "email": "",
+      "name": "",
+      "ownerName": "",
+      "personInCharge": "",
+      "phone": "",
+      "province": "",
+      "status": "",
+      "taxCode": "",
+      "ward": ""
+    },
+    "province": "",
+    "status": "",
+    "taxCode": "",
+    "updatedTime": "",
+    "ward": ""
+  }
+}

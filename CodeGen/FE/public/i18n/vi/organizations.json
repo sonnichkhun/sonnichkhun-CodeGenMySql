@@ -1,0 +1,54 @@
+{
+  "organizations": {
+    "address": "Địa chỉ",
+    "appUser": "Nhân viên",
+    "appUsers": {
+      "displayName": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "placeholder": {
+        "code": "Nhập mã đơn vị",
+        "email": "Nhập email",
+        "phone": "Nhập SĐT",
+        "username": "Nhập tên đăng nhập"
+      },
+      "username": "Tên đăng nhập"
+    },
+    "code": "Mã đơn vị",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "email": "Email",
+    "filter": {
+      "all": "Tất cả",
+      "children": "Các node con",
+      "parent": "Node hiện tại"
+    },
+    "master": {
+      "add": "Thêm nhân viên",
+      "appUser": {
+        "displayName": "Họ và tên",
+        "email": "Email",
+        "phone": "Số điện thoại",
+        "title": "Danh sách nhân viên",
+        "username": "Tên đăng nhập"
+      },
+      "grouping": {
+        "title": "Danh sách đơn vị"
+      },
+      "title": "Đơn vị tổ chức"
+    },
+    "name": "Tên",
+    "organization": "Đơn vị cha",
+    "phone": "Số điện thoại",
+    "placeholder": {
+      "address": "Nhập địa chỉ",
+      "code": "Nhập mã đơn vị",
+      "email": "Nhập email",
+      "name": "Nhập tên đơn vị",
+      "organization": "Chọn đơn vị cha",
+      "phone": "Nhập SĐT"
+    },
+    "status": "Trạng thái"
+  }
+}

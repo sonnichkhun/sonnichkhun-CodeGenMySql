@@ -1,0 +1,39 @@
+{
+  "roles": {
+    "addAppUsers": "",
+    "addPermission": "",
+    "appUser": {
+      "displayName": "",
+      "email": "",
+      "phone": "",
+      "placeholder": {
+        "displayName": "",
+        "email": "",
+        "phone": "",
+        "username": ""
+      },
+      "username": ""
+    },
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "general": {
+      "appUser": "",
+      "info": "",
+      "permission": ""
+    },
+    "id": "",
+    "master": {
+      "appUser": {
+        "title": ""
+      },
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": ""
+    },
+    "status": ""
+  }
+}

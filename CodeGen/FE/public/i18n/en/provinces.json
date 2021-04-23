@@ -1,0 +1,20 @@
+{
+  "provinces": {
+    "code": "",
+    "detail": {
+      "edit": "",
+      "title": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": "",
+      "priority": "",
+      "province": ""
+    },
+    "priority": ""
+  }
+}

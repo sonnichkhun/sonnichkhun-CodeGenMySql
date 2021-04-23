@@ -1,0 +1,55 @@
+{
+  "appUsers": {
+    "address": "",
+    "avatar": "",
+    "changePassword": {
+      "confirmPass": "",
+      "newPass": "",
+      "title": ""
+    },
+    "detail": {
+      "title": ""
+    },
+    "displayName": "",
+    "email": "",
+    "inactive": {
+      "content": "",
+      "title": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "organization": "",
+    "phone": "",
+    "placeholder": {
+      "address": "",
+      "displayName": "",
+      "email": "",
+      "organization": "",
+      "phone": "",
+      "position": "",
+      "province": "",
+      "username": ""
+    },
+    "position": "",
+    "province": "",
+    "roles": {
+      "appUserId": "",
+      "code": "",
+      "id": "",
+      "name": "",
+      "roleId": "",
+      "statusId": ""
+    },
+    "sex": "",
+    "status": "",
+    "tooltip": {
+      "changePassword": "",
+      "delete": "",
+      "edit": "",
+      "inactive": "",
+      "view": ""
+    },
+    "username": ""
+  }
+}

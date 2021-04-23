@@ -1,0 +1,19 @@
+{
+  "service": {
+    "name": "dms-frontend",
+    "port": 8081,
+    "tags": [
+      "dms-frontend"
+    ],
+    "connect": {
+      "sidecar_service": {}
+    },
+    "check": {
+      "id": "dms-frontend",
+      "name": "dms-frontend TCP on port 8081",
+      "tcp": "dms-frontend:8081",
+      "interval": "5s",
+      "timeout": "1s"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "brands": {
+    "code": "Mã nhãn hiệu",
+    "description": "Mô tả",
+    "detail": {
+      "addNode": "Thêm nhãn hiệu mới",
+      "edit": "Thông tin chi tiết"
+    },
+    "id": "ID",
+    "master": {
+      "title": "Danh sách nhãn hiệu"
+    },
+    "name": "Tên nhãn hiệu",
+    "placeholder": {
+      "code": "Nhập tên nhãn hiệu",
+      "description": "Nhập mô tả",
+      "name": "Nhập mã nhãn hiệu",
+      "status": "Chọn trạng thái"
+    },
+    "status": "Trạng thái",
+    "updatedTime": "Ngày cập nhật"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unitOfMeasureGroupings": {
+    "code": "Mã nhóm",
+    "description": "Mô tả",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "master": {
+      "title": "Danh sách nhóm đơn vị tính"
+    },
+    "name": "Tên nhóm",
+    "status": "Trạng thái",
+    "unitOfMeasure": "Đơn vị cơ bản",
+    "placeholder": {
+      "code": "Nhập mã nhóm",
+      "description": "Nhập mô tả",
+      "name": "Nhập tên nhóm",
+      "unitOfMeasure": "Chọn đơn vị cơ bản"
+    }
+  }
+}

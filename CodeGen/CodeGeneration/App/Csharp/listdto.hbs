@@ -1,0 +1,42 @@
+﻿using {{Namespace}}.Common;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using {{Namespace}}.Entities;
+
+namespace {{Namespace}}.Rpc.{{Parent.Snake}}
+{
+    public class {{Parent.Pascal}}_{{Class.Pascal}}DTO : DataDTO
+    {
+{{#each Class.Properties}}
+{{#if IsPrimitive}}
+        public {{Type}} {{Pascal}} { get; set; }
+{{/if}}
+{{#if IsReference}}
+        public {{@root.Parent.Pascal}}_{{Class.Pascal}}DTO {{Pascal}} { get; set; }
+{{/if}}
+{{/each}}
+
+        public {{Parent.Pascal}}_{{Class.Pascal}}DTO() {}
+        public {{Parent.Pascal}}_{{Class.Pascal}}DTO({{Class.Pascal}} {{Class.Pascal}})
+        {
+{{#each Class.Properties}}
+{{#if IsPrimitive}}
+            this.{{Pascal}} = {{../Class.Pascal}}.{{Pascal}};
+{{/if}}
+{{#if IsReference}}
+            this.{{Pascal}} = {{../Class.Pascal}}.{{Pascal}} == null ? null : new {{@root.Parent.Pascal}}_{{Class.Pascal}}DTO({{../Class.Pascal}}.{{Pascal}});
+{{/if}}
+{{/each}}
+            this.Errors = {{Class.Pascal}}.Errors;
+        }
+    }
+
+    public class {{Parent.Pascal}}_{{Class.Pascal}}FilterDTO : FilterDTO
+    {
+{{#each Class.Properties}}{{#if IsFilter}}
+        public {{FilterType}} {{Pascal}} { get; set; }
+{{/if}}{{/each}}
+        public {{Class.Pascal}}Order OrderBy { get; set; }
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "pages": {
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "isDeleted": "",
+    "login": {
+      "loggingIn": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "",
+    "path": ""
+  }
+}

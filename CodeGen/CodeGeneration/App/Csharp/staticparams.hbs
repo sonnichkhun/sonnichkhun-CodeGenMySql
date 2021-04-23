@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace {{Namespace}}.Helpers
+{
+    public class StaticParams
+    {
+        public static DateTime DateTimeNow => DateTime.UtcNow.AddHours(7);
+        public static DateTime DateTimeMin => DateTime.MinValue;
+        public static string ExcelFileType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+    }
+}

@@ -1,0 +1,24 @@
+.idea/
+.vs/
+.vscode/
+
+node_modules/
+
+# Ignore build assets
+CodeGeneration/bin/
+CodeGeneration/obj/
+
+# Ignore env-specific appsettings
+appsettings.*.json
+
+# Ignore generated front-end
+CodeGeneration/FE/
+
+# Ignore generated code back-end
+AppReact/
+AppCSharp/
+CodeGeneration/FE/src/views
+CodeGeneration/Models/
+CodeGeneration/React/
+CodeGeneration/CSharp/
+CodeGeneration/build.bat

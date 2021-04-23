@@ -1,0 +1,32 @@
+{
+  "eRouteContents": {
+    "create": "",
+    "frequency": "",
+    "friday": "",
+    "monday": "",
+    "orderNumber": "",
+    "saturday": "",
+    "store": {
+      "address": "",
+      "code": "",
+      "name": "",
+      "organization": "",
+      "placeholder": {
+        "address": "",
+        "code": "",
+        "name": "",
+        "organization": "",
+        "storeType": ""
+      },
+      "storeType": ""
+    },
+    "sunday": "",
+    "thursday": "",
+    "tuesday": "",
+    "wednesday": "",
+    "week1": "",
+    "week2": "",
+    "week3": "",
+    "week4": ""
+  }
+}

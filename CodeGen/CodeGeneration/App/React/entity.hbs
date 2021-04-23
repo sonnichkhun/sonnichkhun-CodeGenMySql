@@ -1,0 +1,30 @@
+﻿import { Model } from 'core/models';
+{{#if Class.ContainsDateFilter}}
+import { Moment } from 'moment';
+{{/if}}
+{{#each Class.Properties}}
+{{#if IsReference}}
+{{#ifCond ../Class.Pascal '!=' Class.Pascal}}
+import { {{Class.Pascal}} } from './{{Class.Pascal}}';
+{{/ifCond}}
+{{/if}}
+{{#if IsList}}
+import { {{Class.Pascal}} } from './{{Class.Pascal}}';
+{{/if}}
+{{/each}}
+
+export class {{Class.Pascal}} extends Model 
+{
+    {{#each Class.Properties}}
+    {{#if IsPrimitive}}
+    public {{Camel}}?: {{Type}};
+    {{/if}}
+    
+    {{#if IsReference}}
+    public {{Camel}}?: {{Class.Pascal}};
+    {{/if}}
+    {{#if IsList}}
+    public {{Camel}}?: {{Class.Pascal}}[];
+    {{/if}}
+    {{/each}}
+}

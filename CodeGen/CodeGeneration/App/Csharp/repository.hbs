@@ -1,0 +1,483 @@
+﻿using {{Namespace}}.Common;
+using {{Namespace}}.Entities;
+using {{Namespace}}.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using {{Namespace}}.Helpers;
+
+namespace {{Namespace}}.Repositories
+{
+    public interface I{{Class.Pascal}}Repository
+    {
+        Task<int>
+    Count({{Class.Pascal}}Filter {{Class.Pascal}}Filter);
+    Task<List<{{Namespace}}.Entities.{{Class.Pascal}}>> List({{Class.Pascal}}Filter {{Class.Pascal}}Filter);
+        Task<{{Namespace}}.Entities.{{Class.Pascal}}> Get(long Id);
+        {{#unless Class.IsEnum}}
+        Task<bool> Create({{Namespace}}.Entities.{{Class.Pascal}} {{Class.Pascal}});
+        Task<bool> Update({{Namespace}}.Entities.{{Class.Pascal}} {{Class.Pascal}});
+        Task<bool> Delete({{Namespace}}.Entities.{{Class.Pascal}} {{Class.Pascal}});
+        Task<bool> BulkMerge(List<{{Namespace}}.Entities.{{Class.Pascal}}> {{Class.Plural}});
+        Task<bool> BulkDelete(List<{{Namespace}}.Entities.{{Class.Pascal}}> {{Class.Plural}});
+                    {{/unless}}
+                    }
+                    public class {{Class.Pascal}}Repository : I{{Class.Pascal}}Repository
+                    {
+                    private DataContext DataContext;
+                    public {{Class.Pascal}}Repository(DataContext DataContext)
+                    {
+                    this.DataContext = DataContext;
+                    }
+
+                    private IQueryable<{{Namespace}}.Models.{{Class.Pascal}}>
+                        DynamicFilter(IQueryable<{{Namespace}}.Models.{{Class.Pascal}}>
+                            query, {{Class.Pascal}}Filter filter)
+                            {
+                            if (filter == null)
+                            return query.Where(q => false);
+                            {{#if Class.ContainsFlag}}
+                            query = query.Where(q => !q.DeletedAt.HasValue);
+                            if (filter.CreatedAt != null)
+                            query = query.Where(q => q.CreatedAt, filter.CreatedAt);
+                            if (filter.UpdatedAt != null)
+                            query = query.Where(q => q.UpdatedAt, filter.UpdatedAt);
+                            {{/if}}
+                            {{#if Class.ContainsDisabled}}
+                            query = query.Where(q => q.Disabled == false);
+                            {{/if}}
+                            {{#each Class.Properties}}
+                            {{#if IsFilter}}
+                            if (filter.{{Pascal}} != null)
+                            {{#if IsNullable}}
+                            {{#if IsDate}}
+                            query = query.Where(q => q.{{Pascal}} == null).Union(query.Where(q => q.{{Pascal}}.HasValue).Where(q => q.{{Pascal}}, filter.{{Pascal}}));
+                            {{else}}
+                            query = query.Where(q => q.{{Pascal}}.HasValue).Where(q => q.{{Pascal}}, filter.{{Pascal}});
+                            {{/if}}
+                            {{else}}
+                            query = query.Where(q => q.{{Pascal}}, filter.{{Pascal}});
+                            {{/if}}
+                            {{/if}}
+                            {{/each}}
+                            query = OrFilter(query, filter);
+                            return query;
+                            }
+
+                            private IQueryable<{{Namespace}}.Models.{{Class.Pascal}}>
+                                OrFilter(IQueryable<{{Namespace}}.Models.{{Class.Pascal}}>
+                                    query, {{Class.Pascal}}Filter filter)
+                                    {
+                                    if (filter.OrFilter == null || filter.OrFilter.Count == 0)
+                                    return query;
+                                    IQueryable<{{Namespace}}.Models.{{Class.Pascal}}>
+                                        initQuery = query.Where(q => false);
+                                        foreach ({{Class.Pascal}}Filter {{Class.Pascal}}Filter in filter.OrFilter)
+                                        {
+                                        IQueryable<{{Namespace}}.Models.{{Class.Pascal}}>
+                                            queryable = query;
+                                            {{#each Class.Properties}}
+                                            {{#if IsFilter}}
+                                            if ({{../Class.Pascal}}Filter.{{Pascal}} != null)
+                                            {{#if IsNullable}}
+                                            queryable = queryable.Where(q => q.{{Pascal}}.HasValue).Where(q => q.{{Pascal}}, {{../Class.Pascal}}Filter.{{Pascal}});
+                                            {{else}}
+                                            queryable = queryable.Where(q => q.{{Pascal}}, {{../Class.Pascal}}Filter.{{Pascal}});
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                            initQuery = initQuery.Union(queryable);
+                                            }
+                                            return initQuery;
+                                            }
+
+                                            private IQueryable<{{Namespace}}.Models.{{Class.Pascal}}>
+                                                DynamicOrder(IQueryable<{{Namespace}}.Models.{{Class.Pascal}}>
+                                                    query, {{Class.Pascal}}Filter filter)
+                                                    {
+                                                    switch (filter.OrderType)
+                                                    {
+                                                    case OrderType.ASC:
+                                                    switch (filter.OrderBy)
+                                                    {
+                                                    {{#each Class.Properties}}
+                                                    {{#if IsPrimitive}}
+                                                    case {{../Class.Pascal}}Order.{{Filter}}:
+                                                    query = query.OrderBy(q => q.{{Pascal}});
+                                                    break;
+                                                    {{/if}}
+                                                    {{/each}}
+                                                    {{#if Class.ContainFlag}}
+                                                    case {{../Class.Pascal}}Order.CreatedAt:
+                                                    query = query.OrderBy(q => q.CreatedAt);
+                                                    break;
+                                                    case {{../Class.Pascal}}Order.UpdatedAt:
+                                                    query = query.OrderBy(q => q.UpdatedAt);
+                                                    break;
+                                                    {{/if}}
+                                                    }
+                                                    break;
+                                                    case OrderType.DESC:
+                                                    switch (filter.OrderBy)
+                                                    {
+                                                    {{#each Class.Properties}}
+                                                    {{#if IsPrimitive}}
+                                                    case {{../Class.Pascal}}Order.{{Filter}}:
+                                                    query = query.OrderByDescending(q => q.{{Pascal}});
+                                                    break;
+                                                    {{/if}}
+                                                    {{/each}}
+                                                    {{#if Class.ContainFlag}}
+                                                    case {{../Class.Pascal}}Order.CreatedAt:
+                                                    query = query.OrderByDescending(q => q.CreatedAt);
+                                                    break;
+                                                    case {{../Class.Pascal}}Order.UpdatedAt:
+                                                    query = query.OrderByDescending(q => q.UpdatedAt);
+                                                    break;
+                                                    {{/if}}
+                                                    }
+                                                    break;
+                                                    }
+                                                    query = query.Skip(filter.Skip).Take(filter.Take);
+                                                    return query;
+                                                    }
+
+                                                    private async Task<List<{{Namespace}}.Models.{{Class.Pascal}}>> DynamicSelect(IQueryable<{{Namespace}}.Models.{{Class.Pascal}}> query, {{Class.Pascal}}Filter filter)
+        {
+            List<{{Class.Pascal}}> {{Class.Plural}} = await query.Select(q => new {{Class.Pascal}}()
+            {
+                {{#each Class.Properties}}
+                {{#if IsPrimitive}}
+                {{Pascal}} = filter.Selects.Contains({{../Class.Pascal}}Select.{{Filter}}) ? q.{{Pascal}} : default({{Type}}),
+                {{/if}}
+                {{#if IsReference}}
+                {{Pascal}} = filter.Selects.Contains({{../Class.Pascal}}Select.{{Filter}}) && q.{{Pascal}} != null ? new {{Class.Pascal}}
+                {
+                    {{#each Class.Properties}}
+                    {{#if IsPrimitive}}
+                    {{Pascal}} = q.{{../Pascal}}.{{Pascal}},
+                    {{/if}}
+                    {{/each}}
+                } : null,
+                {{/if}}
+                {{/each}}
+                {{#if Class.ContainsFlag}}
+                CreatedAt = q.CreatedAt,
+                UpdatedAt = q.UpdatedAt,
+                {{/if}}
+            }).ToListAsync();
+            return {{Class.Plural}};
+        }
+
+        public async Task<int> Count({{Class.Pascal}}Filter filter)
+        {
+            IQueryable<{{Namespace}}.Models.{{Class.Pascal}}> {{Class.Plural}} = DataContext.{{Class.Pascal}}.AsNoTracking();
+            {{Class.Plural}} = DynamicFilter({{Class.Plural}}, filter);
+            return await {{Class.Plural}}.CountAsync();
+        }
+
+        public async Task<List<{{Class.Pascal}}>> List({{Class.Pascal}}Filter filter)
+        {
+            if (filter == null) return new List<{{Class.Pascal}}>();
+            IQueryable<{{Namespace}}.Models.{{Class.Pascal}}> {{Class.Pascal}}s = DataContext.{{Class.Pascal}}.AsNoTracking();
+            {{Class.Pascal}}s = DynamicFilter({{Class.Pascal}}s, filter);
+            {{Class.Pascal}}s = DynamicOrder({{Class.Pascal}}s, filter);
+            List<{{Class.Pascal}}> {{Class.Plural}} = await DynamicSelect({{Class.Pascal}}s, filter);
+            return {{Class.Plural}};
+        }
+
+        public async Task<{{Class.Pascal}}> Get(long Id)
+        {
+            {{Class.Pascal}} {{Class.Pascal}} = await DataContext.{{Class.Pascal}}.AsNoTracking()
+            .Where(x => x.Id == Id).Select(x => new {{Class.Pascal}}()
+            {
+                {{#if Class.ContainsFlag}}
+                CreatedAt = x.CreatedAt,
+                UpdatedAt = x.UpdatedAt,
+                {{/if}}
+                {{#each Class.Properties}}
+                {{#if IsPrimitive}}
+                {{Pascal}} = x.{{Pascal}},
+                {{/if}}
+                {{#if IsReference}}
+                {{Pascal}} = x.{{Pascal}} == null ? null : new {{Class.Pascal}}
+                {
+                    {{#each Class.Properties}}
+                    {{#if IsPrimitive}}
+                    {{Pascal}} = x.{{../Pascal}}.{{Pascal}},
+                    {{/if}}
+                    {{/each}}
+                },
+                {{/if}}
+                {{/each}}
+            }).FirstOrDefaultAsync();
+
+            if ({{Class.Pascal}} == null)
+                return null;
+            {{#each Class.Properties}}
+            {{#if IsList}}
+            {{../Class.Pascal}}.{{Pascal}} = await DataContext.{{Class.Pascal}}.AsNoTracking()
+                {{#ifCond ../Class.Pascal '==' Class.Pascal}}
+                {{#if ../Class.IsTree}}
+                .Where(x => x.ParentId == {{../Class.Pascal}}.Id)
+                {{else}}
+                .Where(x => x.{{@root.Class.Pascal}}Id == {{@root.Class.Pascal}}.Id)
+                {{/if}}
+                {{else}}
+                .Where(x => x.{{@root.Class.Pascal}}Id == {{@root.Class.Pascal}}.Id)
+                {{/ifCond}}
+                {{#if IsMapping}}
+                {{#if MappingClass.ContainsFlag}}
+                .Where(x => x.{{MappingClass.Pascal}}.DeletedAt == null)
+                {{/if}}
+                {{else}}
+                {{#if Class.ContainsFlag}}
+                .Where(x => x.DeletedAt == null)
+                {{/if}}
+                {{/if}}
+                .Select(x => new {{Class.Pascal}}
+                {
+                    {{#each Class.Properties}}
+                    {{#if IsPrimitive}}
+                    {{Pascal}} = x.{{Pascal}},
+                    {{/if}}
+                    {{#if IsReference}}
+                    {{Pascal}} = new {{Class.Pascal}}
+                    {
+                        {{#each Class.Properties}}
+                        {{#if IsPrimitive}}
+                        {{Pascal}} = x.{{../Pascal}}.{{Pascal}},
+                        {{/if}}
+                        {{/each}}
+                    },
+                    {{/if}}
+                    {{/each}}
+                }).ToListAsync();
+            {{/if}}
+            {{/each}}
+
+            return {{Class.Pascal}};
+        }
+        {{#unless Class.IsEnum}}
+        public async Task<bool> Create({{Class.Pascal}} {{Class.Pascal}})
+        {
+            {{Class.Pascal}} {{Class.Pascal}} = new {{Class.Pascal}}();
+            {{#each Class.Properties}}
+            {{#if IsPrimitive}}
+            {{../Class.Pascal}}.{{Pascal}} = {{../Class.Pascal}}.{{Pascal}};
+            {{/if}}
+            {{/each}}
+            {{#if Class.ContainsFlag}}
+            {{#if Class.IsTree}}
+            {{Class.Pascal}}.Path = "";
+            {{Class.Pascal}}.Level = 1;
+            {{/if}}
+            {{Class.Pascal}}.CreatedAt = StaticParams.DateTimeNow;
+            {{Class.Pascal}}.UpdatedAt = StaticParams.DateTimeNow;
+            {{/if}}
+            DataContext.{{Class.Pascal}}.Add({{Class.Pascal}});
+            await DataContext.SaveChangesAsync();
+            {{Class.Pascal}}.Id = {{Class.Pascal}}.Id;
+            await SaveReference({{Class.Pascal}});
+            {{#if Class.IsTree}}
+            await BuildPath();
+            {{/if}}
+            return true;
+        }
+
+        public async Task<bool> Update({{Class.Pascal}} {{Class.Pascal}})
+        {
+            {{Class.Pascal}} {{Class.Pascal}} = DataContext.{{Class.Pascal}}.Where(x => x.Id == {{Class.Pascal}}.Id).FirstOrDefault();
+            if ({{Class.Pascal}} == null)
+                return false;
+            {{#each Class.Properties}}
+            {{#if IsPrimitive}}
+            {{../Class.Pascal}}.{{Pascal}} = {{../Class.Pascal}}.{{Pascal}};
+            {{/if}}
+            {{/each}}
+            {{#if Class.IsTree}}
+            {{Class.Pascal}}.Path = "";
+            {{Class.Pascal}}.Level = 1;
+            {{/if}}
+            {{#if Class.ContainsFlag}}
+            {{Class.Pascal}}.UpdatedAt = StaticParams.DateTimeNow;
+            {{/if}}
+            await DataContext.SaveChangesAsync();
+            await SaveReference({{Class.Pascal}});
+            {{#if Class.IsTree}}
+            await BuildPath();
+            {{/if}}
+            return true;
+        }
+
+        public async Task<bool> Delete({{Class.Pascal}} {{Class.Pascal}})
+        {
+            {{#if Class.ContainsFlag}}
+            {{#if Class.IsTree}}
+            {{Class.Pascal}} {{Class.Pascal}} = await DataContext.{{Class.Pascal}}.Where(x => x.Id == {{Class.Pascal}}.Id).FirstOrDefaultAsync();
+            await DataContext.{{Class.Pascal}}.Where(x => x.Path.StartsWith({{Class.Pascal}}.Id + ".")).UpdateFromQueryAsync(x => new {{Class.Pascal}} { DeletedAt = StaticParams.DateTimeNow });
+            {{/if}}
+            await DataContext.{{Class.Pascal}}.Where(x => x.Id == {{Class.Pascal}}.Id).UpdateFromQueryAsync(x => new {{Class.Pascal}} { DeletedAt = StaticParams.DateTimeNow });
+            {{else}}
+            await DataContext.{{Class.Pascal}}.Where(x => x.Id == {{Class.Pascal}}.Id).DeleteFromQueryAsync();
+            {{/if}}
+            {{#if Class.IsTree}}
+            await BuildPath();
+            {{/if}}
+            return true;
+        }
+
+        public async Task<bool> BulkMerge(List<{{Class.Pascal}}> {{Class.Plural}})
+        {
+            List<{{Class.Pascal}}> {{Class.Pascal}}s = new List<{{Class.Pascal}}>();
+            foreach ({{Class.Pascal}} {{Class.Pascal}} in {{Class.Plural}})
+            {
+                {{Class.Pascal}} {{Class.Pascal}} = new {{Class.Pascal}}();
+                {{#each Class.Properties}}
+                {{#if IsPrimitive}}
+                {{../Class.Pascal}}.{{Pascal}} = {{../Class.Pascal}}.{{Pascal}};
+                {{/if}}
+                {{/each}}
+                {{#if Class.ContainsFlag}}
+                {{Class.Pascal}}.CreatedAt = StaticParams.DateTimeNow;
+                {{Class.Pascal}}.UpdatedAt = StaticParams.DateTimeNow;
+                {{/if}}
+                {{Class.Pascal}}s.Add({{Class.Pascal}});
+            }
+            await DataContext.BulkMergeAsync({{Class.Pascal}}s);
+            {{#if Class.IsTree}}
+            await BuildPath();
+            {{/if}}
+            return true;
+        }
+
+        public async Task<bool> BulkDelete(List<{{Class.Pascal}}> {{Class.Plural}})
+        {
+            List<long> Ids = {{Class.Plural}}.Select(x => x.Id).ToList();
+            {{#if Class.ContainsFlag}}
+            await DataContext.{{Class.Pascal}}
+                .Where(x => Ids.Contains(x.Id))
+                .UpdateFromQueryAsync(x => new {{Class.Pascal}} { DeletedAt = StaticParams.DateTimeNow });
+            {{else}}
+            await DataContext.{{Class.Pascal}}
+                .Where(x => Ids.Contains(x.Id)).DeleteFromQueryAsync();
+            {{/if}}
+            {{#if Class.IsTree}}
+            await BuildPath();
+            {{/if}}
+            return true;
+        }
+
+        private async Task SaveReference({{Class.Pascal}} {{Class.Pascal}})
+        {
+            {{#each Class.Properties}}
+            {{#if IsList}}
+             {{#if Class.ContainsFlag}}
+            List<{{Class.Pascal}}> {{Class.Pascal}}s = await DataContext.{{Class.Pascal}}
+                .Where(x => x.{{../Class.Pascal}}Id == {{../Class.Pascal}}.Id).ToListAsync();
+            {{Class.Pascal}}s.ForEach(x => x.DeletedAt = StaticParams.DateTimeNow);
+            if ({{../Class.Pascal}}.{{Pascal}} != null)
+            {
+                foreach ({{Class.Pascal}} {{Class.Pascal}} in {{../Class.Pascal}}.{{Pascal}})
+                {
+                    {{Class.Pascal}} {{Class.Pascal}} = {{Class.Pascal}}s
+                        .Where(x => x.Id == {{Class.Pascal}}.Id && x.Id != 0).FirstOrDefault();
+                    if ({{Class.Pascal}} == null)
+                    {
+                        {{Class.Pascal}} = new {{Class.Pascal}}();
+                        {{#each Class.Properties}}
+                        {{#if IsPrimitive}}
+                        {{#ifCond ../../Class.RefId '==' Pascal }}
+                        {{../../Class.Pascal}}.{{Pascal}} = {{../../../Class.Pascal}}.Id;
+                        {{else}}
+                        {{../../Class.Pascal}}.{{Pascal}} = {{../../Class.Pascal}}.{{Pascal}};
+                        {{/ifCond}}
+                        {{/if}}
+                        {{/each}}
+                        {{Class.Pascal}}s.Add({{Class.Pascal}});
+                        {{Class.Pascal}}.CreatedAt = StaticParams.DateTimeNow;
+                        {{Class.Pascal}}.UpdatedAt = StaticParams.DateTimeNow;
+                        {{Class.Pascal}}.DeletedAt = null;
+                    }
+                    else
+                    {
+                        {{#each Class.Properties}}
+                        {{#if IsPrimitive}}
+                        {{#ifCond ../../Class.RefId '==' Pascal }}
+                        {{../../Class.Pascal}}.{{Pascal}} = {{../../../Class.Pascal}}.Id;
+                        {{else}}
+                        {{../../Class.Pascal}}.{{Pascal}} = {{../../Class.Pascal}}.{{Pascal}};
+                        {{/ifCond}}
+                        {{/if}}
+                        {{/each}}
+                        {{Class.Pascal}}.UpdatedAt = StaticParams.DateTimeNow;
+                        {{Class.Pascal}}.DeletedAt = null;
+                    }
+                }
+                await DataContext.{{Class.Pascal}}.BulkMergeAsync({{Class.Pascal}}s);
+            }
+            {{else}}
+            await DataContext.{{Class.Pascal}}
+                .Where(x => x.{{../Class.Pascal}}Id == {{../Class.Pascal}}.Id)
+                .DeleteFromQueryAsync();
+            List<{{Class.Pascal}}> {{Class.Pascal}}s = new List<{{Class.Pascal}}>();
+            if ({{../Class.Pascal}}.{{Pascal}} != null)
+            {
+                foreach ({{Class.Pascal}} {{Class.Pascal}} in {{../Class.Pascal}}.{{Pascal}})
+                {
+                    {{Class.Pascal}} {{Class.Pascal}} = new {{Class.Pascal}}();
+                    {{#each Class.Properties}}
+                    {{#if IsPrimitive}}
+                    {{#ifCond ../../Class.RefId '==' Pascal }}
+                    {{../../Class.Pascal}}.{{Pascal}} = {{../../../Class.Pascal}}.Id;
+                    {{else}}
+                    {{../../Class.Pascal}}.{{Pascal}} = {{../../Class.Pascal}}.{{Pascal}};
+                    {{/ifCond}}
+                    {{/if}}
+                    {{/each}}
+                    {{Class.Pascal}}s.Add({{Class.Pascal}});
+                }
+                await DataContext.{{Class.Pascal}}.BulkMergeAsync({{Class.Pascal}}s);
+            }
+            {{/if}}
+            {{/if}}
+            {{/each}}
+        }
+
+        {{#if Class.IsTree}}
+        private async Task BuildPath()
+        {
+            List<{{Class.Pascal}}> {{Class.Pascal}}s = await DataContext.{{Class.Pascal}}
+                .Where(x => x.DeletedAt == null)
+                .AsNoTracking().ToListAsync();
+            Queue<{{Class.Pascal}}> queue = new Queue<{{Class.Pascal}}>();
+            {{Class.Pascal}}s.ForEach(x =>
+            {
+                if (!x.ParentId.HasValue)
+                {
+                    x.Path = x.Id + ".";
+                    x.Level = 1;
+                    queue.Enqueue(x);
+                }
+            });
+            while(queue.Count > 0)
+            {
+                {{Class.Pascal}} Parent = queue.Dequeue();
+                foreach ({{Class.Pascal}} {{Class.Pascal}} in {{Class.Pascal}}s)
+                {
+                    if ({{Class.Pascal}}.ParentId == Parent.Id)
+                    {
+                        {{Class.Pascal}}.Path = Parent.Path + {{Class.Pascal}}.Id + ".";
+                        {{Class.Pascal}}.Level = Parent.Level + 1;
+                        queue.Enqueue({{Class.Pascal}});
+                    }
+                }
+            }
+            await DataContext.BulkMergeAsync({{Class.Pascal}}s);
+        }
+        {{/if}}
+        {{/unless}}
+    }
+}

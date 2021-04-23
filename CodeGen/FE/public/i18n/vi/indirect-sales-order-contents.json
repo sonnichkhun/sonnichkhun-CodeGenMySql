@@ -1,0 +1,28 @@
+{
+  "indirectSalesOrderContents": {
+    "amount": "Thành tiền",
+    "discountAmount": "Chiết khấu",
+    "discountPercentage": "Chiết khấu",
+    "items": {
+      "code": "Mã sản phẩm",
+      "name": "Tên sản phẩm"
+    },
+    "master": {
+      "item": {
+        "title": "Danh sách sản phẩm"
+      }
+    },
+    "primaryUnitOfMeasure": "Đơn vị tính",
+    "quantity": "Số lượng",
+    "requestedQuantity": "Số lượng yêu cầu",
+    "salePrice": "Giá bán",
+    "taxPercentage": "VAT (%)",
+    "unitOfMeasure": "Đơn vị lưu kho",
+    "unitPrice": "Giá bán cơ sở",
+    "placeholder": {
+      "unitOfMeasure": "Chọn đơn vị tính"
+    },
+
+    "id": "ID"
+  }
+}

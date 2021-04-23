@@ -1,0 +1,13 @@
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\bin\Debug\netcoreapp3.1\CodeGeneration.exe
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\bin\Debug\netcoreapp3.1\CodeGeneration.deps.json
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\bin\Debug\netcoreapp3.1\CodeGeneration.runtimeconfig.json
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\bin\Debug\netcoreapp3.1\CodeGeneration.runtimeconfig.dev.json
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\bin\Debug\netcoreapp3.1\CodeGeneration.dll
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\bin\Debug\netcoreapp3.1\CodeGeneration.pdb
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\obj\Debug\netcoreapp3.1\CodeGeneration.csprojAssemblyReference.cache
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\obj\Debug\netcoreapp3.1\CodeGeneration.AssemblyInfoInputs.cache
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\obj\Debug\netcoreapp3.1\CodeGeneration.AssemblyInfo.cs
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\obj\Debug\netcoreapp3.1\CodeGeneration.csproj.CoreCompileInputs.cache
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\obj\Debug\netcoreapp3.1\CodeGeneration.dll
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\obj\Debug\netcoreapp3.1\CodeGeneration.pdb
+C:\Work\CRM_TSD\CodeGenMySql\CodeGeneration\obj\Debug\netcoreapp3.1\CodeGeneration.genruntimeconfig.cache

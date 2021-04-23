@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using {{Namespace}}.Common;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace {{Namespace}}.Entities
+{
+    public class {{Class.Pascal}} : DataEntity,  IEquatable<{{Class.Pascal}}>
+    {
+    {{#each Class.Properties}}
+    {{#if IsPrimitive}}
+    public {{type}} {{Pascal}} { get; set; }
+    {{/if}}
+    {{#if IsReference}}
+    public {{Class.Pascal}} {{Pascal}} { get; set; }
+    {{/if}}
+    {{#if IsList}}
+    public List<{{Class.Pascal}}>
+        {{Pascal}} { get; set; }
+        {{/if}}
+        {{/each}}
+        {{#if Class.ContainsFlag}}
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        {{/if}}
+
+        {{#if Class.ContainsPK}}
+        public bool Equals({{Class.Pascal}} other)
+        {
+        return other != null && Id == other.Id;
+        }
+        public override int GetHashCode()
+        {
+        return Id.GetHashCode();
+        }
+        {{else}}
+        public bool Equals({{Class.Pascal}} other)
+        {
+        return true;
+        }
+        public override int GetHashCode()
+        {
+        return base.GetHashCode();
+        }
+        {{/if}}
+        }
+
+        public class {{Class.Pascal}}Filter : FilterEntity
+        {
+        {{#each Class.Properties}}
+        {{#if IsFilter}}
+        public {{FilterType}} {{Pascal}} { get; set; }
+        {{/if}}
+        {{/each}}
+        {{#if Class.ContainsFlag}}
+        public DateFilter CreatedAt { get; set; }
+        public DateFilter UpdatedAt { get; set; }
+        {{/if}}
+        public List<{{Class.Pascal}}Filter>
+            OrFilter { get; set; }
+            public {{Class.Pascal}}Order OrderBy {get; set;}
+            public {{Class.Pascal}}Select Selects {get; set;}
+            }
+
+            [JsonConverter(typeof(StringEnumConverter))]
+            public enum {{Class.Pascal}}Order
+            {
+            {{#each Class.Properties}}
+            {{#if IsPrimitive}}
+            {{Filter}} = {{@index}},
+            {{/if}}
+            {{/each}}
+            {{#if Class.ContainsFlag}}
+            CreatedAt = 50,
+            UpdatedAt = 51,
+            {{/if}}
+            }
+
+            [Flags]
+            public enum {{Class.Pascal}}Select:long
+            {
+            ALL = E.ALL,
+            {{#each Class.Properties}}
+            {{#if IsPrimitive}}
+            {{Filter}} = E._{{@index}},
+            {{/if}}
+            {{/each}}
+            }
+            }

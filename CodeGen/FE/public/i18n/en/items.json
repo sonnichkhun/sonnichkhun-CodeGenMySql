@@ -1,0 +1,23 @@
+{
+  "items": {
+    "code": "",
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": "",
+      "retailPrice": "",
+      "salePrice": ""
+    },
+    "price": "",
+    "product": "",
+    "productGrouping": "",
+    "productType": "",
+    "retailPrice": "",
+    "salePrice": "",
+    "saleStock": "",
+    "scanCode": "",
+    "selectedTable": "",
+    "status": "",
+    "supplier": ""
+  }
+}

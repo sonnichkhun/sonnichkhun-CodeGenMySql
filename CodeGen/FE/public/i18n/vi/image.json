@@ -1,0 +1,15 @@
+{
+  "image": {
+    "productImageMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "storeImageMappingModal": {
+      "title": "Chọn để thêm mới"
+    },
+    "tabs": {
+      "roles": {
+        "title": "Danh sách hình ảnh"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "provinces": {
+    "code": "Mã tỉnh thành",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới tỉnh thành"
+    },
+    "master": {
+      "title": "Danh sách tỉnh thành"
+    },
+    "name": "Tên tỉnh thành",
+    "placeholder": {
+      "code": "Nhập mã tỉnh thành",
+      "name": "Nhập tên tỉnh thành",
+      "priority": "Nhập thứ tự ưu tiên",
+      "province": "Chọn tỉnh thành"
+    },
+    "priority": "Thứ tự ưu tiên"
+  }
+}

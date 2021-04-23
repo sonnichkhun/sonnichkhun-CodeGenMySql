@@ -1,0 +1,57 @@
+{
+  "general": {
+    "actions": {
+      "add": "",
+      "cancel": "",
+      "close": "",
+      "create": "",
+      "crop": "",
+      "delete": "",
+      "export": "",
+      "exportTemplate": "",
+      "filter": "",
+      "import": "",
+      "label": "",
+      "reset": "",
+      "save": "",
+      "search": "",
+      "update": ""
+    },
+    "batchDelete": {
+      "content": "",
+      "title": ""
+    },
+    "cancel": "",
+    "columns": {
+      "index": ""
+    },
+    "confirm": "",
+    "delete": {
+      "content": "",
+      "sucess": "",
+      "title": ""
+    },
+    "master": {
+      "defaultPreviewTitle": "",
+      "pagination": ""
+    },
+    "notifications": "",
+    "numberRange": {
+      "from": "",
+      "to": ""
+    },
+    "placeholder": {
+      "title": ""
+    },
+    "state": {
+      "approved": "",
+      "new": "",
+      "pending": "",
+      "rejected": ""
+    },
+    "update": {
+      "error": "",
+      "success": ""
+    }
+  }
+}

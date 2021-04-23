@@ -1,0 +1,21 @@
+﻿{{#if Class.ContainsStringFilter}}
+import { StringFilter  } from 'core/filters';
+{{/if}}
+{{#if Class.ContainsIdFilter}}
+import { IdFilter  } from 'core/filters';
+{{/if}}
+{{#if Class.ContainsNumberFilter}}
+import { NumberFilter  } from 'core/filters';
+{{/if}}
+{{#if Class.ContainsDateFilter}}
+import { DateFilter  } from 'core/filters';
+{{/if}}
+import { ModelFilter } from 'core/models';
+
+export class {{Class.Pascal}}Filter extends ModelFilter  {
+  {{#each Class.Properties}}
+  {{#if IsFilter}}
+  public {{Camel}}?: {{FilterType}} = new {{FilterType}}();
+  {{/if}}
+  {{/each}}
+}

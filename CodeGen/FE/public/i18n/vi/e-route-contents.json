@@ -1,0 +1,32 @@
+{
+  "eRouteContents": {
+    "create": "Thêm",
+    "frequency": "Tần suất",
+    "friday": "T6",
+    "monday": "T2",
+    "orderNumber": "Thứ tự",
+    "saturday": "T7",
+    "store": {
+      "address": "Địa chỉ",
+      "code": "Mã cửa hàng",
+      "name": "Tên cửa hàng",
+      "organization": "Đơn vị tổ chức",
+      "placeholder": {
+        "address": "Nhập địa chỉ",
+        "code": "Nhập mã cửa hàng",
+        "name": "Nhập tên cửa hàng",
+        "organization": "Chọn đơn vị tổ chức",
+        "storeType": "Chọn loại cửa hàng"
+      },
+      "storeType": "Loại cửa hàng"
+    },
+    "sunday": "CN",
+    "thursday": "T5",
+    "tuesday": "T3",
+    "wednesday": "T4",
+    "week1": "Tuần 1",
+    "week2": "Tuần 2",
+    "week3": "Tuần 3",
+    "week4": "Tuần 4"
+  }
+}

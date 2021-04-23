@@ -1,0 +1,12 @@
+.table-content-item {
+    .ant-form-item-children {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .form-control {
+        max-width: 100%;
+    }
+    .ant-table-column-title {
+        white-space: nowrap;
+    }
+}

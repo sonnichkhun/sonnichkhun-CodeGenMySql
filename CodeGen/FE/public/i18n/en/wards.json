@@ -1,0 +1,20 @@
+{
+  "wards": {
+    "code": "",
+    "detail": {
+      "edit": "",
+      "title": ""
+    },
+    "district": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "name": "",
+      "priority": ""
+    },
+    "priority": ""
+  }
+}

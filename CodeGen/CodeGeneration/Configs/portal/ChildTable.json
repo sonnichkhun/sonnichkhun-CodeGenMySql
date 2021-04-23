@@ -1,0 +1,16 @@
+{
+  "AppUser": [
+    "AppUserRoleMapping"
+  ],
+  "Permission": [
+    "PermissionFieldMapping",
+    "PermissionPageMapping"
+  ],
+  "Menu": [
+    "Page",
+    "Field"
+  ],
+  "Role": [
+    "Permission"
+  ]
+}

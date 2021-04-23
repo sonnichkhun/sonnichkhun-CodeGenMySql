@@ -1,0 +1,23 @@
+{
+  "brands": {
+    "code": "",
+    "description": "",
+    "detail": {
+      "addNode": "",
+      "edit": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "description": "",
+      "name": "",
+      "status": ""
+    },
+    "status": "",
+    "updatedTime": ""
+  }
+}

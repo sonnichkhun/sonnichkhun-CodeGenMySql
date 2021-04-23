@@ -1,0 +1,64 @@
+{
+  "products": {
+    "addProductGrouping": "",
+    "addVariation": "",
+    "brand": "",
+    "code": "",
+    "createVariations": "",
+    "description": "",
+    "detail": {
+      "title": ""
+    },
+    "eRPCode": "",
+    "general": "",
+    "image": "",
+    "images": {
+      "id": "",
+      "imageId": "",
+      "name": "",
+      "productId": "",
+      "url": ""
+    },
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "otherName": "",
+    "placeholder": {
+      "brand": "",
+      "code": "",
+      "eRPCode": "",
+      "name": "",
+      "otherName": "",
+      "productType": "",
+      "scanCode": "",
+      "supplier": "",
+      "technicalName": "",
+      "unitOfMeasure": ""
+    },
+    "price": "",
+    "productGrouping": "",
+    "productGroupings": {
+      "code": "",
+      "description": "",
+      "id": "",
+      "name": "",
+      "parentId": "",
+      "path": ""
+    },
+    "productType": "",
+    "retailPrice": "",
+    "scanCode": "",
+    "status": "",
+    "supplier": "",
+    "supplierCode": "",
+    "technicalName": "",
+    "unitOfMeasure": "",
+    "unitOfMeasureContent": "",
+    "unitOfMeasureGrouping": "",
+    "variationAndPrice": "",
+    "variationGrouping": "",
+    "variationValue": "",
+    "variationsAndPrice": ""
+  }
+}

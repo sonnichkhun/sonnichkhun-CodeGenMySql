@@ -1,0 +1,280 @@
+﻿using {{Namespace}}.Common;
+using {{Namespace}}.Helpers;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using OfficeOpenXml;
+using {{Namespace}}.Repositories;
+using {{Namespace}}.Entities;
+
+namespace {{Namespace}}.Services.M{{Class.Pascal}}
+{
+    public interface I{{Class.Pascal}}Service :  IServiceScoped
+    {
+        Task<int>
+    Count({{Class.Pascal}}Filter {{Class.Pascal}}Filter);
+    Task<List<{{Class.Pascal}}>> List({{Class.Pascal}}Filter {{Class.Pascal}}Filter);
+        {{#unless Class.IsEnum}}
+        Task<{{Class.Pascal}}> Get(long Id);
+        Task<{{Class.Pascal}}> Create({{Class.Pascal}} {{Class.Pascal}});
+        Task<{{Class.Pascal}}> Update({{Class.Pascal}} {{Class.Pascal}});
+        Task<{{Class.Pascal}}> Delete({{Class.Pascal}} {{Class.Pascal}});
+        Task<List<{{Class.Pascal}}>> BulkDelete(List<{{Class.Pascal}}> {{Class.Plural}});
+        Task<List<{{Class.Pascal}}>> Import(List<{{Class.Pascal}}> {{Class.Plural}});
+        {{Class.Pascal}}Filter ToFilter({{Class.Pascal}}Filter {{Class.Pascal}}Filter);
+        {{/unless}}
+    }
+
+    public class {{Class.Pascal}}Service : BaseService, I{{Class.Pascal}}Service
+    {
+        private IUOW UOW;
+        private ILogging Logging;
+        private ICurrentContext CurrentContext;
+        private I{{Class.Pascal}}Validator {{Class.Pascal}}Validator;
+
+        public {{Class.Pascal}}Service(
+            IUOW UOW,
+            ILogging Logging,
+            ICurrentContext CurrentContext,
+            I{{Class.Pascal}}Validator {{Class.Pascal}}Validator
+        )
+        {
+            this.UOW = UOW;
+            this.Logging = Logging;
+            this.CurrentContext = CurrentContext;
+            this.{{Class.Pascal}}Validator = {{Class.Pascal}}Validator;
+        }
+        public async Task<int> Count({{Class.Pascal}}Filter {{Class.Pascal}}Filter)
+        {
+            try
+            {
+                int result = await UOW.{{Class.Pascal}}Repository.Count({{Class.Pascal}}Filter);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException == null)
+                {
+                    await Logging.CreateSystemLog(ex, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex);
+                }
+                else
+                {
+                    await Logging.CreateSystemLog(ex.InnerException, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex.InnerException);
+                }
+            }
+        }
+
+        public async Task<List<{{Class.Pascal}}>> List({{Class.Pascal}}Filter {{Class.Pascal}}Filter)
+        {
+            try
+            {
+                List<{{Class.Pascal}}> {{Class.Pascal}}s = await UOW.{{Class.Pascal}}Repository.List({{Class.Pascal}}Filter);
+                return {{Class.Pascal}}s;
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException == null)
+                {
+                    await Logging.CreateSystemLog(ex, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex);
+                }
+                else
+                {
+                    await Logging.CreateSystemLog(ex.InnerException, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex.InnerException);
+                }
+            }
+        }
+        {{#unless Class.IsEnum}}
+        public async Task<{{Class.Pascal}}> Get(long Id)
+        {
+            {{Class.Pascal}} {{Class.Pascal}} = await UOW.{{Class.Pascal}}Repository.Get(Id);
+            if ({{Class.Pascal}} == null)
+                return null;
+            return {{Class.Pascal}};
+        }
+
+        public async Task<{{Class.Pascal}}> Create({{Class.Pascal}} {{Class.Pascal}})
+        {
+            if (!await {{Class.Pascal}}Validator.Create({{Class.Pascal}}))
+                return {{Class.Pascal}};
+
+            try
+            {
+                await UOW.Begin();
+                await UOW.{{Class.Pascal}}Repository.Create({{Class.Pascal}});
+                await UOW.Commit();
+                {{Class.Pascal}} = await UOW.{{Class.Pascal}}Repository.Get({{Class.Pascal}}.Id);
+                await Logging.CreateAuditLog({{Class.Pascal}}, new { }, nameof({{Class.Pascal}}Service));
+                return {{Class.Pascal}};
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException == null)
+                {
+                    await Logging.CreateSystemLog(ex, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex);
+                }
+                else
+                {
+                    await Logging.CreateSystemLog(ex.InnerException, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex.InnerException);
+                }
+            }
+        }
+
+        public async Task<{{Class.Pascal}}> Update({{Class.Pascal}} {{Class.Pascal}})
+        {
+            if (!await {{Class.Pascal}}Validator.Update({{Class.Pascal}}))
+                return {{Class.Pascal}};
+            try
+            {
+                var oldData = await UOW.{{Class.Pascal}}Repository.Get({{Class.Pascal}}.Id);
+
+                await UOW.Begin();
+                await UOW.{{Class.Pascal}}Repository.Update({{Class.Pascal}});
+                await UOW.Commit();
+
+                {{Class.Pascal}} = await UOW.{{Class.Pascal}}Repository.Get({{Class.Pascal}}.Id);
+                await Logging.CreateAuditLog({{Class.Pascal}}, oldData, nameof({{Class.Pascal}}Service));
+                return {{Class.Pascal}};
+            }
+            catch (Exception ex)
+            {
+                await UOW.Rollback();
+                if (ex.InnerException == null)
+                {
+                    await Logging.CreateSystemLog(ex, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex);
+                }
+                else
+                {
+                    await Logging.CreateSystemLog(ex.InnerException, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex.InnerException);
+                }
+            }
+        }
+
+        public async Task<{{Class.Pascal}}> Delete({{Class.Pascal}} {{Class.Pascal}})
+        {
+            if (!await {{Class.Pascal}}Validator.Delete({{Class.Pascal}}))
+                return {{Class.Pascal}};
+
+            try
+            {
+                await UOW.Begin();
+                await UOW.{{Class.Pascal}}Repository.Delete({{Class.Pascal}});
+                await UOW.Commit();
+                await Logging.CreateAuditLog(new { }, {{Class.Pascal}}, nameof({{Class.Pascal}}Service));
+                return {{Class.Pascal}};
+            }
+            catch (Exception ex)
+            {
+                await UOW.Rollback();
+                if (ex.InnerException == null)
+                {
+                    await Logging.CreateSystemLog(ex, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex);
+                }
+                else
+                {
+                    await Logging.CreateSystemLog(ex.InnerException, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex.InnerException);
+                }
+            }
+        }
+
+        public async Task<List<{{Class.Pascal}}>> BulkDelete(List<{{Class.Pascal}}> {{Class.Plural}})
+        {
+            if (!await {{Class.Pascal}}Validator.BulkDelete({{Class.Plural}}))
+                return {{Class.Plural}};
+
+            try
+            {
+                await UOW.Begin();
+                await UOW.{{Class.Pascal}}Repository.BulkDelete({{Class.Plural}});
+                await UOW.Commit();
+                await Logging.CreateAuditLog(new { }, {{Class.Plural}}, nameof({{Class.Pascal}}Service));
+                return {{Class.Plural}};
+            }
+            catch (Exception ex)
+            {
+                await UOW.Rollback();
+                if (ex.InnerException == null)
+                {
+                    await Logging.CreateSystemLog(ex, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex);
+                }
+                else
+                {
+                    await Logging.CreateSystemLog(ex.InnerException, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex.InnerException);
+                }
+            }
+        }
+
+        public async Task<List<{{Class.Pascal}}>> Import(List<{{Class.Pascal}}> {{Class.Plural}})
+        {
+            if (!await {{Class.Pascal}}Validator.Import({{Class.Plural}}))
+                return {{Class.Plural}};
+            try
+            {
+                await UOW.Begin();
+                await UOW.{{Class.Pascal}}Repository.BulkMerge({{Class.Plural}});
+                await UOW.Commit();
+
+                await Logging.CreateAuditLog({{Class.Plural}}, new { }, nameof({{Class.Pascal}}Service));
+                return {{Class.Plural}};
+            }
+            catch (Exception ex)
+            {
+                await UOW.Rollback();
+                if (ex.InnerException == null)
+                {
+                    await Logging.CreateSystemLog(ex, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex);
+                }
+                else
+                {
+                    await Logging.CreateSystemLog(ex.InnerException, nameof({{Class.Pascal}}Service));
+                    throw new MessageException(ex.InnerException);
+                }
+            }
+        }
+
+        public {{Class.Pascal}}Filter ToFilter({{Class.Pascal}}Filter filter)
+        {
+            if (filter.OrFilter == null) filter.OrFilter = new List<{{Class.Pascal}}Filter>();
+            if (CurrentContext.Filters == null || CurrentContext.Filters.Count == 0) return filter;
+            foreach (var currentFilter in CurrentContext.Filters)
+            {
+                {{Class.Pascal}}Filter subFilter = new {{Class.Pascal}}Filter();
+                filter.OrFilter.Add(subFilter);
+                List<FilterPermissionDefinition> FilterPermissionDefinitions = currentFilter.Value;
+                foreach (FilterPermissionDefinition FilterPermissionDefinition in FilterPermissionDefinitions)
+                {
+                    {{#each Class.Properties}}
+                    {{#if IsFilter}}
+                    if (FilterPermissionDefinition.Name == nameof(subFilter.{{Pascal}}))
+                        {{#if IsId}}subFilter.{{Pascal}} = FilterPermissionDefinition.IdFilter;{{else}}
+                        {{#if IsLong}}subFilter.{{Pascal}} = FilterPermissionDefinition.LongFilter;{{/if}}
+                        {{#if IsDecimal}}subFilter.{{Pascal}} = FilterPermissionDefinition.DecimalFilter;{{/if}}
+                        {{#if IsDouble}}subFilter.{{Pascal}} = FilterPermissionDefinition.DoubleFilter;{{/if}}
+                        {{#if IsInt}}subFilter.{{Pascal}} = FilterPermissionDefinition.IntFilter;{{/if}}
+                        {{#if IsDate}}subFilter.{{Pascal}} = FilterPermissionDefinition.DateFilter;{{/if}}
+                        {{#if IsString}}subFilter.{{Pascal}} = FilterPermissionDefinition.StringFilter;{{/if}}
+                        {{#if IsGuid}}subFilter.{{Pascal}} = FilterPermissionDefinition.GuidFilter;{{/if}}
+                        {{/if}}
+                    {{/if}}
+                    {{/each}}
+                }
+            }
+            return filter;
+        }
+        {{/unless}}
+    }
+}

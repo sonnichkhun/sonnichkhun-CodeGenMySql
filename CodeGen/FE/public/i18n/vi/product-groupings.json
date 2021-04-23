@@ -1,0 +1,14 @@
+{
+  "productGroupings": {
+    "master": {
+      "add": "Thêm sản phẩm",
+      "grouping": {
+        "title": "Danh sách nhóm"
+      },
+      "product": {
+        "title": "Danh sách sản phẩm"
+      },
+      "title": "Danh sách nhóm sản phẩm"
+    }
+  }
+}

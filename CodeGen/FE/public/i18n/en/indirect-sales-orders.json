@@ -1,0 +1,39 @@
+{
+  "indirectSalesOrders": {
+    "buyerStore": "",
+    "code": "",
+    "deliveryAddress": "",
+    "deliveryDate": "",
+    "detail": {
+      "title": ""
+    },
+    "discountPercentage": "",
+    "general": {
+      "title": ""
+    },
+    "indirectSalesOrderStatus": "",
+    "isEditedPrice": "",
+    "master": {
+      "title": ""
+    },
+    "newTotal": "",
+    "note": "",
+    "orderDate": "",
+    "payment": {
+      "title": ""
+    },
+    "phoneNumber": "",
+    "preview": {
+      "title": ""
+    },
+    "saleEmployee": "",
+    "select": {
+      "store": ""
+    },
+    "sellerStore": "",
+    "status": "",
+    "subTotal": "",
+    "total": "",
+    "totalTaxAmount": ""
+  }
+}

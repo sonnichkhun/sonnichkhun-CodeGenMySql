@@ -1,0 +1,16 @@
+.product-detail {
+  .text-editor {
+    min-height: 357px;
+    width: 90%;
+  }
+
+  .product-image {
+    label{
+      float: left;
+    }
+    width: 90%;
+  }
+  .product-grouping {
+    border: 1px solid #ced4da !important;
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "products": {
+    "addVariation": "Thêm thuộc tính",
+    "addProductGrouping": "Thêm nhóm sản phẩm",
+    "brand": "Nhãn hiệu",
+    "code": "Mã sản phẩm",
+    "createVariations": "Tạo phiên bản",
+    "description": "Mô tả",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "eRPCode": "Mã từ ERP",
+    "general": "Thông tin chung",
+    "image": "Ảnh sản phẩm",
+    "images": {
+      "id": "ID",
+      "imageId": "",
+      "name": "Tên ảnh",
+      "productId": "",
+      "url": "url"
+    },
+    "master": {
+      "title": "Danh sách sản phẩm"
+    },
+    "name": "Tên sản phẩm",
+    "otherName": "Tên khác",
+    "placeholder": {
+      "brand": "Chọn nhãn hiệu",
+      "code": "Nhập mã sản phẩm",
+      "eRPCode": "Nhập mã từ ERP",
+      "name": "Nhập tên sản phẩm",
+      "otherName": "Nhập tên khác",
+      "productType": "Chọn loại sản phẩm",
+      "scanCode": "Nhập mã nhận diện",
+      "status": "Chọn trạng thái",
+      "supplier": "Chọn nhà cung cấp",
+      "technicalName": "Nhâp tên kỹ thuật",
+      "unitOfMeasure": "Chọn đơn vị tính",
+      "unitOfMeasureGrouping": "Chọn nhóm đơn vị chuyển đổi",
+      "unitOfMeasureGroupingContents": "Chưa có nội dung quy đổi",
+      "description": "Mô tả sản phẩm"
+    },
+    "price": "Giá bán",
+    "productGrouping": "Nhóm sản phẩm",
+    "productGroupings": {
+      "code": "Mã nhóm sản phẩm",
+      "description": "Mô tả",
+      "id": "ID",
+      "name": "Tên",
+      "parentId": "",
+      "path": ""
+    },
+    "productType": "Loại sản phẩm",
+    "retailPrice": "Giá bán lẻ đề xuất",
+    "scanCode": "Mã nhận diện sản phẩm",
+    "status": "Trạng thái",
+    "supplier": "Nhà cung cấp",
+    "supplierCode": "Mã sản phẩm từ NCC",
+    "technicalName": "Tên kỹ thuật",
+    "unitOfMeasure": "Đơn vị tính",
+    "unitOfMeasureContent": "Đơn vị chuyển đổi",
+    "unitOfMeasureGrouping": "Nhóm đơn vị chuyển đổi",
+    "variationAndPrice": "Thuộc tính và giá",
+    "variationGrouping": "Nhóm Thuộc tính {{index}}",
+    "variationValue": "Giá trị",
+    "variationsAndPrice": "Quản lý giá và phiên bản"
+  }
+}

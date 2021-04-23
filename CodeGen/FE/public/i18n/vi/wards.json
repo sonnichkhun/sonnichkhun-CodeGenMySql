@@ -1,0 +1,20 @@
+{
+  "wards": {
+    "code": "Mã xã/phường",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới xã/phường"
+    },
+    "district": "Quận/Huyện",
+    "master": {
+      "title": "Xã/Phường"
+    },
+    "name": "Tên",
+    "placeholder": {
+      "code": "Nhập mã xã/phường",
+      "name": "Nhập tên xã/phường",
+      "priority": "Nhập thứ tự ưu tiên"
+    },
+    "priority": "Thứ tự ưu tiên"
+  }
+}

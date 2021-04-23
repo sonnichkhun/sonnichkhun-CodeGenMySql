@@ -1,0 +1,403 @@
+﻿{{#if Class.IsMapping}}
+import React, {Dispatch, SetStateAction} from 'react';
+import {crudService, tableService} from 'core/services';
+import Table, {ColumnProps} from 'antd/lib/table';
+import {renderMasterIndex} from 'helpers/ant-design/table';
+import nameof from 'ts-nameof.macro';
+import {useTranslation} from 'react-i18next';
+import {generalColumnWidths, generalLanguageKeys} from 'config/consts';
+
+// Parent Repo
+import { {{Parent.Camel}}Repository } from 'views/{{Parent.Pascal}}View/{{Parent.Pascal}}Repository';
+// Parent Class
+import { {{Parent.Pascal}} } from 'models/{{Parent.Pascal}}';
+// Class
+import { {{Class.Pascal}} } from 'models/{{Class.Pascal}}';
+// Filter Class
+import { {{Class.Pascal}}Filter } from 'models/{{Class.Pascal}}Filter';
+// Mapping Class
+import { {{MappingClass.Pascal}} } from 'models/{{MappingClass.Pascal}}';
+import {{Class.Pascal}}Modal from 'views/{{Parent.Pascal}}View/{{Parent.Pascal}}Detail/{{Class.Pascal}}Modal/{{Class.Pascal}}Modal';
+
+export interface {{Class.Pascal}}TableProps {
+  {{Parent.Camel}}: {{Parent.Pascal}};
+
+  set{{Parent.Pascal}}: Dispatch<SetStateAction<{{Parent.Pascal}}>>;
+}
+
+function {{Class.Pascal}}Table(props: {{Class.Pascal}}TableProps) {
+  const [translate] = useTranslation();
+
+  const {
+    {{Parent.Camel}},
+    set{{Parent.Pascal}},
+  } = props;
+
+  const [
+    {{pluralize Class.Camel}},
+    set{{pluralize Class.Pascal}}
+  ] = crudService.useContentTable<{{Parent.Pascal}}, {{Class.Pascal}}>(
+    {{Parent.Camel}},
+    set{{Parent.Pascal}},
+    nameof({{Parent.Camel}}.{{pluralize Class.Camel}})
+  );
+
+  const [
+    {{Class.Camel}}Filter,
+    set{{Class.Pascal}}Filter,
+  ] = React.useState<{{Class.Pascal}}Filter>(
+    new {{Class.Pascal}}Filter()
+  );
+
+  const [
+    dataSource,
+    pagination,
+    ,
+    handleTableChange,
+  ] = tableService.useLocalTable<{{Class.Pascal}}, {{Class.Pascal}}Filter>(
+    {{pluralize Class.Camel}},
+    {{Class.Camel}}Filter,
+    set{{Class.Pascal}}Filter,
+  );
+  
+    const [
+    ,
+    visible,
+    ,
+    ,
+    handleOpen,
+    handleClose,
+  ] = crudService.useContentModal(
+    {{Parent.Camel}}Repository.list{{Class.Pascal}},
+    {{Parent.Camel}}Repository.count{{Class.Pascal}},
+    {{Class.Pascal}}Filter,
+  );
+
+  const rowSelection = tableService.useModalRowSelection<{{MappingClass.Pascal}}, {{Class.Pascal}}>(
+    {{Parent.Camel}}.id,
+    nameof({{Parent.Camel}}),
+    nameof({{pluralize Class.Camel}}[0].{{MappingClass.Camel}}),
+    {{pluralize Class.Camel}},
+    set{{pluralize Class.Pascal}},
+  );
+
+  const columns: ColumnProps<{{Class.Pascal}}>[] = React.useMemo(
+    () => [
+      {
+        title: translate(generalLanguageKeys.columns.index),
+        key: nameof(generalLanguageKeys.columns.index),
+        width: generalColumnWidths.index,
+        render: renderMasterIndex<{{Class.Pascal}}>(pagination),
+      },
+      {{#each Class.Properties}}
+      {{#if IsPrimitive}}
+      {
+        title: translate('{{pluralize ../Parent.Camel}}.{{pluralize ../MappingClass.Camel}}.{{Camel}}'),
+        key: nameof(dataSource[0].{{../MappingClass.Camel}}.{{Camel}}),
+        dataIndex: nameof(dataSource[0].{{../MappingClass.Camel}}),
+        render({{../MappingClass.Camel}}: {{../MappingClass.Pascal}}) {
+          return {{../MappingClass.Camel}}?.{{Camel}};
+        },
+      },
+      {{/if}}
+      {{/each}}
+    ],
+    [dataSource, pagination, translate],
+  );
+
+  const handleSave = React.useCallback(
+    (event) => {
+      return () => {
+        // define save action here
+      }
+    },
+    [],
+  );
+
+    return (
+    <>
+      <Table tableLayout="fixed"
+             bordered={true}
+             size="small"
+             columns={columns}
+             dataSource={dataSource}
+             pagination={pagination}
+             rowKey={nameof({{pluralize Class.Camel}}[0].{{MappingClass.Camel}}Id)}
+             onChange={handleTableChange}
+             title={() => (
+               <>
+                 <div className="d-flex justify-content-end">
+                   <button className="btn btn-sm btn-primary" onClick={handleOpen}>
+                     <i className="fa fa-plus mr-2"/>
+                     {translate(generalLanguageKeys.actions.add)}
+                   </button>
+                 </div>
+               </>
+             )}            
+      />
+      <{{Class.Pascal}}Modal title={translate('{{pluralize Class.Camel}}.master.product.title')} 
+                         isOpen={visible}
+                         rowSelection={rowSelection}
+                         onClose={handleClose}
+                         onSave={handleSave}
+                         // save model and its selectedList
+                         isSave={false}
+                         />                 
+    </>
+  );
+}
+{{/if}}
+{{#unless Class.IsMapping}}
+import React from 'react';
+import {ContentTableProps} from 'react3l';
+import {crudService, formService} from 'core/services';
+import Table, {ColumnProps} from 'antd/lib/table';
+import {tableService} from 'services';
+import {renderMasterIndex} from 'helpers/ant-design/table';
+import nameof from 'ts-nameof.macro';
+import {useTranslation} from 'react-i18next';
+import {generalColumnWidths, generalLanguageKeys} from 'config/consts';
+import Form from 'antd/lib/form';
+{{#if Class.ContainsStringFilter}}
+import InputString from 'components/Input/Input';
+{{/if}}
+{{#if Class.ContainsIdFilter}}
+import SelectAutoComplete from 'components/SelectAutoComplete/SelectAutoComplete';
+{{/if}}
+{{#if Class.ContainsNumberFilter}}
+import InputNumber from 'components/InputNumber/InputNumber';
+{{/if}}
+{{#if Class.ContainsDateFilter}}
+import DatePicker from 'antd/lib/date-picker';
+{{/if}}
+import './{{Class.Pascal}}Table.scss';
+import { {{Parent.Pascal}} } from 'models/{{Parent.Pascal}}';
+import { {{Class.Pascal}}Filter } from 'models/{{Class.Pascal}}Filter';
+import { {{Class.Pascal}} } from 'models/{{Class.Pascal}}';
+import { {{Parent.Camel}}Repository } from 'views/{{Parent.Pascal}}View/{{Parent.Pascal}}Repository';
+// filter for selectAutoComplete
+{{#each Class.Properties}}
+{{#if IsReference}}{{#unless Class.IsEnum}}
+{{#ifCond ../Class.Pascal '!=' Class.Pascal}}
+import { {{Class.Pascal}} } from 'models/{{Class.Pascal}}';
+import { {{Class.Pascal}}Filter } from 'models/{{Class.Pascal}}Filter';
+{{/ifCond}}
+{{/unless}}{{/if}}
+{{/each}}
+
+const {Item: FormItem} = Form;
+
+function {{Class.Pascal}}Table(props: ContentTableProps<{{Parent.Pascal}}, {{Class.Pascal}}>) {
+  const [translate] = useTranslation();
+
+  const {
+    model,
+    setModel,
+  } = props;
+
+  const [
+    {{pluralize Class.Camel}},
+    set{{pluralize Class.Pascal}},
+    handleAdd,
+    handleDelete,
+  ] = crudService.useContentTable<{{Parent.Pascal}}, {{Class.Pascal}}>(
+    model,
+    setModel,
+    nameof(model.{{pluralize Class.Camel}}),
+  );
+
+  const [
+    {{Class.Camel}}Filter,
+    set{{Class.Pascal}}Filter,
+  ] = React.useState<{{Class.Pascal}}Filter>(
+    new {{Class.Pascal}}Filter()
+  );
+
+  const [
+    dataSource,
+    pagination,
+    sorter,
+    handleTableChange,
+    handleFilter,
+    handleSearch,
+    handleReset,
+  ] = tableService.useLocalTable(
+    {{pluralize Class.Camel}},
+    {{Class.Camel}}Filter,
+    set{{Class.Pascal}}Filter,
+  );
+
+  // Enum list
+  {{#each Class.Properties}}{{#if IsReference}}{{#if Class.IsEnum}}
+  const [{{Class.Camel}}List] = crudService.useEnumList<{{Class.Pascal}}>({{../Parent.Camel}}Repository.singleList{{Class.Pascal}});
+  {{/if}}{{/if}}{{/each}}
+
+  // Handling change in content table
+  const [handleChangeListSimpleField,
+      {{#if Class.ContainsIdFilter}}
+      handleChangeObjectField,
+      {{/if}}
+      {{#if Class.ContainsDateFilter}}
+      handleChangeObjectField,
+      {{/if}}
+  ] = crudService.useListChangeHandlers<
+    {{Class.Pascal}}
+  >({{pluralize Class.Camel}}, set{{pluralize Class.Pascal}});
+
+  {{#each Class.Properties}}{{#if IsReference}}{{#unless Class.IsEnum}}
+  {{#ifCond ../Class.Pascal '!=' Class.Pascal}}
+  const [{{Camel}}Filter, set{{Pascal}}Filter] = React.useState<{{Class.Pascal}}Filter>(new {{Class.Pascal}}Filter());
+  {{else}}
+  const [{{Camel}}Filter, set{{Pascal}}Filter] = React.useState<{{../Class.Pascal}}Filter>(new {{../Class.Pascal}}Filter());
+  {{/ifCond}}
+  {{/unless}}{{/if}}{{/each}}
+
+  const columns: ColumnProps<{{Class.Pascal}}>[] = React.useMemo(
+    () => [
+      {
+        title: translate(generalLanguageKeys.columns.index),
+        key: nameof(generalLanguageKeys.columns.index),
+        width: generalColumnWidths.index,
+        render: renderMasterIndex<{{Class.Pascal}}>(pagination),
+      },
+      {{#each Class.Properties}}{{#unless IsList}}
+      {{#if IsPrimitive}}{{#unless isId}}
+      {
+        title: translate('{{pluralize ../Class.Camel}}.{{Camel}}'),
+        key: nameof(dataSource[0].{{Camel}}),
+        dataIndex: nameof(dataSource[0].{{Camel}}),
+        render(...params) {
+          return (
+            <FormItem validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>(params[1].errors, nameof(params[1].{{Camel}}))}
+                      help={ params[1].errors?.{{Camel}} }
+            >
+              {{#if IsString}}            
+              <InputString
+                value={ params[0] }
+                onChange={handleChangeListSimpleField(nameof(params[0]), params[2])}
+                placeholder={translate('{{../Class.Plural}}.{{Class.Camel}}')}
+                className="form-control form-control-sm"
+              />
+              {{/if}}
+              {{#if IsNumber}}            
+              <InputNumber
+                value={ params[0] }
+                onChange={handleChangeListSimpleField(nameof(params[0]), params[2])}
+                className="form-control form-control-sm"
+              />
+              {{/if}}
+              {{#if IsDate}}          
+                <DatePicker defaultValue={ params[0] }
+                            onChange={handleUpdateDateField(nameof(params[0]), params[2])}
+                            className="w-100"
+                />             
+              {{/if}}
+            </FormItem>
+          );
+        },
+      },
+      {{/unless}}{{/if}}
+      {{#if IsReference}}
+      {{#if Class.IsEnum}}
+      {
+        title: translate('{{pluralize ../Class.Camel}}.{{Camel}}'),
+        key: nameof(dataSource[0].{{Camel}}),
+        dataIndex: nameof(dataSource[0].{{Camel}}),
+        render(...params) {
+          return (
+            <FormItem validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>(params[1].errors, nameof(params[1].{{Camel}}))}
+                      help={ params[1].errors?.{{Camel}} }
+            >
+              <SelectAutoComplete
+                value={params[1].{{Camel}}?.id}
+                onChange={handleChangeObjectField(params[0], params[2])}
+                list={statusList}
+                placeholder={translate(
+                  '{{pluralize ../Class.Camel}}.placeholder.{{Camel}}',
+                )}
+                allowClear={false}
+              />
+            </FormItem>
+          );
+        },
+      },
+      {{/if}}
+      {{#unless Class.IsEnum}}
+      {
+        title: translate('{{pluralize ../Class.Camel}}.{{Camel}}'),
+        key: nameof(dataSource[0].{{Camel}}),
+        dataIndex: nameof(dataSource[0].{{Camel}}),
+        render(...params) {
+          return (
+            <FormItem validateStatus={formService.getValidationStatus<{{../Class.Pascal}}>(params[1].errors, nameof(params[1].{{Camel}}))}
+                      help={ params[1].errors?.{{Camel}} }
+            >
+              <SelectAutoComplete
+                value={params[1].{{Camel}}?.id}
+                onChange={handleChangeObjectField(params[0], params[2])}
+                getList={
+                  {{../Parent.Camel}}Repository.singleList{{Camel}}
+                }
+                modelFilter={ {{Camel}}Filter }
+                setModelFilter={ set{{Pascal}}Filter }
+                searchField={nameof({{Camel}}Filter.name)}
+                searchType={nameof({{Camel}}Filter.name.contain)}
+                placeholder={translate(
+                  '{{pluralize ../Class.Camel}}.placeholder.{{Camel}}',
+                )}
+                allowClear={false}
+              />
+            </FormItem>
+          );
+        },
+      },
+      {{/unless}}
+      {{/if}}
+      {{/unless}}{{/each}}
+      {
+        title: translate(generalLanguageKeys.actions.label),
+        key: nameof(generalLanguageKeys.actions),
+        width: generalColumnWidths.actions,
+        align: 'center',
+        render(...params) {
+          return (
+            <>
+              <button className="btn btn-link mr-2" onClick={handleDelete(params[2])}>
+                <i className="fa fa-trash text-danger"/>
+              </button>
+            </>
+          );
+        },
+      },
+    ],
+    [dataSource, handleDelete, pagination, sorter, translate],
+  );
+
+  const tableFooter = React.useCallback(
+    () => (
+      <>
+        <button className="btn btn-link" onClick={handleAdd}>
+          <i className="fa fa-plus mr-2"/>
+          {translate(generalLanguageKeys.actions.create)}
+        </button>
+      </>
+    ),
+    [handleAdd, translate],
+  );
+
+  return (
+    <>
+      <Table pagination={pagination}
+             dataSource={dataSource}
+             columns={columns}
+             onChange={handleTableChange}
+             tableLayout="fixed"
+             bordered={true}
+             size="small"
+             footer={tableFooter}
+      />
+    </>
+  );
+}
+{{/unless}}
+export default {{Class.Pascal}}Table;

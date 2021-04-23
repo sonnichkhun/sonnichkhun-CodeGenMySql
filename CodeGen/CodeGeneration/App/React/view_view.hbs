@@ -1,0 +1,42 @@
+﻿import React from 'react';
+import {renderRoutes, RouteConfigComponentProps} from 'react-router-config';
+import {Switch, withRouter} from 'react-router-dom';
+{{#unless Class.isTree}}
+
+import {{Class.Pascal}}Detail from './{{Class.Pascal}}Detail/{{Class.Pascal}}Detail';
+import {{Class.Pascal}}Master from './{{Class.Pascal}}Master/{{Class.Pascal}}Master';
+import './{{Class.Pascal}}View.scss';
+
+function {{Class.Pascal}}View(props: RouteConfigComponentProps) {
+  const {route} = props;
+
+  return (
+    <Switch>
+      {route && renderRoutes(route.children)}
+    </Switch>
+  );
+}
+
+export { {{Class.Pascal}}Master, {{Class.Pascal}}Detail };
+export default withRouter({{Class.Pascal}}View);
+{{/unless}}
+{{#if Class.isTree}}
+import {{Class.Pascal}}TreeDetail from './{{Class.Pascal}}TreeDetail/{{Class.Pascal}}TreeDetail';
+import {{Class.Pascal}}TreeMaster from './{{Class.Pascal}}TreeMaster/{{Class.Pascal}}TreeMaster';
+
+import './{{Class.Pascal}}View.scss';
+
+function {{Class.Pascal}}TreeView(props: RouteConfigComponentProps) {
+  const {route} = props;
+
+  return (
+    <Switch>
+      {route && renderRoutes(route.children)}
+    </Switch>
+  );
+}
+
+export { {{Class.Pascal}}TreeMaster, {{Class.Pascal}}TreeDetail };
+
+export default withRouter({{Class.Pascal}}TreeView);
+{{/if}}

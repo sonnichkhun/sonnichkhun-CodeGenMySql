@@ -1,0 +1,103 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using {{Namespace}}.Common;
+using {{Namespace}}.Entities;
+using {{Namespace}};
+using {{Namespace}}.Repositories;
+
+namespace {{Namespace}}.Services.M{{Class.Pascal}}
+{
+    public interface I{{Class.Pascal}}Validator : IServiceScoped
+    {
+        Task<bool>
+    Create({{Class.Pascal}} {{Class.Pascal}});
+    Task<bool>
+        Update({{Class.Pascal}} {{Class.Pascal}});
+        Task<bool>
+            Delete({{Class.Pascal}} {{Class.Pascal}});
+            Task<bool>
+                BulkDelete(List<{{Class.Pascal}}>
+                    {{Class.Plural}});
+                    Task<bool>
+                        Import(List<{{Class.Pascal}}>
+                            {{Class.Plural}});
+                            }
+
+                            public class {{Class.Pascal}}Validator : I{{Class.Pascal}}Validator
+                            {
+                            public enum ErrorCode
+                            {
+                            IdNotExisted,
+                            }
+
+                            private IUOW UOW;
+                            private ICurrentContext CurrentContext;
+
+                            public {{Class.Pascal}}Validator(IUOW UOW, ICurrentContext CurrentContext)
+                            {
+                            this.UOW = UOW;
+                            this.CurrentContext = CurrentContext;
+                            }
+
+                            public async Task<bool>
+                                ValidateId({{Class.Pascal}} {{Class.Pascal}})
+                                {
+                                {{Class.Pascal}}Filter {{Class.Pascal}}Filter = new {{Class.Pascal}}Filter
+                                {
+                                Skip = 0,
+                                Take = 10,
+                                Id = new IdFilter { Equal = {{Class.Pascal}}.Id },
+                                Selects = {{Class.Pascal}}Select.Id
+                                };
+
+                                int count = await UOW.{{Class.Pascal}}Repository.Count({{Class.Pascal}}Filter);
+                                if (count == 0)
+                                {{Class.Pascal}}.AddError(nameof({{Class.Pascal}}Validator), nameof({{Class.Pascal}}.Id), ErrorCode.IdNotExisted);
+                                return count == 1;
+                                }
+
+                                public async Task<bool>
+                                    Create({{Class.Pascal}} {{Class.Pascal}})
+                                    {
+                                    return {{Class.Pascal}}.IsValidated;
+                                    }
+
+                                    public async Task<bool>
+                                        Update({{Class.Pascal}} {{Class.Pascal}})
+                                        {
+                                        if (await ValidateId({{Class.Pascal}}))
+                                        {
+                                        }
+                                        return {{Class.Pascal}}.IsValidated;
+                                        }
+
+                                        public async Task<bool>
+                                            Delete({{Class.Pascal}} {{Class.Pascal}})
+                                            {
+                                            if (await ValidateId({{Class.Pascal}}))
+                                            {
+                                            }
+                                            return {{Class.Pascal}}.IsValidated;
+                                            }
+
+                                            public async Task<bool>
+                                                BulkDelete(List<{{Class.Pascal}}>
+                                                    {{Class.Plural}})
+                                                    {
+                                                    foreach ({{Class.Pascal}} {{Class.Pascal}} in {{Class.Plural}})
+                                                    {
+                                                    await Delete({{Class.Pascal}});
+                                                    }
+                                                    return {{Class.Plural}}.All(x => x.IsValidated);
+                                                    }
+
+                                                    public async Task<bool>
+                                                        Import(List<{{Class.Pascal}}>
+                                                            {{Class.Plural}})
+                                                            {
+                                                            return true;
+                                                            }
+                                                            }
+                                                            }

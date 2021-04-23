@@ -1,0 +1,28 @@
+{
+  "fields": {
+    "dateType": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "idType": "",
+    "isDeleted": "",
+    "longType": "",
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "",
+    "placeholder": {
+      "dateTypeKey1": "",
+      "dateTypeKey2": "",
+      "idType": "",
+      "longTypeKey1": "",
+      "longTypeKey2": "",
+      "stringTypeKey1": "",
+      "stringTypeKey2": ""
+    },
+    "stringType": "",
+    "type": ""
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "roles": {
+    "addAppUsers": "Thêm User",
+    "addPermission": "Thêm quyền",
+    "appUser": {
+      "displayName": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "placeholder": {
+        "displayName": "Nhập tên nhân viên",
+        "email": "Nhập Email",
+        "phone": "Nhập SĐT",
+        "username": "Nhập tên đăng nhập"
+      },
+      "username": "Tên đăng nhập"
+    },
+    "code": "Mã vai trò",
+    "detail": {
+      "title": "Thông tin chi tiết"
+    },
+    "general": {
+      "appUser": "Danh sách người dùng",
+      "info": "Thông tin chung",
+      "permission": "Danh sách quyền"
+    },
+    "id": "ID",
+    "master": {
+      "appUser": {
+        "title": ""
+      },
+      "title": "Danh sách vai trò"
+    },
+    "name": "Tên vai trò",
+    "placeholder": {
+      "code": "Nhập mã vai trò"
+    },
+    "status": "Trạng thái"
+  }
+}

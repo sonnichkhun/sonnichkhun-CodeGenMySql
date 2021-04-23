@@ -1,0 +1,124 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using {{Namespace}}.Common;
+using {{Namespace}}.Helpers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using OfficeOpenXml;
+using {{Namespace}}.Entities;
+using {{Namespace}}.Services.M{{Class.Pascal}};
+{{#each Class.References}}
+{{#ifCond ../Class.Pascal '!=' Pascal}}
+{{#unless IsMapping}}
+using {{@root.Namespace}}.Services.M{{Pascal}};
+{{/unless}}
+{{/ifCond}}
+{{/each}}
+
+namespace {{Namespace}}.Rpc.{{Class.Snake}}
+{
+    public class {{Class.Pascal}}Route : Root
+    {
+        public const string Master = Module + "/{{Class.Kebab}}/{{Class.Kebab}}-master";
+        public const string Detail = Module + "/{{Class.Kebab}}/{{Class.Kebab}}-detail";
+        private const string Default = Rpc + Module + "/{{Class.Kebab}}";
+        public const string Count = Default + "/count";
+        public const string List = Default + "/list";
+        public const string GetPreview = Default + "/get-preview";
+        public const string Get = Default + "/get";
+{{#unless Class.IsEnum}}
+        public const string Create = Default + "/create";
+        public const string Update = Default + "/update";
+        public const string Delete = Default + "/delete";
+        public const string Import = Default + "/import";
+        public const string Export = Default + "/export";
+        public const string ExportTemplate = Default + "/export-tempate";
+        public const string BulkDelete = Default + "/bulk-delete";
+{{/unless}}
+
+{{#each Class.References}}{{#unless IsMapping}}
+        public const string FilterList{{Pascal}} = Default + "/filter-list-{{Kebab}}";
+{{/unless}}{{/each}}
+
+{{#each Class.References}}{{#unless IsMapping}}
+        public const string SingleList{{Pascal}} = Default + "/single-list-{{Kebab}}";
+{{/unless}}{{/each}}
+{{#each Class.Properties}}
+{{#if IsMapping}}
+        public const string Count{{MappingClass.Pascal}} = Default + "/count-{{MappingClass.Kebab}}";
+        public const string List{{MappingClass.Pascal}} = Default + "/list-{{MappingClass.Kebab}}";
+{{/if}}
+{{/each}}
+        public static Dictionary<string, long>
+    Filters = new Dictionary<string, long>
+        {
+        {{#each Class.Properties}}
+        {{#if IsFilter}}
+        {{#if IsId}}
+        { nameof({{../Class.Pascal}}Filter.{{Pascal}}), FieldTypeEnum.ID.Id },
+        {{else}}
+        {{#if IsLong}}
+        { nameof({{../Class.Pascal}}Filter.{{Pascal}}), FieldTypeEnum.LONG.Id },
+        {{/if}}
+        {{#if IsDecimal}}
+        { nameof({{../Class.Pascal}}Filter.{{Pascal}}), FieldTypeEnum.DECIMAL.Id },
+        {{/if}}
+        {{#if IsDate}}
+        { nameof({{../Class.Pascal}}Filter.{{Pascal}}), FieldTypeEnum.DATE.Id },
+        {{/if}}
+        {{#if IsString}}
+        { nameof({{../Class.Pascal}}Filter.{{Pascal}}), FieldTypeEnum.STRING.Id },
+        {{/if}}
+        {{/if}}
+        {{/if}}
+        {{/each}}
+        };
+
+        public static Dictionary<string, List<string>> Action = new Dictionary<string, List<string>>
+        {
+            { "Tìm kiếm", new List<string> {
+                Master, Count, List, Get, GetPreview,
+                {{#each Class.References}}{{#unless IsMapping}} FilterList{{Pascal}},{{/unless}}{{/each}} } },
+            {{#unless Class.IsEnum}}
+            { "Thêm", new List<string> {
+                Master, Count, List, Get, GetPreview,
+                {{#each Class.References}}{{#unless IsMapping}}FilterList{{Pascal}}, {{/unless}}{{/each}}
+                Detail, Create,
+                {{#each Class.References}}{{#unless IsMapping}}SingleList{{Pascal}}, {{/unless}}{{/each}}
+                {{#each Class.References}}{{#unless IsMapping}}Count{{MappingClass.Pascal}}, List{{MappingClass.Pascal}}, {{/unless}}{{/each}} } },
+
+            { "Sửa", new List<string> {
+                Master, Count, List, Get, GetPreview,
+                {{#each Class.References}}{{#unless IsMapping}}FilterList{{Pascal}}, {{/unless}}{{/each}}
+                Detail, Update,
+                {{#each Class.References}}{{#unless IsMapping}}SingleList{{Pascal}}, {{/unless}}{{/each}}
+                {{#each Class.References}}{{#unless IsMapping}}Count{{MappingClass.Pascal}}, List{{MappingClass.Pascal}}, {{/unless}}{{/each}} } },
+
+            { "Xoá", new List<string> {
+                Master, Count, List, Get, GetPreview,
+                {{#each Class.References}}{{#unless IsMapping}}FilterList{{Pascal}}, {{/unless}}{{/each}}
+                Delete,
+                {{#each Class.References}}{{#unless IsMapping}}SingleList{{Pascal}}, {{/unless}}{{/each}} } },
+
+            { "Xoá nhiều", new List<string> {
+                Master, Count, List, Get, GetPreview,
+                {{#each Class.References}}{{#unless IsMapping}}FilterList{{Pascal}}, {{/unless}}{{/each}}
+                BulkDelete } },
+
+            { "Xuất excel", new List<string> {
+                Master, Count, List, Get, GetPreview,
+                {{#each Class.References}}{{#unless IsMapping}}FilterList{{Pascal}}, {{/unless}}{{/each}}
+                Export } },
+
+            { "Nhập excel", new List<string> {
+                Master, Count, List, Get, GetPreview,
+                {{#each Class.References}}{{#unless IsMapping}}FilterList{{Pascal}}, {{/unless}}{{/each}}
+                ExportTemplate, Import } },
+            {{/unless}}
+        };
+    }
+}

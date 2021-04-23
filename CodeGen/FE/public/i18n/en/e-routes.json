@@ -1,0 +1,31 @@
+{
+  "eRoutes": {
+    "code": "",
+    "creator": "",
+    "detail": {
+      "title": ""
+    },
+    "eRouteType": "",
+    "endDate": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "placeholder": {
+      "code": "",
+      "eRouteType": "",
+      "endDate": "",
+      "name": "",
+      "saleEmployee": "",
+      "startDate": "",
+      "store": ""
+    },
+    "requestState": "",
+    "saleEmployee": "",
+    "startDate": "",
+    "status": "",
+    "store": {
+      "title": ""
+    }
+  }
+}

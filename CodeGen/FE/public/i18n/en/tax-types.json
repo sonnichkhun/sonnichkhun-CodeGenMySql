@@ -1,0 +1,15 @@
+{
+  "taxTypes": {
+    "code": "",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "master": {
+      "title": ""
+    },
+    "name": "",
+    "percentage": "",
+    "status": ""
+  }
+}

@@ -1,0 +1,150 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using {{Namespace}}.Common;
+using {{Namespace}}.Helpers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using OfficeOpenXml;
+using {{Namespace}}.Entities;
+using {{Namespace}}.Services.M{{Class.Pascal}};
+{{#each Class.References}}
+{{#ifCond ../Class.Pascal '!=' Pascal}}
+{{#unless IsMapping}}
+using {{@root.Namespace}}.Services.M{{Pascal}};
+{{/unless}}
+{{/ifCond}}
+{{/each}}
+
+namespace {{Namespace}}.Rpc.{{Class.Snake}}
+{
+    public partial class {{Class.Pascal}}Controller : RpcController
+    {
+{{#each Class.References}}
+{{#unless IsMapping}}
+        [Route({{@root.Class.Pascal}}Route.FilterList{{Pascal}}), HttpPost]
+        public async Task<List<{{@root.Class.Pascal}}_{{Pascal}}DTO>> FilterList{{Pascal}}([FromBody] {{@root.Class.Pascal}}_{{Pascal}}FilterDTO {{@root.Class.Pascal}}_{{Pascal}}FilterDTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            {{Pascal}}Filter {{Pascal}}Filter = new {{Pascal}}Filter();
+            {{Pascal}}Filter.Skip = 0;
+            {{#if IsEnum}}
+            {{Pascal}}Filter.Take = int.MaxValue;
+            {{/if}}
+            {{#if IsTree}}
+            {{Pascal}}Filter.Take = int.MaxValue;
+            {{else}}
+            {{Pascal}}Filter.Take = 20;
+            {{/if}}
+            {{Pascal}}Filter.OrderBy = {{Pascal}}Order.Id;
+            {{Pascal}}Filter.OrderType = OrderType.ASC;
+            {{Pascal}}Filter.Selects = {{Pascal}}Select.ALL;
+            {{#unless IsEnum}}
+            {{#each Properties}}
+            {{#if IsFilter}}
+            {{../Pascal}}Filter.{{Pascal}} = {{@root.Class.Pascal}}_{{../Pascal}}FilterDTO.{{Pascal}};
+            {{/if}}
+            {{/each}}
+            {{/unless}}
+
+            List<{{Pascal}}> {{Plural}} = await {{Pascal}}Service.List({{Pascal}}Filter);
+            List<{{@root.Class.Pascal}}_{{Pascal}}DTO> {{@root.Class.Pascal}}_{{Pascal}}DTOs = {{Plural}}
+                .Select(x => new {{@root.Class.Pascal}}_{{Pascal}}DTO(x)).ToList();
+            return {{@root.Class.Pascal}}_{{Pascal}}DTOs;
+        }
+        {{/unless}}
+        {{/each}}
+
+        {{#each Class.References}}
+        {{#unless IsMapping}}
+        [Route({{@root.Class.Pascal}}Route.SingleList{{Pascal}}), HttpPost]
+        public async Task<List<{{@root.Class.Pascal}}_{{Pascal}}DTO>> SingleList{{Pascal}}([FromBody] {{@root.Class.Pascal}}_{{Pascal}}FilterDTO {{@root.Class.Pascal}}_{{Pascal}}FilterDTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            {{Pascal}}Filter {{Pascal}}Filter = new {{Pascal}}Filter();
+            {{Pascal}}Filter.Skip = 0;
+            {{#if IsEnum}}
+            {{Pascal}}Filter.Take = int.MaxValue;
+            {{/if}}
+            {{#if IsTree}}
+            {{Pascal}}Filter.Take = int.MaxValue;
+            {{else}}
+            {{Pascal}}Filter.Take = 20;
+            {{/if}}
+            {{Pascal}}Filter.OrderBy = {{Pascal}}Order.Id;
+            {{Pascal}}Filter.OrderType = OrderType.ASC;
+            {{Pascal}}Filter.Selects = {{Pascal}}Select.ALL;
+            {{#unless IsEnum}}
+            {{#each Properties}}
+            {{#if IsFilter}}
+            {{../Pascal}}Filter.{{Pascal}} = {{@root.Class.Pascal}}_{{../Pascal}}FilterDTO.{{Pascal}};
+            {{/if}}
+            {{/each}}
+            {{/unless}}
+
+            List<{{Pascal}}> {{Plural}} = await {{Pascal}}Service.List({{Pascal}}Filter);
+            List<{{@root.Class.Pascal}}_{{Pascal}}DTO> {{@root.Class.Pascal}}_{{Pascal}}DTOs = {{Plural}}
+                .Select(x => new {{@root.Class.Pascal}}_{{Pascal}}DTO(x)).ToList();
+            return {{@root.Class.Pascal}}_{{Pascal}}DTOs;
+        }
+        {{/unless}}
+        {{/each}}
+
+        {{#each Class.Properties}}
+        {{#if IsMapping}}
+        [Route({{@root.Class.Pascal}}Route.Count{{MappingClass.Pascal}}), HttpPost]
+        public async Task<long> Count{{MappingClass.Pascal}}([FromBody] {{@root.Class.Pascal}}_{{MappingClass.Pascal}}FilterDTO {{@root.Class.Pascal}}_{{MappingClass.Pascal}}FilterDTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            {{MappingClass.Pascal}}Filter {{MappingClass.Pascal}}Filter = new {{MappingClass.Pascal}}Filter();
+            {{#each MappingClass.Properties}}
+            {{#if IsFilter}}
+            {{../MappingClass.Pascal}}Filter.{{Pascal}} = {{@root.Class.Pascal}}_{{../MappingClass.Pascal}}FilterDTO.{{Pascal}};
+            {{/if}}
+            {{/each}}
+
+            return await {{MappingClass.Pascal}}Service.Count({{MappingClass.Pascal}}Filter);
+        }
+
+        [Route({{@root.Class.Pascal}}Route.List{{MappingClass.Pascal}}), HttpPost]
+        public async Task<List<{{@root.Class.Pascal}}_{{MappingClass.Pascal}}DTO>> List{{MappingClass.Pascal}}([FromBody] {{@root.Class.Pascal}}_{{MappingClass.Pascal}}FilterDTO {{@root.Class.Pascal}}_{{MappingClass.Pascal}}FilterDTO)
+        {
+            if (!ModelState.IsValid)
+                throw new BindException(ModelState);
+
+            {{MappingClass.Pascal}}Filter {{MappingClass.Pascal}}Filter = new {{MappingClass.Pascal}}Filter();
+            {{#if Class.IsTree}}
+            {{MappingClass.Pascal}}Filter.Skip = 0;
+            {{MappingClass.Pascal}}Filter.Take = 99999;
+            {{else}}
+            {{MappingClass.Pascal}}Filter.Skip = {{@root.Class.Pascal}}_{{MappingClass.Pascal}}FilterDTO.Skip;
+            {{MappingClass.Pascal}}Filter.Take = {{@root.Class.Pascal}}_{{MappingClass.Pascal}}FilterDTO.Take;
+            {{/if}}
+            {{MappingClass.Pascal}}Filter.OrderBy = {{MappingClass.Pascal}}Order.Id;
+            {{MappingClass.Pascal}}Filter.OrderType = OrderType.ASC;
+            {{MappingClass.Pascal}}Filter.Selects = {{MappingClass.Pascal}}Select.ALL;
+            {{#each MappingClass.Properties}}
+            {{#if IsFilter}}
+            {{../MappingClass.Pascal}}Filter.{{Pascal}} = {{@root.Class.Pascal}}_{{../MappingClass.Pascal}}FilterDTO.{{Pascal}};
+            {{/if}}
+            {{/each}}
+
+            List<{{MappingClass.Pascal}}> {{MappingClass.Plural}} = await {{MappingClass.Pascal}}Service.List({{MappingClass.Pascal}}Filter);
+            List<{{@root.Class.Pascal}}_{{MappingClass.Pascal}}DTO> {{@root.Class.Pascal}}_{{MappingClass.Pascal}}DTOs = {{MappingClass.Plural}}
+                .Select(x => new {{@root.Class.Pascal}}_{{MappingClass.Pascal}}DTO(x)).ToList();
+            return {{@root.Class.Pascal}}_{{MappingClass.Pascal}}DTOs;
+        }
+        {{/if}}
+        {{/each}}
+    }
+}
+

@@ -1,0 +1,14 @@
+{
+  "indirectSalesOrderPromotions": {
+    "items": {
+      "code": "Mã sản phẩm",
+      "name": "Tên sản phẩm"
+    },
+    "quantity": "Số lượng",
+    "requestedQuantity": "Số lượng yêu cầu",
+    "unitOfMeasure": "Đơn vị tính",
+    "placeholder": {
+      "unitOfMeasure": "Chọn đơn vị tính"
+    }
+  }
+}

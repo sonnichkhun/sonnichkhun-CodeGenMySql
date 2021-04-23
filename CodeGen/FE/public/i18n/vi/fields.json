@@ -1,0 +1,28 @@
+{
+  "fields": {
+    "dateType": "Thời gian",
+    "detail": {
+      "title": ""
+    },
+    "id": "",
+    "idType": "ID",
+    "isDeleted": "",
+    "longType": "Giá trị",
+    "master": {
+      "title": ""
+    },
+    "menu": "",
+    "name": "",
+    "placeholder": {
+      "dateTypeKey1": "Từ ngày",
+      "dateTypeKey2": "Đến ngày",
+      "idType": "Chọn thông tin phân quyền",
+      "longTypeKey1": "Từ giá trị",
+      "longTypeKey2": "Đến giá trị",
+      "stringTypeKey1": "Nhập Suffix",
+      "stringTypeKey2": "Nhập Prefix"
+    },
+    "stringType": "Nội dung",
+    "type": ""
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "unitOfMeasures": {
+    "code": "Mã đơn vị tính",
+    "detail": {
+      "edit": "Thông tin chi tiết",
+      "title": "Thêm mới Đơn vị tính"
+    },
+    "master": {
+      "title": "DANH SÁCH ĐƠN VỊ TÍNH"
+    },
+    "name": "Tên đơn vị tính",
+    "placeholder": {
+      "code": "Nhập mã đơn vị tính",
+      "name": "Nhập tên đơn vị tính"
+    },
+    "status": "Trạng thái"
+  }
+}

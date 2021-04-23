@@ -1,0 +1,67 @@
+﻿import DefaultLayout from 'layouts/DefaultLayout/DefaultLayout';
+import { join } from 'path';
+import { RouteConfig } from 'react-router-config';
+import { ROOT_ROUTE } from 'config/route-consts';
+{{#each Classes}}
+{{#unless IsReference}}{{#unless IsList}}{{#unless IsEnum}}{{#unless IsMapping}}
+import { {{Upper}}_ROUTE } from 'config/route-consts';
+{{/unless}}{{/unless}}{{/unless}}{{/unless}}
+{{/each}}
+{{#each Classes}}
+{{#unless IsReference}}{{#unless IsList}}{{#unless IsEnum}}{{#unless IsMapping}}
+{{#unless isTree}}
+import {{Pascal}}View, { {{Pascal}}Detail, {{Pascal}}Master } from 'views/{{Pascal}}View/{{Pascal}}View';
+{{/unless}}
+{{#if isTree}}
+import {{Pascal}}TreeView, { {{Pascal}}TreeDetail, {{Pascal}}TreeMaster } from 'views/{{Pascal}}TreeView/{{Pascal}}TreeView';
+{{/if}}
+{{/unless}}{{/unless}}{{/unless}}{{/unless}}
+{{/each}}
+
+export const routes: RouteConfig[] = 
+[
+    {
+        path: ROOT_ROUTE,
+        component: DefaultLayout,
+        routes: [
+            {{#each Classes}}
+            {{#unless IsReference}}{{#unless IsList}}{{#unless IsEnum}}{{#unless IsMapping}}
+            {{#unless isTree}}
+            {
+                path: {{Upper}}_ROUTE,
+                component: {{Pascal}}View,
+                children: 
+                [
+                    {
+                        path: join({{Upper}}_ROUTE, ':id'),
+                        component: {{Pascal}}Detail,
+                    },
+                    {
+                        path: join({{Upper}}_ROUTE),
+                        component: {{Pascal}}Master,
+                    },
+                ],
+            },
+            {{/unless}}
+            {{#if isTree}}
+            {
+                path: {{Upper}}_ROUTE,
+                component: {{Pascal}}TreeView,
+                children: 
+                [
+                    {
+                        path: join({{Upper}}_ROUTE, ':id'),
+                        component: {{Pascal}}TreeDetail,
+                    },
+                    {
+                        path: join({{Upper}}_ROUTE),
+                        component: {{Pascal}}TreeMaster,
+                    },
+                ],
+            },            
+            {{/if}}
+            {{/unless}}{{/unless}}{{/unless}}{{/unless}}
+            {{/each}}
+        ],
+    },
+];
